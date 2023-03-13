@@ -10,6 +10,15 @@ create table  MEMBERLIST(
   memberHP varchar(30) not null #사용자핸드폰번호
 );
 
+INSERT INTO MEMBERLIST(memberName, memberId, memberPw, memberHP)
+VALUES
+  ('관리자', 'admin', 'admin', '010-555-1234'),
+  ('테스트1', 'qwer', '1234', '010-555-5678'),
+  ('테스트2', 'abcd', '1234', '010-555-9012');
+
+select * from MEMBERLIST;
+  
+
 create table TICKET_SHOW(
 	showSeq int auto_increment primary key, #공연고유번호
 	showTitle varchar(20) not null, #공연제목

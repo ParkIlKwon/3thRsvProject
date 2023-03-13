@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.user">
+<mapper namespace="mapper.member">
 	<resultMap type="com.basic.reserve.vo.Member" id="member">
   <id property="memberSeq" column="memberSeq"/>
   <result property="memberName" column="memberName"/>
@@ -14,11 +14,6 @@
   <select id="selectAllMembers" resultMap="member">
   SELECT * FROM MEMBERLIST
 </select>
-
-
-
-
-
 
 
 </mapper>

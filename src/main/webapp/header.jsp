@@ -13,7 +13,7 @@
 
 	<header class="contatiner_header navbar navbar-expand-lg navbar-light bg-light">
 	<div class="header_util">
-	fsda fas
+	
 	
 	
 	</div>

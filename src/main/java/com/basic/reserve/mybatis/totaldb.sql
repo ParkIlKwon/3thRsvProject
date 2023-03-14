@@ -1,6 +1,6 @@
 create database reservedb;
 
-USE rentcardb;
+USE reservedb;
 
 create table  MEMBERLIST(
   id int auto_increment primary key, #유저고유넘버
@@ -17,7 +17,7 @@ VALUES
   ('테스트2', 'abcd', '1234', '010-555-9012');
 
 select * from MEMBERLIST;
-
+select memberId from MEMBERLIST where memberId="admin" and memberPw="admin";      
 create table TICKET(
 
 	Category varchar(20) not null, #장르

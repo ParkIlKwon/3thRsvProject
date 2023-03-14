@@ -20,6 +20,12 @@ public class MemberDAO {
 		return list;
 	}
 		
-	
+	public String login(Member m) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		String log = session.selectOne("mapper.member.memberLogin",m);
+		session.close();
+
+		return log;
+	}
 	
 }

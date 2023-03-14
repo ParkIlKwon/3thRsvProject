@@ -18,5 +18,15 @@
  <select id="memberLogin" parameterType="member" resultType="String">
    select memberId from MEMBERLIST where memberId=#{memberId} and memberPw=#{memberPw}       
  </select>
+ 
+ <insert id="memberAccount" parameterType="member">
+ INSERT INTO MEMBERLIST(memberName, memberId, memberPw, memberHP)
+        VALUES (#{memberName},#{memberId},#{memberPw},#{memberHP})
+ </insert>
+
+<delete id="memberDelete" parameterType="String">
+  delete from reservation where memberId = #{memberId}
+</delete>
+
 
 </mapper>

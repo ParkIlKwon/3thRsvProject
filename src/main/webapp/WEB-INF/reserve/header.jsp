@@ -35,6 +35,7 @@
 	  <li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
 	</ul>
 </div>
+
 <div id="banner" class="row py-3 px-2">
 	<div class="col-2"><img src="https://via.placeholder.com/140x80" alt="로고" onclick="location.href ='${ctx}/main.do'" style="cursor:pointer"></div>
 	<div class="col-7"><div class="input-group mb-3" id="search"><input type="text" class="form-control" aria-describedby="button-addon2">

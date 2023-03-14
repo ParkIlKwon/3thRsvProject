@@ -24,11 +24,11 @@
 <div id="topNv">
 	<ul class="nav topNv justify-content-end p-2">
 		<c:if test="${id eq null}">
-		<li class="nav-item"><a class="nav-link" href="#">로그인</a></li>
-		<li class="nav-item"><a class="nav-link" href="#">회원가입</a></li>
+		<li class="nav-item"><a class="nav-link" href="${ctx}/login.do">로그인</a></li>
+		<li class="nav-item"><a class="nav-link" href="${ctx}/account.do">회원가입</a></li>
 		</c:if>
 		<c:if test="${id ne null}">
-		<li class="nav-item"><a class="nav-link" href="#">${id}님 로그아웃</a></li>
+		<li class="nav-item"><a class="nav-link" href="${ctx}/logout.do">${id}님 로그아웃</a></li>
 		</c:if>
 	  <li class="nav-item"><a class="nav-link" href="#">예약확인/취소</a></li>
 	  <li class="nav-item"><a class="nav-link" href="#">마이 페이지</a></li>

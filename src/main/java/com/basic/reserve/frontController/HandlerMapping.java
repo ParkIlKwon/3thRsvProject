@@ -12,7 +12,7 @@ public class HandlerMapping {
 		mapping.put("/login.do", new LoginController());
 		mapping.put("/account.do", new AccountController());
 		mapping.put("/logout.do", new LogoutController());
-		
+		mapping.put("/mypage.do", new MyPage());
 	}
 	
 	public Controller getController(String key) {

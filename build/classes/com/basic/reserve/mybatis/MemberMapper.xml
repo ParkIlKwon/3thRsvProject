@@ -15,5 +15,8 @@
   SELECT * FROM MEMBERLIST
 </select>
 
+ <select id="memberLogin" parameterType="member" resultType="String">
+   select memberId from MEMBERLIST where memberId=#{memberId} and memberPw=#{memberPw}       
+ </select>
 
 </mapper>

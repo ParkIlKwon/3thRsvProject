@@ -17,53 +17,65 @@ VALUES
   ('테스트2', 'abcd', '1234', '010-555-9012');
 
 select * from MEMBERLIST;
-  
 
 create table TICKET_SHOW(
+	showCategory varchar(20) not null, #공연장르
 	showSeq int auto_increment primary key, #공연고유번호
 	showTitle varchar(20) not null, #공연제목
-	showDate varchar(20) not null, #공연기간
+	showDateStart varchar(20) not null, #공연기간 시작
+	showDateEnd varchar(20) not null, #공연기간 종료
 	showInfo varchar(100) not null, #공연정보
 	showCompany varchar(20) not null, #공연주최회사
 	showLocation varchar(20) not null, #공연장소
 	showDuration int(5) not null, #공연길이
 	showSeatNum int(5) not null #총좌석번호(1부터시작)
+	showPrice int(5) not null, #공연가격
+	showDiscount int(5) not null, #공연할인가격
+	showStar int(5) not null #공연평점
+	
 	CONSTRAINT fk_Seq FOREIGN KEY(showSeq) REFERENCES MEMBERLIST(memberSeq) ON DELETE CASCADE #확인요망
 );
 
 create table TICKET_SPORTS(
+	sportsCategory varchar(20) not null, #스포츠장르
 	sportsSeq int auto_increment primary key, #경기고유번호
 	sportsTitle varchar(20) not null, #경기제목
-	sportsDate varchar(20) not null, #경기기간
+	sportsDateStart varchar(20) not null, #경기기간시작
+	sportsDateEnd varchar(20) not null, #경기기간종료
 	sportsInfo varchar(100) not null, #경기정보
 	sportsCompany varchar(20) not null, #경기주최회사
 	sportsLocation varchar(20) not null, #경기장소
 	sportsDuration int(5) not null, #경기길이
 	sportsSeatNum int(5) not null #총좌석번호(1부터시작)
-
+	sportsPrice int(5) not null, #스포츠가격
+	sportsDiscount int(5) not null, #스포츠할인가격
+	sportsStar int(5) not null #스포츠평점
+ 	
 );
 
 create table TICKET_MOVIE(
+	movieCategory varchar(20) not null, #영화장르
 	movieSeq int auto_increment primary key, #영화고유번호
 	movieTitle varchar(20) not null, #영화제목
-	movieDate varchar(20) not null, #영화기간
+	movieDateStart varchar(20) not null, #영화기간시작
+	movieDateEnd varchar(20) not null, #영화기간종료
 	movieInfo varchar(100) not null, #영화정보
 	movieCompany varchar(20) not null, #영화주최회사
 	movieLocation varchar(20) not null, #영화장소
 	movieDuration int(5) not null, #영화길이
-	movieSeatNum int(5) not null #총좌석번호(1부터시작)
-
+	movieSeatNum int(5) not null, #총좌석번호(1부터시작)
+	moviePrice int(5) not null, #영화가격(1부터시작)
+	movieDiscount int(5) not null, #영화할인가격
+	movieStar int(5) not null #영화평점
 );
 
 create table RESERVELIST(
-	reserveSeq int auto_increment primary key, #영화고유번호
+	reserveSeq int auto_increment primary key, #예약고유번호
     reserveId varchar(20) not null, #예약한사람아이디
-	reserveTitle varchar(20) not null, #영화제목
-	reserveDate varchar(20) not null, #영화기간
-	reserveInfo varchar(100) not null, #영화정보
-	reserveCompany varchar(20) not null, #영화주최회사
-	reserveLocation varchar(20) not null, #영화장소
-	reserveDuration int(5) not null, #영화길이
-	reserveSeatNum int(5) not null #예약한좌석번호
+	reserveTitle varchar(20) not null, #예약제목
+	reserveDate varchar(20) not null, #예약한날짜
+	reserveLocation varchar(20) not null, #예약장소
+	reserveSeatNum int(5) not null, #예약한좌석번호
+	reservePrice int(5) not null #예약가격
 	
 );

@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+html{
+	height:100%
+}
+
+header{
+	height:5%;
+}
+
+.nav-item {
+height:5%;
+display:inline;
+/* li요소의 좌측에 1px의 테두리 만들기 */
+
+border-left: 1px solid #c0c0c0;
+
+}

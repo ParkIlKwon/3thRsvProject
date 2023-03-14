@@ -3,7 +3,7 @@ create database reservedb;
 USE rentcardb;
 
 create table  MEMBERLIST(
-  memberSeq int auto_increment primary key, #유저고유넘버
+  id int auto_increment primary key, #유저고유넘버
   memberName varchar(20) not null, #사용자이름
   memberId varchar(30) unique key not null, #사용자아이디
   memberPw varchar(30) not null, #사용자 패스워드
@@ -18,64 +18,35 @@ VALUES
 
 select * from MEMBERLIST;
 
-create table TICKET_SHOW(
-	showCategory varchar(20) not null, #공연장르
-	showSeq int auto_increment primary key, #공연고유번호
-	showTitle varchar(20) not null, #공연제목
-	showDateStart varchar(20) not null, #공연기간 시작
-	showDateEnd varchar(20) not null, #공연기간 종료
-	showInfo varchar(100) not null, #공연정보
-	showCompany varchar(20) not null, #공연주최회사
-	showLocation varchar(20) not null, #공연장소
-	showDuration int(5) not null, #공연길이
-	showSeatNum int(5) not null #총좌석번호(1부터시작)
-	showPrice int(5) not null, #공연가격
-	showDiscount int(5) not null, #공연할인가격
-	showStar int(5) not null #공연평점
+create table TICKET(
+
+	Category varchar(20) not null, #장르
+	id int auto_increment primary key, #고유번호
+	Title varchar(20) not null, #제목
+	DateStart varchar(20) not null, #기간 시작
+	DateEnd varchar(20) not null, #기간 종료
+	Info varchar(100) not null, #정보
+	Company varchar(20) not null, #주최회사
+	Location varchar(20) not null, #장소
+	Duration int(5) not null, #길이
+	SeatNum int(5) not null #총좌석번호(1부터시작)
+	Price int(5) not null, #가격
+	Discount int(5) not null, #할인가격
+	Star int(5) not null #평점
 	
-	CONSTRAINT fk_Seq FOREIGN KEY(showSeq) REFERENCES MEMBERLIST(memberSeq) ON DELETE CASCADE #확인요망
-);
+	CONSTRAINT fk_memberid FOREIGN KEY(id) REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE #확인요망
+)
 
-create table TICKET_SPORTS(
-	sportsCategory varchar(20) not null, #스포츠장르
-	sportsSeq int auto_increment primary key, #경기고유번호
-	sportsTitle varchar(20) not null, #경기제목
-	sportsDateStart varchar(20) not null, #경기기간시작
-	sportsDateEnd varchar(20) not null, #경기기간종료
-	sportsInfo varchar(100) not null, #경기정보
-	sportsCompany varchar(20) not null, #경기주최회사
-	sportsLocation varchar(20) not null, #경기장소
-	sportsDuration int(5) not null, #경기길이
-	sportsSeatNum int(5) not null #총좌석번호(1부터시작)
-	sportsPrice int(5) not null, #스포츠가격
-	sportsDiscount int(5) not null, #스포츠할인가격
-	sportsStar int(5) not null #스포츠평점
- 	
-);
-
-create table TICKET_MOVIE(
-	movieCategory varchar(20) not null, #영화장르
-	movieSeq int auto_increment primary key, #영화고유번호
-	movieTitle varchar(20) not null, #영화제목
-	movieDateStart varchar(20) not null, #영화기간시작
-	movieDateEnd varchar(20) not null, #영화기간종료
-	movieInfo varchar(100) not null, #영화정보
-	movieCompany varchar(20) not null, #영화주최회사
-	movieLocation varchar(20) not null, #영화장소
-	movieDuration int(5) not null, #영화길이
-	movieSeatNum int(5) not null, #총좌석번호(1부터시작)
-	moviePrice int(5) not null, #영화가격(1부터시작)
-	movieDiscount int(5) not null, #영화할인가격
-	movieStar int(5) not null #영화평점
-);
 
 create table RESERVELIST(
-	reserveSeq int auto_increment primary key, #예약고유번호
-    reserveId varchar(20) not null, #예약한사람아이디
+	id int auto_increment primary key, #예약고유번호
+    memberId varchar(20) not null, #예약한사람아이디
 	reserveTitle varchar(20) not null, #예약제목
 	reserveDate varchar(20) not null, #예약한날짜
 	reserveLocation varchar(20) not null, #예약장소
 	reserveSeatNum int(5) not null, #예약한좌석번호
 	reservePrice int(5) not null #예약가격
+	
+	CONSTRAINT fk_memberid FOREIGN KEY(id) REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE #확인요망
 	
 );

@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.member">
 	<resultMap type="com.basic.reserve.vo.Member" id="member">
-  <id property="memberSeq" column="memberSeq"/>
+  <id property="id" column="id"/>
   <result property="memberName" column="memberName"/>
   <result property="memberId" column="memberId"/>
   <result property="memberPw" column="memberPw"/>

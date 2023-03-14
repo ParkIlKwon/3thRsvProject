@@ -19,7 +19,7 @@ function idcheck() {
 			success : function(data) {
 				if(data != null){
 					alert("로그인성공");
-					window.location.reload();
+					window.location.href = "main.do";
 				}else {
 					alert("아이디와 패스워드를 확인해주세요.");
 					$("#id").css("border","3px orange solid")

@@ -28,4 +28,12 @@ public class MemberDAO {
 		return log;
 	}
 	
+	public String addMember(Member m) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		String log = session.selectOne("mapper.member.memberAccount",m);
+		session.close();
+
+		return log;
+	}
+	
 }

@@ -10,5 +10,4 @@ import javax.servlet.http.HttpServletResponse;
 public interface Controller {
 	public String requestHandler(HttpServletRequest request,HttpServletResponse response)
 	throws ServletException,IOException;
-
 }

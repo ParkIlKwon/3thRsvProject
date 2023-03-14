@@ -24,41 +24,42 @@
 <div id="topNv">
 	<ul class="nav topNv justify-content-end p-2">
 		<c:if test="${id eq null}">
-		<li class="nav-item"><a class="nav-link" href="${ctx}/login.do">로그인</a></li>
-		<li class="nav-item"><a class="nav-link" href="${ctx}/account.do">회원가입</a></li>
+		<li class="nav-item text-"><a class="nav-link text-basic" href="${ctx}/login.do">로그인</a></li>
+		<li class="nav-item"><a class="nav-link text-basic" style="font-color:black" href="${ctx}/account.do">회원가입</a></li>
 		</c:if>
 		<c:if test="${id ne null}">
-		<li class="nav-item"><a class="nav-link" href="${ctx}/logout.do">${id}님 로그아웃</a></li>
+		<li class="nav-item"><a class="nav-link text-basic" href="${ctx}/logout.do">${id}님 로그아웃</a></li>
 		</c:if>
-	  <li class="nav-item"><a class="nav-link" href="#">예약확인/취소</a></li>
-	  <li class="nav-item"><a class="nav-link" href="#">마이 페이지</a></li>
-	  <li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
+	  <li class="nav-item"><a class="nav-link text-basic" href="#">예약확인/취소</a></li>
+	  <li class="nav-item"><a class="nav-link text-basic" href="#">마이 페이지</a></li>
+	  <li class="nav-item"><a class="nav-link text-basic" href="#">고객센터</a></li>
 	</ul>
 </div>
 
 <div id="banner" class="row py-3 px-2">
 	<div class="col-2"><img src="https://via.placeholder.com/140x80" alt="로고" onclick="location.href ='${ctx}/main.do'" style="cursor:pointer"></div>
-	<div class="col-7"><div class="input-group mb-3" id="search"><input type="text" class="form-control" aria-describedby="button-addon2">
-  		<button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button></div></div>
+	<div class="col-7"><div class="input-group p-4" id="search"><input type="text" class="form-control">
+  		<button class="btn btn-outline-basic" type="button" id="button-addon2">검색</button></div></div>
 	<div class="col-3"><img src="https://via.placeholder.com/200x80" alt="이벤트배너" onclick="location.href ='${ctx}/main.do'" style="cursor:pointer"></div>
 </div>
-<div id="gnb">
-	<ul class="nav justify-content-start">
-		<li class="nav-item"><a class="nav-link" href="#">홈</a></li>
+<div class="gnb">
+<!-- <div style="border-bottom: 2px solid; color: #efa635"></div> -->
+	<ul class="nav justify-content-start py-1">
+		<li class="nav-item"><a class="nav-link text-basic" href="#">홈</a></li>
 	    <li class="nav-item dropdown">
-		    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">공연</a>
+		    <a class="nav-link dropdown-toggle text-basic" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">공연</a>
 			<ul class="dropdown-menu">
 				<li><a class="dropdown-item" href="#">뮤지컬</a></li>
 				<li><a class="dropdown-item" href="#">연극</a></li>
 				<li><a class="dropdown-item" href="#">콘서트</a></li>
 		    </ul>
 		</li>
-		<li class="nav-item"><a class="nav-link" href="#">영화</a></li>
+		<li class="nav-item"><a class="nav-link text-basic" href="#">영화</a></li>
 		<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">스포츠</a>
+			<a class="nav-link dropdown-toggle text-basic" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">스포츠</a>
 			<ul class="dropdown-menu">
-				<li><a class="dropdown-item" href="#">야구 | </a>
-					<a class="dropdown-item" href="#">축구 | </a>
+				<li><a class="dropdown-item" href="#">야구</a>
+					<a class="dropdown-item" href="#">축구</a>
 					<a class="dropdown-item" href="#">농구</a>
 					</li>
 		    </ul>
@@ -66,5 +67,3 @@
 	</ul>
 </div>
 </header>
-</body>
-</html>

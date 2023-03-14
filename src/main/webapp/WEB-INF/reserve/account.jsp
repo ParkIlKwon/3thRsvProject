@@ -8,7 +8,7 @@
 <title>회원가입폼</title>
 </head>
 <body>
-	<form action="${ctx}/memberAccount.do">
+	<form action="${ctx}/account.do">
 	<table class="table table-striped" border="1">
 	<tr><th style="text-align: center;" class="col-2">I  D</th><td><input class="left col-6" type="text" name="id"/></td></tr>
 	<tr><th style="text-align: center;" class="col-2">P  W</th><td><input class="left col-6" type="text" name="pw"/></td></tr>

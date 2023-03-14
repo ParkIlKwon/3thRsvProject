@@ -36,4 +36,12 @@ public class MemberDAO {
 		return log;
 	}
 	
+	public int DeleteMember(Member m) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		int log = session.insert("mapper.member.memberDelete",m);
+		session.close();
+		return log;
+	}
+	
+	
 }

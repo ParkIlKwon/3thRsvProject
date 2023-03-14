@@ -25,7 +25,7 @@
  </insert>
 
 <delete id="memberDelete" parameterType="String">
-  delete from reservation where memberId = #{memberId}
+  delete from MEMBERLIST where memberId = #{memberId} and memberPw = #{memberPw}
 </delete>
 
 

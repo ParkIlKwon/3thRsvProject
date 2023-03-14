@@ -16,7 +16,10 @@ VALUES
   ('테스트1', 'qwer', '1234', '010-555-5678'),
   ('테스트2', 'abcd', '1234', '010-555-9012');
 
+delete from MEMBERLIST;
+drop table MEMBERLIST;
 select * from MEMBERLIST;
+delete from MEMBERLIST where memberId = "qwer" and memberPw = "1234";
 select memberId from MEMBERLIST where memberId="admin" and memberPw="admin";      
 create table TICKET(
 

@@ -14,7 +14,7 @@
 	  <input id="pw" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
 	</div><br>
         <button type="button" class="btn btn-outline-basic" onclick="idcheck()">로그인</button> &nbsp
-        <button type="button" class="btn btn-outline-basic" onclick="idcheck()">회원가입</button>
+        <button type="button" class="btn btn-outline-basic" onclick="location.href='${ctx}/account.do'">회원가입</button>
 </div>
 	
 		

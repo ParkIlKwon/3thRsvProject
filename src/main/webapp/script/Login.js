@@ -17,7 +17,7 @@ function idcheck() {
 			url : ctx+"/login.do",
 			data : {"id":id,"pw":pw},
 			success : function(data) {
-				if(data != null){
+				if(data == "1"){
 					alert("로그인성공");
 					window.location.href = "main.do";
 				}else {

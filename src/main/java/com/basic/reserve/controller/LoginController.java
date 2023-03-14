@@ -29,8 +29,10 @@ public class LoginController implements Controller {
 			String log = MemberDAO.getInstance().login(m);
 			if(log != null){
 				session.setAttribute("id", log);
+				response.getWriter().print("1");
+			}else {
+				response.getWriter().print("null");
 			}
-			response.getWriter().print(log);
 		}
 		
 		

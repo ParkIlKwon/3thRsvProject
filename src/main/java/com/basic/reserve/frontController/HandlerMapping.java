@@ -2,7 +2,7 @@ package com.basic.reserve.frontController;
 
 import java.util.HashMap;
 
-import com.basic.reserve.controller.*;
+import com.basic.reserve.Membercontroller.*;
 
 public class HandlerMapping {
 	private HashMap<String,Controller>mapping;

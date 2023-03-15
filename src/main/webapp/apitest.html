@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+let SeriveKey = '3a6e44a951484653af996a5f0c78bd8a';
+let ServiceKey = '4793cf2e-30f0-4611-9e56-dde49047a9a8';
+//
+window.onload = function() {
+	
+	function getInfo() {
+		$.ajax({
+    		type: "GET",
+    		
+    		url: `http://api.kcisa.kr/openapi/service/rest/meta2020/getKOCAperf?serviceKey=${ServiceKey}&numOfRows=10&pageNo=1`
+    		,
+    		success: function(response){
+    			console.log(response);
+    			/* var item = $(response).find('item');
+    			$(item).each(function(){
+				console.log("===========================================");
+				console.log("title" + $(this).find("title").text());
+				console.log("alternativeTitle" + $(this).find("alternativeTitle").text());
+				console.log("creator" + $(this).find("creator").text());
+				console.log("regDate" + $(this).find("regDate").text());
+				console.log("collectionDb" + $(this).find("collectionDb").text());
+				console.log("subjectCategory" + $(this).find("subjectCategory").text());
+				console.log("subjectKeyword" + $(this).find("subjectKeyword").text());
+				console.log("extent" + $(this).find("extent").text());
+				console.log("description" + $(this).find("description").text());
+				console.log("spatial" + $(this).find("spatial").text());
+				console.log("temporalCoverage" + $(this).find("temporalCoverage").text());
+				console.log("person" + $(this).find("person").text());
+				console.log("language" + $(this).find("language").text());
+				console.log("sourceTitle" + $(this).find("sourceTitle").text());
+				console.log("referenceIdentifier" + $(this).find("referenceIdentifier").text());
+				console.log("rights" + $(this).find("rights").text());
+				console.log("copyrightOthers" + $(this).find("copyrightOthers").text());
+				console.log("url" + $(this).find("url").text());
+				console.log("contributor" + $(this).find("contributor").text());
+
+    			}); */
+
+    		}
+    		})
+	}
+	getInfo();
+	
+}
+
+
+
+</script>
+<body>
+
+</body>
+</html>

@@ -23,14 +23,14 @@ delete from MEMBERLIST where memberId = "qwer" and memberPw = "1234";
 select memberId from MEMBERLIST where memberId="admin" and memberPw="admin";      
 
 create table TICKET(
-	imageVARCHAR(50) not null, 이미지파일
-	Category varchar(20) not null, #장르
 	id int auto_increment primary key, #고유번호
+	image VARCHAR(50) not null, 이미지파일
+	Contents VARCHAR(50) not null, #종류
+	Category varchar(20) not null, #장르
 	Title varchar(20) not null, #제목
 	DateStart varchar(20) not null, #기간 시작
 	DateEnd varchar(20) not null, #기간 종료
 	Info varchar(100) not null, #정보
-	Company varchar(20) not null, #주최회사
 	Location varchar(20) not null, #장소
 	Duration int(5) not null, #길이
 	SeatNum int(5) not null #총좌석번호(1부터시작)

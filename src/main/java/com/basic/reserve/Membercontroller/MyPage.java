@@ -1,4 +1,4 @@
-package com.basic.reserve.controller;
+package com.basic.reserve.Membercontroller;
 
 import java.io.IOException;
 import java.io.PrintWriter;

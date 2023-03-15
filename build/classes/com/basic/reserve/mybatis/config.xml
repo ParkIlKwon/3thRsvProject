@@ -6,6 +6,7 @@
 <properties resource="com/basic/reserve/mybatis/db.properties"></properties>
 <typeAliases>
 	<typeAlias type="com.basic.reserve.vo.Member" alias="member"/>
+	<typeAlias type="com.basic.reserve.vo.Ticket" alias="ticket"/>
 </typeAliases>
 
 <environments default="development">
@@ -22,7 +23,7 @@
 
 	<mappers>
 	<mapper resource="com/basic/reserve/mybatis/MemberMapper.xml"/>
-	
+	<mapper resource="com/basic/reserve/mybatis/TicketMapper.xml"/>
 	</mappers>
 </configuration>
 

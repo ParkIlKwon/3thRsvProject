@@ -21,8 +21,9 @@ drop table MEMBERLIST;
 select * from MEMBERLIST;
 delete from MEMBERLIST where memberId = "qwer" and memberPw = "1234";
 select memberId from MEMBERLIST where memberId="admin" and memberPw="admin";      
-create table TICKET(
 
+create table TICKET(
+	imageVARCHAR(50) not null, 이미지파일
 	Category varchar(20) not null, #장르
 	id int auto_increment primary key, #고유번호
 	Title varchar(20) not null, #제목

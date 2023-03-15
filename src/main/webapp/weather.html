@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+let latitude = 0;
+let longitude = 0;
+let mykey = 'c8229e9ee7fcc34e489e7670c13c19df';
+
+window.onload = function() {
+		
+
+
+    function getUserLocation() {
+        if (!navigator.geolocation) {
+            throw "위치 정보가 지원되지 않습니다.";
+        }
+        navigator.geolocation.getCurrentPosition(function(position) {
+        	latitude = position.coords.latitude;
+        	longitude = position.coords.longitude;
+        	getweather();
+          });
+        console.log("들어옴1");
+        
+    }
+    getUserLocation();
+   function getweather() {
+    	$.ajax({
+    		type: "GET",
+    		url: `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${mykey}`
+    		,
+    		success: function(response){
+    			
+    		console.log(response);
+    		let temp = res.main.temp;
+    		console.log(temp);
+    		
+    		console.log($(response).find('location'));
+    		}
+    		})
+	}
+
+
+}
+</script>
+
+
+<body>
+
+</body>
+</html>

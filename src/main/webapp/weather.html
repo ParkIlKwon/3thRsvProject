@@ -12,8 +12,6 @@ let mykey = 'c8229e9ee7fcc34e489e7670c13c19df';
 
 window.onload = function() {
 		
-
-
     function getUserLocation() {
         if (!navigator.geolocation) {
             throw "위치 정보가 지원되지 않습니다.";
@@ -23,7 +21,6 @@ window.onload = function() {
         	longitude = position.coords.longitude;
         	getweather();
           });
-        console.log("들어옴1");
         
     }
     getUserLocation();
@@ -35,20 +32,26 @@ window.onload = function() {
     		success: function(response){
     			
     		console.log(response);
-    		let temp = res.main.temp;
-    		console.log(temp);
+    		let temp = Math.floor(response.main.temp - 273.15);
+    		let city = response.name;
     		
-    		console.log($(response).find('location'));
+    		console.log(temp);
+    		var imgURL = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+    		//
+    		let result = 
+    			`<div><img src="${imgURL}"<br>
+                <p>${city}<br>${temp}</p></div>`;
+    		
+    		 $('body').append(result);
     		}
     		})
 	}
-
 
 }
 </script>
 
 
 <body>
-
+	
 </body>
 </html>

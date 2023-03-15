@@ -13,9 +13,14 @@
 	color:#efa635;
 }
 
+.text-basic:active{
+	color:#efa635;
+}
+
 .btn-outline-basic{
 	border:1px solid #ced4da;
 }
+
 .btn-outline-basic:hover{
 	background:#efa635;
 }
@@ -26,18 +31,11 @@
 	background:#f9e7cb;
 }
 
-/* div #gnb{
-	background:#ffdba2;
-} */
-
 html{
 	height:100%;
 }
 a{text-decoration:none;}
 
-/* header{
-	background: yellow;
-} */
 
 div[id=topMn]:hover{
 	cursor: pointer;
@@ -51,15 +49,3 @@ div[id=topMn]:hover{
 .nav-item{
 	font-weight: bold;
 }
-
-/* .topNv > li{border-right:3px solid #efa635;} */
-
-
-/* .nav-item {
-height:5%;
-display:inline;
-li요소의 좌측에 1px의 테두리 만들기
-
-border-left: 1px solid #c0c0c0;
-
-} */

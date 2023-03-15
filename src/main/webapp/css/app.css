@@ -1,51 +1,45 @@
 @charset "UTF-8";
-*{
-	margin:0;
-	padding:0;
-	color:#212529;
-}
 
-.text-basic{
-	color:#343a40;
-}
-
-.text-basic:hover{
-	color:#efa635;
-}
-
-.text-basic:active{
-	color:#efa635;
-}
-
-.btn-outline-basic{
-	border:1px solid #ced4da;
-}
-
-.btn-outline-basic:hover{
-	background:#efa635;
-}
-
-.gnb{
-	border-top:1px solid #efa635;
-	border-bottom:1px solid #efa635;
-	background:#f9e7cb;
-}
-
-html{
-	height:100%;
-}
+*{margin:0;	padding:0; color:#212529;}
+html{height:100%;}
 a{text-decoration:none;}
 
+.text-basic{color:#343a40;}
+.text-basic:hover{color:#efa635;}
+.text-basic:active{color:#efa635;}
 
-div[id=topMn]:hover{
-	cursor: pointer;
-	font-weight: bold;
+.btn-outline-basic{border:1px solid #ced4da;}
+.btn-outline-basic:hover{background:#efa635;}
+
+/* 네비게이션 */
+div[id=topMn]:hover{cursor: pointer; font-weight: bold;}
+#topNv{font-size:0.8rem;}
+.nav-item{font-weight: bold;}
+
+/*추천페이지 슬라이드*/
+
+input[type="radio"]{display:none;}
+.swiper-container{
+	display:block;
+	width:100%;
+	height:450px;
+	overflow:hidden;
 }
 
-#topNv{
-	font-size:0.8rem;
+/*랭킹페이지 탭*/
+input[id*="tab"]+label {
+	display:inline-block; padding:10px 20px;
+	border-radius:10px 10px 0 0;
+	color:#efa635;
+	font-size:16px; cursor:pointer;
+	font-weight:bold;
+	border:solid #f9e7cb;
+	border-width:2px 2px 0px 2px;
 }
-
-.nav-item{
-	font-weight: bold;
-}
+input[id*="tab"]:checked+label {background:#f9e7cb;color:#000;}	
+.conbox {width:100%; height:400px; background:#f9e7cb;
+	padding:10px; margin:0 auto; display:none; border-radius:0 10px 0 0;}
+	
+input[id="tab1"]:checked ~ .con1 {display:block;}
+input[id="tab2"]:checked ~ .con2 {display:block;}
+input[id="tab3"]:checked ~ .con3 {display:block;}

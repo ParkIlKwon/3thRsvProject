@@ -41,7 +41,5 @@
 	 select * from TICKET where Category ="공연" order by Star DESC LIMIT 3
 	</select>
 	
-	
-	
 </mapper>
   

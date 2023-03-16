@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="mapper.ticket">
+	<resultMap type="com.basic.reserve.vo.Ticket" id="ticket">
+	 <id property="id" column="id"/>
+  <result property="image" column="memberName"/>
+
+  <result property="Contents" column="Contents"/>
+  <result property="Category" column="memberId"/>
+  <result property="Title" column="memberPw"/>	
+   
+   <result property="DateStart" column="DateStart"/>	
+   <result property="DateEnd" column="DateEnd"/>	
+   <result property="Info" column="Info"/>	
+   
+    <result property="Info" column="Info"/>	
+     <result property="Location" column="Location"/>	
+      <result property="Duration" column="Duration"/>	
+      
+      <result property="SeatNum" column="SeatNum"/>	
+      <result property="Price" column="Price"/>	
+      <result property="Discount" column="Discount"/>	
+      <result property="Star" column="Star"/>	
+   
+	</resultMap>
+	
+	  <select id="selectAllTicket" resultMap="ticket">
+  SELECT * FROM TICKET
+</select>
+	
+	
+	
+	
+</mapper>
+  

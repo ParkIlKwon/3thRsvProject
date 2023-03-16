@@ -34,10 +34,12 @@
 </select>
 	
 	<select id="getNewShow" resultMap="ticket">
-	select * from TICKET where Category ="연극" order by DateStart DESC
+	select * from TICKET where Category ="공연" order by DateStart DESC LIMIT 3
 	</select>
 
-
+	<select id="getRankingShow" resultMap="ticket">
+	 select * from TICKET where Category ="공연" order by Star DESC LIMIT 3
+	</select>
 	
 	
 	

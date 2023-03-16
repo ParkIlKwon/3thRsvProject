@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.basic.reserve.util.MybatisConfig;
 import com.basic.reserve.vo.Member;
+import com.basic.reserve.vo.Ticket;
 
 public class TicketDAO {
 
@@ -13,12 +14,18 @@ public class TicketDAO {
 	private static TicketDAO mDAO = new TicketDAO();
 	public static TicketDAO getInstance() {return mDAO;}
 	
-	public List<Member>getAllTicketList(){
+	public List<Ticket>getAllTicketList(){
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
-		List<Member> list = session.selectList("mapper.ticket.selectAllTicket");
+		List<Ticket> list = session.selectList("mapper.ticket.selectAllTicket");
 		session.close();
 		return list;
 	}
 	
+	public List<Ticket>getSelectiveTicketList(String t){
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		List<Ticket> list = session.selectList("mapper.ticket.selectiveTicket",t);
+		session.close();
+		return list;
+	}
 	
 }

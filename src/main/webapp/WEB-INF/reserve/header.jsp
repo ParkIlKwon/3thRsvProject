@@ -73,8 +73,8 @@
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-sm-1" type="search" placeholder="Search">
-        <button class="btn btn-secondary btn-sm btn-block" type="submit">Search</button>
+        <input class="form-control me-sm-1" type="search" placeholder="Search" id="searchData">
+        <button class="btn btn-secondary btn-sm btn-block" type="button" onclick="checkSearch()">Search</button>
       </form>
 	</div>
   </div>

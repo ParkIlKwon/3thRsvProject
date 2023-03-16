@@ -31,6 +31,13 @@
   SELECT * FROM TICKET
 </select>
 	
+	<select id="selectiveTicket" parameterType="String" resultMap="ticket">
+  select * from TICKET where Title like '%#{Title}%';
+</select>
+	
+	
+
+
 	
 	
 	

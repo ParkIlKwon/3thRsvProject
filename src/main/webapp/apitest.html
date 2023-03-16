@@ -18,31 +18,17 @@ window.onload = function() {
     		url: `http://api.kcisa.kr/openapi/service/rest/meta2020/getKOCAperf?serviceKey=${ServiceKey}&numOfRows=10&pageNo=1`
     		,
     		success: function(response){
-    			console.log(response);
-    			/* var item = $(response).find('item');
-    			$(item).each(function(){
-				console.log("===========================================");
-				console.log("title" + $(this).find("title").text());
-				console.log("alternativeTitle" + $(this).find("alternativeTitle").text());
-				console.log("creator" + $(this).find("creator").text());
-				console.log("regDate" + $(this).find("regDate").text());
-				console.log("collectionDb" + $(this).find("collectionDb").text());
-				console.log("subjectCategory" + $(this).find("subjectCategory").text());
-				console.log("subjectKeyword" + $(this).find("subjectKeyword").text());
-				console.log("extent" + $(this).find("extent").text());
-				console.log("description" + $(this).find("description").text());
-				console.log("spatial" + $(this).find("spatial").text());
-				console.log("temporalCoverage" + $(this).find("temporalCoverage").text());
-				console.log("person" + $(this).find("person").text());
-				console.log("language" + $(this).find("language").text());
-				console.log("sourceTitle" + $(this).find("sourceTitle").text());
-				console.log("referenceIdentifier" + $(this).find("referenceIdentifier").text());
-				console.log("rights" + $(this).find("rights").text());
-				console.log("copyrightOthers" + $(this).find("copyrightOthers").text());
-				console.log("url" + $(this).find("url").text());
-				console.log("contributor" + $(this).find("contributor").text());
+                let XmlNode = new DOMParser().parseFromString(response, "text/xml");
+                let obj = xmlToJson(XmlNode);
+                console.log(obj);
+    			
 
-    			}); */
+                let item = [...obj.response.body.items.item];
+                console.log(item);
+                
+                item.forEach(e => {
+                    console.log(e.title)
+                });
 
     		}
     		})
@@ -51,7 +37,49 @@ window.onload = function() {
 	
 }
 
+function xmlToJson(xml) {
+  // Create the return object
+  var obj = {};
 
+  if (xml.nodeType == 1) {
+    // element
+    // do attributes
+    if (xml.attributes.length > 0) {
+      obj["@attributes"] = {};
+      for (var j = 0; j < xml.attributes.length; j++) {
+        var attribute = xml.attributes.item(j);
+        obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+      }
+    }
+  } else if (xml.nodeType == 3) {
+    obj = xml.nodeValue;
+  }
+
+  var textNodes = [].slice.call(xml.childNodes).filter(function(node) {
+    return node.nodeType === 3;
+  });
+  if (xml.hasChildNodes() && xml.childNodes.length === textNodes.length) {
+    obj = [].slice.call(xml.childNodes).reduce(function(text, node) {
+      return text + node.nodeValue;
+    }, "");
+  } else if (xml.hasChildNodes()) {
+    for (var i = 0; i < xml.childNodes.length; i++) {
+      var item = xml.childNodes.item(i);
+      var nodeName = item.nodeName;
+      if (typeof obj[nodeName] == "undefined") {
+        obj[nodeName] = xmlToJson(item);
+      } else {
+        if (typeof obj[nodeName].push == "undefined") {
+          var old = obj[nodeName];
+          obj[nodeName] = [];
+          obj[nodeName].push(old);
+        }
+        obj[nodeName].push(xmlToJson(item));
+      }
+    }
+  }
+  return obj;
+}
 
 </script>
 <body>

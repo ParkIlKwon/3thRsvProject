@@ -1,6 +1,7 @@
 package com.basic.reserve.Membercontroller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +31,8 @@ public class LoginController implements Controller {
 			if(log != null){
 				session.setAttribute("id", log);
 				response.getWriter().print("1");
+				List<Member>list = MemberDAO.getInstance().getOneMemberList(m);
+				session.setAttribute("mlist", list);
 			}else {
 				response.getWriter().print("null");
 			}

@@ -28,6 +28,14 @@ public class MemberDAO {
 		return log;
 	}
 	
+	public List<Member>getOneMemberList(Member m){
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		List<Member> list = session.selectList("mapper.member.selectOneMembers",m);
+		session.close();
+		return list;
+	}
+	
+	
 	public String addMember(Member m) {
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
 		String log = session.selectOne("mapper.member.memberAccount",m);

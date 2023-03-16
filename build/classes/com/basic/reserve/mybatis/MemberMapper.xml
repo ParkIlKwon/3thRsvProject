@@ -28,5 +28,11 @@
   delete from MEMBERLIST where memberId = #{memberId} and memberPw = #{memberPw}
 </delete>
 
+ <select id="selectOneMembers" parameterType="member" resultMap="member">
+   select * from MEMBERLIST where memberId=#{memberId}       
+ </select>
+
+
+
 
 </mapper>

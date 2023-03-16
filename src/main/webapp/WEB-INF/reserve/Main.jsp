@@ -20,7 +20,11 @@
 		<input type="radio" name="tabmenu" id="tab3">
 		<label for="tab3">스포츠 순위</label>
 		
-		<div class="conbox con1">영화내용</div>
+		<div class="conbox con1">영화내용
+		<c:forEach var="d" items="${rankshow}">
+		${d.title}
+		</c:forEach>
+		</div>
 		<div class="conbox con2">공연내용</div>
 		<div class="conbox con3">스포츠내용</div>
 	</section>

@@ -4,39 +4,36 @@ public class Ticket {
 
 	private int id ;
 	private String image;
-	private String Contents;
-	private String Category;
-	private String Title;
-	private String DateStart;
-	private String DateEnd;
-	private String Location;
-    private String Info;
-	private int Duration;
-	private int SeatNum ;
-	private int Price; 
-	private int Discount;
-	private int Star;
+	private String contents;
+	private String category;
+	private String title;
+	private String dateStart;
+	private String dateEnd;
+	private String location;
+    private String info;
+	private int duration;
+	private int seatNum ;
+	private int price; 
+	private int discount;
+	private int star;
 	
-	public Ticket(){}
-
 	public Ticket(int id, String image, String contents, String category, String title, String dateStart,
 			String dateEnd, String location, String info, int duration, int seatNum, int price, int discount,
 			int star) {
-		super();
 		this.id = id;
 		this.image = image;
-		Contents = contents;
-		Category = category;
-		Title = title;
-		DateStart = dateStart;
-		DateEnd = dateEnd;
-		Location = location;
-		Info = info;
-		Duration = duration;
-		SeatNum = seatNum;
-		Price = price;
-		Discount = discount;
-		Star = star;
+		this.contents = contents;
+		this.category = category;
+		this.title = title;
+		this.dateStart = dateStart;
+		this.dateEnd = dateEnd;
+		this.location = location;
+		this.info = info;
+		this.duration = duration;
+		this.seatNum = seatNum;
+		this.price = price;
+		this.discount = discount;
+		this.star = star;
 	}
 
 	public int getId() {
@@ -56,100 +53,108 @@ public class Ticket {
 	}
 
 	public String getContents() {
-		return Contents;
+		return contents;
 	}
 
 	public void setContents(String contents) {
-		Contents = contents;
+		this.contents = contents;
 	}
 
 	public String getCategory() {
-		return Category;
+		return category;
 	}
 
 	public void setCategory(String category) {
-		Category = category;
+		this.category = category;
 	}
 
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 
 	public String getDateStart() {
-		return DateStart;
+		return dateStart;
 	}
 
 	public void setDateStart(String dateStart) {
-		DateStart = dateStart;
+		this.dateStart = dateStart;
 	}
 
 	public String getDateEnd() {
-		return DateEnd;
+		return dateEnd;
 	}
 
 	public void setDateEnd(String dateEnd) {
-		DateEnd = dateEnd;
+		this.dateEnd = dateEnd;
 	}
 
 	public String getLocation() {
-		return Location;
+		return location;
 	}
 
 	public void setLocation(String location) {
-		Location = location;
+		this.location = location;
 	}
 
 	public String getInfo() {
-		return Info;
+		return info;
 	}
 
 	public void setInfo(String info) {
-		Info = info;
+		this.info = info;
 	}
 
 	public int getDuration() {
-		return Duration;
+		return duration;
 	}
 
 	public void setDuration(int duration) {
-		Duration = duration;
+		this.duration = duration;
 	}
 
 	public int getSeatNum() {
-		return SeatNum;
+		return seatNum;
 	}
 
 	public void setSeatNum(int seatNum) {
-		SeatNum = seatNum;
+		this.seatNum = seatNum;
 	}
 
 	public int getPrice() {
-		return Price;
+		return price;
 	}
 
 	public void setPrice(int price) {
-		Price = price;
+		this.price = price;
 	}
 
 	public int getDiscount() {
-		return Discount;
+		return discount;
 	}
 
 	public void setDiscount(int discount) {
-		Discount = discount;
+		this.discount = discount;
 	}
 
 	public int getStar() {
-		return Star;
+		return star;
 	}
 
 	public void setStar(int star) {
-		Star = star;
+		this.star = star;
 	}
+
+
+	
+	public Ticket(){}
+
+	
+
+	
 	
 	
 }

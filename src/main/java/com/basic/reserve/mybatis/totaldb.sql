@@ -25,18 +25,18 @@ select memberId from MEMBERLIST where memberId="admin" and memberPw="admin";
 create table TICKET(
 	id int auto_increment primary key, 
 	image VARCHAR(50) not null, #이미지이름
-	Contents VARCHAR(50) not null, #세부항목
-	Category varchar(20) not null, #카테고리
-	Title varchar(20) not null,  #제목
-	DateStart varchar(20) not null,  #시작일
-	DateEnd varchar(20) not null,  #끝일
-	Info varchar(100) not null,  #소개
-	Location varchar(20) not null, #장소
-	Duration int(5) not null,  #기간
-	SeatNum int(5) not null, #좌석몇까지 있는지
-	Price int(5) not null, #좌석가격
-	Discount int(5) not null,  #할인율
-	Star float(5) not null #평점 
+	contents VARCHAR(50) not null, #세부항목
+	category varchar(20) not null, #카테고리
+	title varchar(20) not null,  #제목
+	dateStart varchar(20) not null,  #시작일
+	dateEnd varchar(20) not null,  #끝일
+	info varchar(100) not null,  #소개
+	location varchar(20) not null, #장소
+	duration int(5) not null,  #기간
+	seatNum int(5) not null, #좌석몇까지 있는지
+	price int(5) not null, #좌석가격
+	discount int(5) not null,  #할인율
+	star float(5) not null #평점 
 )
 
 select * from TICKET;

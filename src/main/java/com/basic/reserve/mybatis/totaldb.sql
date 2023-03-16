@@ -36,7 +36,7 @@ create table TICKET(
 	SeatNum int(5) not null, #좌석몇까지 있는지
 	Price int(5) not null, #좌석가격
 	Discount int(5) not null,  #할인율
-	Star int(5) not null #평점 
+	Star int(5) not null #평점
 )
 
 select * from TICKET;

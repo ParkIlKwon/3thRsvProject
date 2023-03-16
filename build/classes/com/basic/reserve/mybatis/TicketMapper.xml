@@ -6,17 +6,15 @@
 <mapper namespace="mapper.ticket">
 	<resultMap type="com.basic.reserve.vo.Ticket" id="ticket">
 	 <id property="id" column="id"/>
-  <result property="image" column="memberName"/>
+  <result property="image" column="image"/>
 
   <result property="Contents" column="Contents"/>
-  <result property="Category" column="memberId"/>
-  <result property="Title" column="memberPw"/>	
+  <result property="Category" column="Category"/>
+  <result property="Title" column="Title"/>	
    
    <result property="DateStart" column="DateStart"/>	
    <result property="DateEnd" column="DateEnd"/>	
    <result property="Info" column="Info"/>	
-   
-    <result property="Info" column="Info"/>	
      <result property="Location" column="Location"/>	
       <result property="Duration" column="Duration"/>	
       
@@ -32,10 +30,12 @@
 </select>
 	
 	<select id="selectiveTicket" parameterType="String" resultMap="ticket">
-  select * from TICKET where Title like '%#{Title}%';
+  select * from TICKET where Title like CONCAT('%',#{Title},'%')
 </select>
 	
-	
+	<select id="getNewShow" resultMap="ticket">
+	select * from TICKET where Category ="연극" order by DateStart DESC
+	</select>
 
 
 	

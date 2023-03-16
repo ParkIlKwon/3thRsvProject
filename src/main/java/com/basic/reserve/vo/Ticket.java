@@ -2,14 +2,15 @@ package com.basic.reserve.vo;
 
 public class Ticket {
 
-	private String image;
-	private String Category;
 	private int id ;
+	private String image;
+	private String Contents;
+	private String Category;
 	private String Title;
 	private String DateStart;
 	private String DateEnd;
-	private String Company;
 	private String Location;
+    private String Info;
 	private int Duration;
 	private int SeatNum ;
 	private int Price; 
@@ -18,21 +19,32 @@ public class Ticket {
 	
 	public Ticket(){}
 
-	public Ticket(String image, String category, int id, String title, String dateStart, String dateEnd, String company,
-			String location, int duration, int seatNum, int price, int discount, int star) {
-		this.image = image;
-		Category = category;
+	public Ticket(int id, String image, String contents, String category, String title, String dateStart,
+			String dateEnd, String location, String info, int duration, int seatNum, int price, int discount,
+			int star) {
+		super();
 		this.id = id;
+		this.image = image;
+		Contents = contents;
+		Category = category;
 		Title = title;
 		DateStart = dateStart;
 		DateEnd = dateEnd;
-		Company = company;
 		Location = location;
+		Info = info;
 		Duration = duration;
 		SeatNum = seatNum;
 		Price = price;
 		Discount = discount;
 		Star = star;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getImage() {
@@ -43,20 +55,20 @@ public class Ticket {
 		this.image = image;
 	}
 
+	public String getContents() {
+		return Contents;
+	}
+
+	public void setContents(String contents) {
+		Contents = contents;
+	}
+
 	public String getCategory() {
 		return Category;
 	}
 
 	public void setCategory(String category) {
 		Category = category;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getTitle() {
@@ -83,20 +95,20 @@ public class Ticket {
 		DateEnd = dateEnd;
 	}
 
-	public String getCompany() {
-		return Company;
-	}
-
-	public void setCompany(String company) {
-		Company = company;
-	}
-
 	public String getLocation() {
 		return Location;
 	}
 
 	public void setLocation(String location) {
 		Location = location;
+	}
+
+	public String getInfo() {
+		return Info;
+	}
+
+	public void setInfo(String info) {
+		Info = info;
 	}
 
 	public int getDuration() {

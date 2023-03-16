@@ -21,9 +21,16 @@ public class TicketDAO {
 		return list;
 	}
 	
-	public List<Ticket>getSelectiveTicketList(String t){
+	public List<Ticket>getSelectiveTicketList(Ticket t){
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
 		List<Ticket> list = session.selectList("mapper.ticket.selectiveTicket",t);
+		session.close();
+		return list;
+	}
+	
+	public List<Ticket>getNewShow(){
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		List<Ticket> list = session.selectList("mapper.ticket.getNewShow");
 		session.close();
 		return list;
 	}

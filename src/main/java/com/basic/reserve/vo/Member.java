@@ -1,8 +1,8 @@
 package com.basic.reserve.vo;
 
 public class Member {
-	
-	private int memberSeq;
+
+	private int id;
 	private String memberName;
 	private String memberId;
 	private String memberPw;
@@ -12,19 +12,21 @@ public class Member {
 	
 	public Member(int memberSeq, String memberName, String memberId, String memberPw, String memberHP) {
 		super();
-		this.memberSeq = memberSeq;
+		this.id = memberSeq;
 		this.memberName = memberName;
 		this.memberId = memberId;
 		this.memberPw = memberPw;
 		this.memberHP = memberHP;
 	}
 	
-	public int getMemberSeq() {
-		return memberSeq;
+	public int getId() {
+		return id;
 	}
-	public void setMemberSeq(int memberSeq) {
-		this.memberSeq = memberSeq;
+
+	public void setId(int id) {
+		this.id = id;
 	}
+	
 	public String getMemberName() {
 		return memberName;
 	}

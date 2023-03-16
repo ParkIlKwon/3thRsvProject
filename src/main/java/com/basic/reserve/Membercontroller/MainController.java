@@ -21,9 +21,12 @@ public class MainController implements Controller {
 		
 		String page = "Main";
 		List<Ticket>newshow = TicketDAO.getInstance().getNewShow();
+		List<Ticket>rankshow = TicketDAO.getInstance().getRankingShow();
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("newshow", newshow);
+		session.setAttribute("rankshow", rankshow);
+		
 		
 		if(request.getParameter("page") != null) {
 			page = request.getParameter("page");

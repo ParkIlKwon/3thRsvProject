@@ -14,10 +14,10 @@ function checkform(id){
 			url : ctx+"/mypage.do",
 			data : {"pw":pw},
 			success : function(data) {
-				if(data != "null"){
+				if(data == ("1")){
 					alert("탈퇴성공.");
 					window.location.href = "main.do";
-				}else {
+				}else{
 					alert("패스워드를 확인해주세요.");
 					$("#pw").css("border","3px orange solid")
 					$("#pw").val("");

@@ -37,7 +37,6 @@ create table TICKET(
 	Price int(5) not null, #좌석가격
 	Discount int(5) not null,  #할인율
 	Star int(5) not null #평점 
-	
 )
 
 select * from TICKET;
@@ -85,5 +84,4 @@ create table RESERVELIST(
 	reservePrice int(5) not null, #예약가격
 	
 	CONSTRAINT fk_memberid FOREIGN KEY(id) REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE #확인요망
-	
 );

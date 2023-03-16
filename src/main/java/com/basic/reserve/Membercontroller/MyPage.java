@@ -41,7 +41,9 @@ public class MyPage implements Controller {
 				}else {
 					response.getWriter().print("null");
 				}
+				return null;
 			}
+			
 		}
 		return "mypage";
 	}

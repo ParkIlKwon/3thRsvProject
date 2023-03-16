@@ -4,9 +4,7 @@
 <%@page import="java.util.List"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "ctx" value="${pageContext.request.contextPath}"/>
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,17 +17,17 @@
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css"> -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-	<script type="text/javascript" src="script/Search.js" defer></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="script/Search.js" defer></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 
 <body>
 <header>
 
-<div id="top" class="row py-2 px-2">
-	<div class="col-3"><img src="https://via.placeholder.com/160x80" alt="로고" onclick="location.href ='${ctx}/main.do'" style="cursor:pointer"></div>
-	<div class="col-9" id="topNv">
+<div id="top" class="row py-2 px-3">
+	<div class="col-4"><img src="${ctx}/img/logo.png" alt="로고" onclick="location.href ='${ctx}/main.do'" style="cursor:pointer; width:240px"></div>
+	<div class="col-8" id="topNv">
 		<ul class="nav topNv justify-content-end p-2">
 		<c:if test="${id eq null}">
 		<li class="nav-item text-"><a class="nav-link text-basic" href="${ctx}/login.do">로그인</a></li>
@@ -74,7 +72,7 @@
       </ul>
       <form class="d-flex">
         <input class="form-control me-sm-1" type="search" placeholder="Search" id="searchData">
-        <button class="btn btn-secondary btn-sm btn-block" type="button" onclick="checkSearch()">Search</button>
+        <button class="btn btn-secondary btn-sm btn-block" type="button" onclick="checkSearch()" id="search">검색</button>
       </form>
 	</div>
   </div>

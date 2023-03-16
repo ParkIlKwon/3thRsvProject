@@ -8,20 +8,20 @@
 	 <id property="id" column="id"/>
   <result property="image" column="image"/>
 
-  <result property="Contents" column="Contents"/>
-  <result property="Category" column="Category"/>
-  <result property="Title" column="Title"/>	
+  <result property="contents" column="contents"/>
+  <result property="category" column="category"/>
+  <result property="title" column="title"/>	
    
-   <result property="DateStart" column="DateStart"/>	
-   <result property="DateEnd" column="DateEnd"/>	
-   <result property="Info" column="Info"/>	
-     <result property="Location" column="Location"/>	
-      <result property="Duration" column="Duration"/>	
+   <result property="dateStart" column="dateStart"/>	
+   <result property="dateEnd" column="dateEnd"/>	
+   <result property="info" column="info"/>	
+     <result property="location" column="location"/>	
+      <result property="duration" column="duration"/>	
       
-      <result property="SeatNum" column="SeatNum"/>	
-      <result property="Price" column="Price"/>	
-      <result property="Discount" column="Discount"/>	
-      <result property="Star" column="Star"/>	
+      <result property="seatNum" column="seatNum"/>	
+      <result property="price" column="price"/>	
+      <result property="discount" column="discount"/>	
+      <result property="star" column="star"/>	
    
 	</resultMap>
 	

@@ -8,16 +8,41 @@ a{text-decoration:none;}
 .text-basic:hover{color:#efa635;}
 .text-basic:active{color:#efa635;}
 
-.btn-outline-basic{border:1px solid #ced4da;}
-.btn-outline-basic:hover{background:#efa635;}
+.btn-basic{
+	background-color:#efa635;
+ 	width:100px;height:36px;
+	border-radius:5px;
+	color:white;
+	border:none;
+	}
+.btn-basic:hover{background:#d2850c;}
+
+.btn-cancel{
+	background-color:#adb5bd;
+ 	width:100px;height:36px;
+	border-radius:5px;
+	color:white;
+	border:none;
+	}
+.btn-cancel:hover{background:#6c757d ;}
+
+.btn-lt-basic{
+	border:1px solid #efa635;
+	background-color:#f9e7cb;
+ 	width:100px;height:36px;
+	border-radius:5px;
+	color:#efa635;
+	border:none;
+}
+.btn-lt-basic:hover{background:#efa635;color:white;}
 
 /* 네비게이션 */
 div[id=topMn]:hover{cursor: pointer; font-weight: bold;}
 #topNv{font-size:0.8rem;}
 .nav-item{font-weight: bold;}
+#search{white-space : nowrap;}
 
 /*추천페이지 슬라이드*/
-
 input[type="radio"]{display:none;}
 .swiper-container{
 	display:block;
@@ -43,3 +68,19 @@ input[id*="tab"]:checked+label {background:#f9e7cb;color:#000;}
 input[id="tab1"]:checked ~ .con1 {display:block;}
 input[id="tab2"]:checked ~ .con2 {display:block;}
 input[id="tab3"]:checked ~ .con3 {display:block;}
+
+/*약관동의 전문팝업*/
+/* button[id="showTerms"]{
+	border:1px solid #adb5bd;
+	padding:0 5px;
+	font-size:0.8rem;
+} */
+input[id="popupT"]{display:none;}
+input[id="popupT"]+label{
+	display:inline-block;
+	
+}
+	border:1px solid #adb5bd;
+	padding:0 5px;
+	font-size:0.8rem;
+}

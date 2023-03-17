@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.basic.reserve.Membercontroller.*;
 import com.basic.reserve.TicketController.*;
+import com.basic.reserve.constController.boardController;
 
 public class HandlerMapping {
 	private HashMap<String,Controller>mapping;
@@ -13,7 +14,8 @@ public class HandlerMapping {
 		mapping.put("/login.do", new LoginController());
 		mapping.put("/account.do", new AccountController());
 		mapping.put("/logout.do", new LogoutController());
-		mapping.put("/mypage.do", new MyPage());
+		mapping.put("/mypage.do", new MyPageController());
+		mapping.put("/board.do", new boardController());
 		
 		mapping.put("/search.do", new SearchController());
 	}

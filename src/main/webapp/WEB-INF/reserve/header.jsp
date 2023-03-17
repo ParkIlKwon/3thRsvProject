@@ -37,7 +37,7 @@
 		</c:if>
 	  <li class="nav-item"><a class="nav-link text-basic" href="#">예약확인/취소</a></li>
 	  <li class="nav-item"><a class="nav-link text-basic" href="${ctx}/mypage.do">마이 페이지</a></li>
-	  <li class="nav-item"><a class="nav-link text-basic" href="#">고객센터</a></li>
+	  <li class="nav-item"><a class="nav-link text-basic" href="${ctx}/board.do">고객센터</a></li>
 	</ul>
 	</div>
 </div>

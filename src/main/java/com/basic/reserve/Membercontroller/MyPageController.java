@@ -12,7 +12,7 @@ import com.basic.reserve.dao.MemberDAO;
 import com.basic.reserve.frontController.Controller;
 import com.basic.reserve.vo.Member;
 
-public class MyPage implements Controller {
+public class MyPageController implements Controller {
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)

@@ -4,18 +4,18 @@ public class Board {
 	
 	private int id;
 	private String memberId;
-	private String Title;
-	private String Body;
-	private String Date;
+	private String title;
+	private String body;
+	private String date;
 	
 	public Board(){}
 	
 	public Board(int id, String memberId, String title, String body, String date) {
 		this.id = id;
 		this.memberId = memberId;
-		Title = title;
-		Body = body;
-		Date = date;
+		this.title = title;
+		this.body = body;
+		this.date = date;
 	}
 	public int getId() {
 		return id;
@@ -30,22 +30,22 @@ public class Board {
 		this.memberId = memberId;
 	}
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 	public String getBody() {
-		return Body;
+		return body;
 	}
 	public void setBody(String body) {
-		Body = body;
+		this.body = body;
 	}
 	public String getDate() {
-		return Date;
+		return date;
 	}
 	public void setDate(String date) {
-		Date = date;
+		this.date = date;
 	}
 	
 	

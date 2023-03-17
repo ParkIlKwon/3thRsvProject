@@ -57,9 +57,9 @@ VALUES
 create table BOARD(
 	id int auto_increment primary key, 
 	memberId varchar(30) not null, #글쓴이
-	Title varchar(20) not null, #제목
-	Body varchar(100) not null, #내용
-	Date varchar(20) not null, #글쓴날짜
+	title varchar(20) not null, #제목
+	body varchar(100) not null, #내용
+	date varchar(20) not null, #글쓴날짜
 	CONSTRAINT fk_id FOREIGN KEY (memberId) 
     REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE
 )

@@ -7,6 +7,7 @@
 <typeAliases>
 	<typeAlias type="com.basic.reserve.vo.Member" alias="member"/>
 	<typeAlias type="com.basic.reserve.vo.Ticket" alias="ticket"/>
+	<typeAlias type="com.basic.reserve.vo.Board" alias="board"/>
 </typeAliases>
 
 <environments default="development">
@@ -24,6 +25,7 @@
 	<mappers>
 	<mapper resource="com/basic/reserve/mybatis/MemberMapper.xml"/>
 	<mapper resource="com/basic/reserve/mybatis/TicketMapper.xml"/>
+	<mapper resource="com/basic/reserve/mybatis/BoardMapper.xml"/>
 	</mappers>
 </configuration>
 

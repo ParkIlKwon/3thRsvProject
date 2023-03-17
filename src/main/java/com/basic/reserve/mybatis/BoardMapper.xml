@@ -16,6 +16,9 @@
   SELECT * FROM BOARD
 </select>
 
+	<delete id="deleteBoard" parameterType="int">
+	delete from BOARD WHERE id=#{id}
+	</delete>
 
 
   

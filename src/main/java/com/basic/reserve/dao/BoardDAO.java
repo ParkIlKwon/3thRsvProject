@@ -20,7 +20,12 @@ public class BoardDAO {
 		return list;
 	}
 	
-	
+	public int DeleteBoard(Board b) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		int log = session.delete("mapper.board.deleteBoard",b);
+		session.close();
+		return log;
+	}
 	
 	
 }

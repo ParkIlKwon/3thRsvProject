@@ -12,8 +12,6 @@ function checkform() {
 	let name = document.querySelector("#name").value;
 	let hp = document.querySelector("#hp").value;
 	
-	alert(id+pw1+pw2+name+hp);
-	
 	if (!existdate(id,"아이디") ||!existdate(pw1,"비밀번호") ||!existdate(pw2,"비밀번호확인")
 		||!existdate(name,"이름") || !existdate(hp,"핸드폰번호")) {
 		return false;

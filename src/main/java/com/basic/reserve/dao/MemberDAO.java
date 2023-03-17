@@ -51,5 +51,11 @@ public class MemberDAO {
 		return log;
 	}
 	
+	public void updateHp(Member m) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		int cnt = session.update("mapper.member.hpupdate",m);
+		System.out.println(cnt + "업데이트 반환값");
+		session.close();
+	}
 	
 }

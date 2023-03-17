@@ -15,11 +15,11 @@ public class Ticket {
 	private int seatNum ;
 	private int price; 
 	private int discount;
-	private int star;
+	private float star;
 	
 	public Ticket(int id, String image, String contents, String category, String title, String dateStart,
 			String dateEnd, String location, String info, int duration, int seatNum, int price, int discount,
-			int star) {
+			float star) {
 		this.id = id;
 		this.image = image;
 		this.contents = contents;
@@ -140,11 +140,11 @@ public class Ticket {
 		this.discount = discount;
 	}
 
-	public int getStar() {
+	public float getStar() {
 		return star;
 	}
 
-	public void setStar(int star) {
+	public void setStar(float star) {
 		this.star = star;
 	}
 

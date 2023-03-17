@@ -20,10 +20,24 @@
 		<input type="radio" name="tabmenu" id="tab3">
 		<label for="tab3">스포츠 순위</label>
 		
-		<div class="conbox con1">영화내용
-		<c:forEach var="d" items="${rankshow}">
-		${d.title}
-		</c:forEach>
+		<div class="conbox con1">
+		<div class="mycards">
+		    <div class="row row-cols-1 row-cols-md-3 g-4">
+			<c:forEach var="r" items="${rankshow}">
+		        <div class="col">
+		            <div class="card">
+		                <img src="img/${r.image}" class="card-img-top" alt="...">
+		                <div class="card-body">
+		                    <h5 class="card-title">${r.title}</h5>
+		                    <div class="ellipsis">${r.info}</div>
+		                    <div>⭐⭐⭐ ${r.star}</div>
+		                </div>
+		            </div>
+		        </div>
+			</c:forEach>
+		    </div>
+		</div>
+
 		</div>
 		<div class="conbox con2">공연내용</div>
 		<div class="conbox con3">스포츠내용</div>

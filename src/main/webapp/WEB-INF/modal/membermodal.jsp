@@ -64,11 +64,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        비밀번호입력: <input type="text" id="pw"/>
+        비밀번호입력: <input type="text" id="pw2"/>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" onclick="updatepw'${id}')">수정하기</button>
+        <button type="button" class="btn btn-danger" onclick="updatepw('${id}')">수정하기</button>
       </div>
     </div>
   </div>
@@ -83,7 +83,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        비밀번호입력: <input type="text" id="pw"/>
+        비밀번호입력: <input type="text" id="pw3"/>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

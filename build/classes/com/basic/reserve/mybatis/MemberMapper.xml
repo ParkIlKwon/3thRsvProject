@@ -38,6 +38,15 @@
          set memberHP=#{memberHP} 
          where memberId=#{memberId} 	 
     </update>
+    
+       <update id="updatePw" parameterType="member" >
+         update MEMBERLIST
+         set memberPw=#{memberPw} 
+         where memberId=#{memberId} 	 
+    </update>
+    
+    
+    
 
 
 </mapper>

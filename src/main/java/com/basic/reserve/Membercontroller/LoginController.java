@@ -31,8 +31,7 @@ public class LoginController implements Controller {
 			if(log != null){
 				session.setAttribute("id", log);
 				response.getWriter().print("1");
-				List<Member>list = MemberDAO.getInstance().getOneMemberList(m);
-				session.setAttribute("mlist", list);
+			
 			}else {
 				response.getWriter().print("null");
 			}

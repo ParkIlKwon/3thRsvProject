@@ -1,14 +1,14 @@
-let ctx = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+let ctx1 = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
 
 function checkform(id){
 
-	if(frontcheck(id) == false){
+	if(frontcheck(id,$("#pw").val()) == false){
 		return;
 	}else{
 		let pw = $("#pw").val();
 		$.ajax({
 			type : "POST",
-			url : ctx+"/mypage.do",
+			url : ctx1+"/mypage.do",
 			data : {"pw":pw},
 			success : function(data) {
 				if(data == ("1")){
@@ -27,16 +27,23 @@ function checkform(id){
 
 function updatepw(id){
 
-	if(frontcheck(id) == false){
+	if(frontcheck(id,$("#pw2").val()) == false){
+		return;
+	}else if($("#memberpw").val() == ""){
+		alert("변경할 비밀번호를 입력하시오.");
+		return;
+	}else if($("#memberpw").val() == $("#pw2").val() ){
+		alert("변경할 비밀번호가 이전비밀번호랑 동일합니다.");
 		return;
 	}else{
 		let input = $("#memberpw").val();
-		let pw = $("#pw").val();
+		let pw = $("#pw2").val();
 		$.ajax({
 			type : "POST",
-			url : ctx+"/update.do",
+			url : ctx1+"/update.do",
 			data : {"input":input,"pw":pw,"pos":"1"},
 			success : function(data) {
+				
 				if(data == ("1")){
 					alert("수정성공.");
 					window.location.href = "main.do";
@@ -53,16 +60,20 @@ function updatepw(id){
 
 function updatehp(id){
 
-	if(frontcheck(id) == false){
+	if(frontcheck(id,$("#pw3").val()) == false){
+		return;
+	}else if($("#memberpw").val() == ""){
+		alert("변경할 핸드폰 번호를 입력하시오.")
 		return;
 	}else{
 		let input = $("#memberHP").val();
-		let pw = $("#pw").val();
+		let pw = $("#pw3").val();
 		$.ajax({
 			type : "POST",
-			url : ctx+"/update.do",
+			url : ctx1+"/update.do",
 			data : {"input":input,"pw":pw,"pos":"2"},
 			success : function(data) {
+				
 				if(data == ("1")){
 					alert("수정성공.");
 					window.location.href = "main.do";
@@ -91,8 +102,8 @@ function updatehp(id){
 
 
 
-function frontcheck(id){
-	 if($.trim($("#pw").val())==''){
+function frontcheck(id,pw){
+	 if(pw==''){
 		 alert("비밀번호를 입력하세요.");
 		 return false;
 	 }else if(id == "admin"){

@@ -85,5 +85,11 @@ create table RESERVELIST(
 	reserveSeatNum int(5) not null, #예약한좌석번호
 	reservePrice int(5) not null, #예약가격
 	
-	CONSTRAINT fk_memberid FOREIGN KEY(id) REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE #확인요망
+	CONSTRAINT fk_Res_id FOREIGN KEY(memberId) REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE #확인요망
 );
+
+
+
+
+
+

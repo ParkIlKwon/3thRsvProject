@@ -16,8 +16,11 @@ public class HandlerMapping {
 		mapping.put("/logout.do", new LogoutController());
 		mapping.put("/mypage.do", new MyPageController());
 		mapping.put("/board.do", new boardController());
+		mapping.put("/boardDelete.do", new boardController());
 		
 		mapping.put("/search.do", new SearchController());
+		mapping.put("/reserve.do", new ReserveController());
+		
 	}
 	
 	public Controller getController(String key) {

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
+<script type="text/javascript" src="script/Board.js" defer></script>
 <title>보드영역</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>티켓토리 고객센터 F&Q</h1>
+      <h1>티켓토리 고객센터 F&Q / 1:1문의</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -66,6 +67,7 @@
                   <div id="${b.memberId}${b.id}" class="accordion-collapse collapse" data-bs-parent="#faq-group-1" style="">
                     <div class="accordion-body">
                       ${b.body}
+                      <button onclick=""> </button>
                     </div>
                   </div>
                 </div>

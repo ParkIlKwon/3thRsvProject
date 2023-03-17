@@ -21,24 +21,14 @@ public class UpdateController implements Controller {
 			
 			HttpSession session = request.getSession();
 			Member m = new Member();
-			System.out.println("fdasfsda");
 			System.out.println(request.getParameter("pw"));
 			
 			m.setMemberId((String)session.getAttribute("id"));
-			m.setMemberPw(request.getParameter("pw"));
 			
-			String log = MemberDAO.getInstance().login(m);
-			System.out.println(log);
-			if(log == null) {
-				response.getWriter().print("null");
-				return null;
-			}else {
 				m.setMemberPw(input);
 				MemberDAO.getInstance().updatePw(m);
 				response.getWriter().print("1");
 				return null;
-			}
-			
 			
 		}else {
 			
@@ -46,20 +36,14 @@ public class UpdateController implements Controller {
 			Member m = new Member();
 			
 			m.setMemberId((String)session.getAttribute("id"));
-			m.setMemberPw(request.getParameter("pw"));
-			
 			m.setMemberHP(input);
 			
 			String log = MemberDAO.getInstance().login(m);
 			System.out.println(log);
-			if(log == null) {
-				response.getWriter().print("null");
-				return null;
-			}else {
+			
 				MemberDAO.getInstance().updateHp(m);
 				response.getWriter().print("1");
 				return null;
-			}
 		}
 	}
 

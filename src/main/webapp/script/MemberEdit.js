@@ -25,32 +25,27 @@ function checkform(id){
 }
 
 
-function updatepw(id){
+function updatepw(id,pw){
 
-	if(frontcheck(id,$("#pw2").val()) == false){
+	alert(pw)
+	if(frontcheck(id,$("#memberpw").val()) == false){
 		return;
-	}else if($("#memberpw").val() == ""){
-		alert("변경할 비밀번호를 입력하시오.");
-		return;
-	}else if($("#memberpw").val() == $("#pw2").val() ){
-		alert("변경할 비밀번호가 이전비밀번호랑 동일합니다.");
+	}else if(pw == $("#memberpw").val()){
+		alert("이전 비밀번호와 같은 비밀번호 입니다.");
 		return;
 	}else{
 		let input = $("#memberpw").val();
-		let pw = $("#pw2").val();
 		$.ajax({
 			type : "POST",
 			url : ctx1+"/update.do",
-			data : {"input":input,"pw":pw,"pos":"1"},
+			data : {"input":input,"pos":"1"},
 			success : function(data) {
 				
 				if(data == ("1")){
 					alert("수정성공.");
 					window.location.href = "main.do";
 				}else{
-					alert("패스워드를 확인해주세요.");
-					$("#pw").css("border","3px orange solid")
-					$("#pw").val("");
+					alert("수정실패");
 				}	
 			}
 		});
@@ -58,37 +53,41 @@ function updatepw(id){
 }
 
 
-function updatehp(id){
-
-	if(frontcheck(id,$("#pw3").val()) == false){
+function updatehp(id,hp){
+	
+	if(frontcheck(id,$("#memberHP").val()) == false){
 		return;
-	}else if($("#memberpw").val() == ""){
-		alert("변경할 핸드폰 번호를 입력하시오.")
+	}else if(hp == $("#memberHP").val()){
+		alert("이전 핸드폰 번호와 같은 번호입니다.");
 		return;
 	}else{
 		let input = $("#memberHP").val();
-		let pw = $("#pw3").val();
 		$.ajax({
 			type : "POST",
 			url : ctx1+"/update.do",
-			data : {"input":input,"pw":pw,"pos":"2"},
+			data : {"input":input,"pos":"2"},
 			success : function(data) {
 				
 				if(data == ("1")){
 					alert("수정성공.");
 					window.location.href = "main.do";
 				}else{
-					alert("패스워드를 확인해주세요.");
-					$("#pw").css("border","3px orange solid")
-					$("#pw").val("");
+					alert("수정실패");
 				}	
 			}
 		});
 	}
 }
 
+$(document).on("click", "#pwbtn", function () {
+     var mypw = $("#memberpw").val();
+	document.getElementById("innerpw").innerHTML=mypw;
+});
 
-
+$(document).on("click", "#hpbtn", function () {
+     var myhp = $("#memberHP").val();
+	document.getElementById("innerhp").innerHTML=myhp;
+});
 
 
 

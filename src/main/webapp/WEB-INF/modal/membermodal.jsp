@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script type="text/javascript" src="script/MemberEdit.js" defer></script>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
 
 <div class="modal fade" id="deleteMember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -64,11 +65,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        비밀번호입력: <input type="text" id="pw2"/>
+        비밀번호: <p id="innerpw"></p>
       </div>
       <div class="modal-footer">
+      <c:forEach var="m" items="${mlist}">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" onclick="updatepw('${id}')">수정하기</button>
+        <button type="button" class="btn btn-danger" onclick="updatepw('${id}','${m.memberPw}')">수정하기</button>
+      </c:forEach>
       </div>
     </div>
   </div>
@@ -83,11 +86,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        비밀번호입력: <input type="text" id="pw3"/>
+        변경핸드폰번호:<p id="innerhp"></p>
       </div>
       <div class="modal-footer">
+      <c:forEach var="m" items="${mlist}">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" onclick="updatehp('${id}')">수정하기</button>
+        <button type="button" class="btn btn-danger" onclick="updatehp('${id}','${m.memberHP}')">수정하기</button>
+      </c:forEach>
       </div>
     </div>
   </div>

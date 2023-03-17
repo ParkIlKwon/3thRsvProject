@@ -8,15 +8,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">DeleteMember</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">⚠ 회원탈퇴</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        비밀번호입력: <input type="text" id="pw"/>
+		<font style="color:red">회원탈퇴 시 모든 거래내역은 삭제됩니다.</font><br>
+		탈퇴하시려면 아래 비밀번호를 입력해주세요.<br><br>
+        비밀번호 &nbsp<input type="text" class="input-basic" id="pw"/>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" onclick="checkform('${id}')">탈퇴하기</button>
+        <button type="button" class="btn-cancel" data-bs-dismiss="modal">취소</button>
+        <button type="button" class="btn-basic" onclick="checkform('${id}')">탈퇴하기</button>
       </div>
     </div>
   </div>
@@ -50,7 +52,7 @@
 		회사를 통하여 회원에게 온라인으로 티켓을 판매하는 서비스를 말합니다.<br>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">확인</button>
+        <button type="button" class="btn-basic" data-bs-dismiss="modal">확인</button>
       </div>
     </div>
   </div>
@@ -61,16 +63,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">UpdatePassword</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">🔒 비밀번호 수정</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        비밀번호: <p id="innerpw"></p>
+		비밀번호를 아래와 같이 재설정 하시겠습니까?<br><br>
+		새 비밀번호 : <span id="innerpw" style="color:#efa635; font-weight:bold"></span>
       </div>
       <div class="modal-footer">
       <c:forEach var="m" items="${mlist}">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" onclick="updatepw('${id}','${m.memberPw}')">수정하기</button>
+        <button type="button" class="btn-cancel" data-bs-dismiss="modal">취소</button>
+        <button type="button" class="btn-basic" onclick="updatepw('${id}','${m.memberPw}')">수정하기</button>
       </c:forEach>
       </div>
     </div>
@@ -82,16 +85,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">UpdatePhoneNumber</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">📱휴대폰번호 수정</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        변경핸드폰번호:<p id="innerhp"></p>
+		휴대폰번호를 아래와 같이 변경 하시겠습니까?<br><br>
+		새 휴대폰번호 : <span id="innerhp" style="color:#efa635; font-weight:bold"></span>
       </div>
       <div class="modal-footer">
       <c:forEach var="m" items="${mlist}">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" onclick="updatehp('${id}','${m.memberHP}')">수정하기</button>
+        <button type="button" class="btn-cancel" data-bs-dismiss="modal">취소</button>
+        <button type="button" class="btn-basic" onclick="updatehp('${id}','${m.memberHP}')">수정하기</button>
       </c:forEach>
       </div>
     </div>

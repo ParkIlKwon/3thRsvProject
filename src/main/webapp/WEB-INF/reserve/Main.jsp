@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp" %>
-
+<div id="container" style="max-width:1200px; margin:auto">
 <main class="main">
-	<section class="rcmd" align="center">
+	<section class="rcmd">
 		<div class="swiper-container">
 		  <div class="swiper-wrapper">
 		    <div class="swiper-slide"><a><img src="${ctx}/img/slide1.jpg"></a></div>
@@ -43,6 +43,7 @@
 		<div class="conbox con3">스포츠내용</div>
 	</section>
 </main>
+</div>
 
 <script type = "text/javascript">
   new Swiper('.swiper-container', {
@@ -54,5 +55,4 @@
     },
   });
 </script>
-
 <%@ include file="./footer.jsp" %>

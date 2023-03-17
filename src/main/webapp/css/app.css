@@ -19,8 +19,8 @@ a{text-decoration:none;}
 
 .btn-cancel{
 	background-color:#adb5bd;
-	padding:5px;
-	border-radius:5px 7px;
+	padding:5px 7px;
+	border-radius:5px;
 	color:white;
 	border:none;
 	}
@@ -47,8 +47,17 @@ a{text-decoration:none;}
 }
 .btn-ltsm-basic:hover{background:#efa635;color:white;}
 
+.input-basic{
+	border:1px solid lightgray;
+	border-radius:5px;
+	color:#efa635;
+	padding-left:10px;
+}
+.input-basic:focus{
+	border:2px solid #efa635;
+}
+
 /* 네비게이션 */
-/* div[id=topMn]:hover{cursor: pointer; font-weight: bold;} */
 #topNv{font-size:0.8rem; text-align:right;}
 .nav-item{font-weight: bold;}
 #search{white-space : nowrap;}

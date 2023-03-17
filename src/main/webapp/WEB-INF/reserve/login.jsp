@@ -4,8 +4,8 @@
 <script type="text/javascript" src="script/Login.js" defer></script>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 
-<div class="container" align="center">
-	<div class="m-auto py-5" style="width:60%">
+<div class="container py-5" align="center">
+	<div class="col-md-4 py-5">
 		<font style="font-size:1.5rem; font-weight:bold;">
 		<font style="color:#efa635">티켓토리 </font>
 		로그인</font><br><br>

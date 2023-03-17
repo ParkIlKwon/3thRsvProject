@@ -10,7 +10,7 @@ a{text-decoration:none;}
 
 .btn-basic{
 	background-color:#efa635;
- 	width:100px;height:36px;
+	padding:5px 7px;
 	border-radius:5px;
 	color:white;
 	border:none;
@@ -19,8 +19,8 @@ a{text-decoration:none;}
 
 .btn-cancel{
 	background-color:#adb5bd;
- 	width:100px;height:36px;
-	border-radius:5px;
+	padding:5px;
+	border-radius:5px 7px;
 	color:white;
 	border:none;
 	}
@@ -29,12 +29,23 @@ a{text-decoration:none;}
 .btn-lt-basic{
 	border:1px solid #efa635;
 	background-color:#f9e7cb;
- 	width:100px;height:36px;
-	border-radius:5px;
+	padding:5px;
+	border-radius:5px 7px;
 	color:#efa635;
 	border:none;
 }
 .btn-lt-basic:hover{background:#efa635;color:white;}
+
+.btn-ltsm-basic{
+	border:1px solid #efa635;
+	background-color:#f9e7cb;
+ 	padding:2px;
+ 	font-size:0.8rem;
+	border-radius:5px;
+	color:#efa635;
+	border:none;
+}
+.btn-ltsm-basic:hover{background:#efa635;color:white;}
 
 /* 네비게이션 */
 div[id=topMn]:hover{cursor: pointer; font-weight: bold;}
@@ -68,19 +79,3 @@ input[id*="tab"]:checked+label {background:#f9e7cb;color:#000;}
 input[id="tab1"]:checked ~ .con1 {display:block;}
 input[id="tab2"]:checked ~ .con2 {display:block;}
 input[id="tab3"]:checked ~ .con3 {display:block;}
-
-/*약관동의 전문팝업*/
-/* button[id="showTerms"]{
-	border:1px solid #adb5bd;
-	padding:0 5px;
-	font-size:0.8rem;
-} */
-input[id="popupT"]{display:none;}
-input[id="popupT"]+label{
-	display:inline-block;
-	
-}
-	border:1px solid #adb5bd;
-	padding:0 5px;
-	font-size:0.8rem;
-}

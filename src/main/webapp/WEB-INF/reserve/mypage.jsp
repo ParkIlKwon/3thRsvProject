@@ -11,11 +11,11 @@
 	<div class="col-md-4 px-5" align="left">
 		<div class="p-2">회원 아이디 <font style="color:#efa635; font-size:1.2rem; font-weight:bold">${m.memberId}</font></div>
 		
-		<div class="p-2">비밀번호 <input type="password" class="form-control" id="memberHP" value="${m.memberHP}">
-		<button class="btn-ltsm-basic" data-bs-toggle="modal" data-bs-target="#deleteMember">수정하기</button></div>
+		<div class="p-2">비밀번호 <input type="password" class="form-control" id="memberpw" value="">
+		<button class="btn-ltsm-basic" data-bs-toggle="modal" data-bs-target="#updatePassword">수정하기</button></div>
 
 		<div class="p-2">휴대폰번호 <input type="text" class="form-control" id="memberHP" value="${m.memberHP}">
-		<button class="btn-ltsm-basic" data-bs-toggle="modal" data-bs-target="#deleteMember">수정하기</button></div>
+		<button class="btn-ltsm-basic" data-bs-toggle="modal" data-bs-target="#updateHP">수정하기</button></div>
 		
 	</div>
 	</c:forEach>

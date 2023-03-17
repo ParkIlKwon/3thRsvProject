@@ -33,6 +33,11 @@
  </select>
 
 
+     <update id="hpupdate" parameterType="member" >
+         update MEMBERLIST
+         set memberHP=#{memberHP} 
+         where memberId=#{memberId} 	 
+    </update>
 
 
 </mapper>

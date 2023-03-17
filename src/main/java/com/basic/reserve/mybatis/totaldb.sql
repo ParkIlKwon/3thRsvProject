@@ -22,6 +22,7 @@ select * from MEMBERLIST;
 delete from MEMBERLIST where memberId = "qwer" and memberPw = "1234";
 select memberId from MEMBERLIST where memberId="admin" and memberPw="admin";      
 
+
 create table TICKET(
 	id int auto_increment primary key, 
 	image VARCHAR(50) not null, #이미지이름

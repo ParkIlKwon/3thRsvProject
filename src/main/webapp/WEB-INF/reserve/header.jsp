@@ -46,11 +46,10 @@
 	  </div>
 	</nav>
 	
-	<nav class="navbar navbar-expand-md navbar-light"
-		style="background-color: #f9e7cb;">
+	<nav class="navbar navbar-expand-md navbar-light sticky-top" style="background-color: #f9e7cb;">
 		<div class="container-fluid" style="max-width:1200px; margin:auto">
 			<ul class="navbar-nav me-auto">
-				<li class="nav-item"><a class="nav-link active"
+				<li class="nav-item"><a class="navbar-brand nav-link active"
 					href="${ctx}/main.do">홈</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">영화</a></li>
 				<li class="nav-item dropdown"><a

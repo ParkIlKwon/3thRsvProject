@@ -63,7 +63,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">🔒 비밀번호 수정</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">🔒 비밀번호 변경</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -73,7 +73,7 @@
       <div class="modal-footer">
       <c:forEach var="m" items="${mlist}">
         <button type="button" class="btn-cancel" data-bs-dismiss="modal">취소</button>
-        <button type="button" class="btn-basic" onclick="updatepw('${id}','${m.memberPw}')">수정하기</button>
+        <button type="button" class="btn-basic" onclick="updatepw('${id}','${m.memberPw}')">변경하기</button>
       </c:forEach>
       </div>
     </div>
@@ -85,7 +85,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">📱휴대폰번호 수정</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">📱휴대폰번호 변경</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -95,16 +95,12 @@
       <div class="modal-footer">
       <c:forEach var="m" items="${mlist}">
         <button type="button" class="btn-cancel" data-bs-dismiss="modal">취소</button>
-        <button type="button" class="btn-basic" onclick="updatehp('${id}','${m.memberHP}')">수정하기</button>
+        <button type="button" class="btn-basic" onclick="updatehp('${id}','${m.memberHP}')">변경하기</button>
       </c:forEach>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
 
 
 </body>

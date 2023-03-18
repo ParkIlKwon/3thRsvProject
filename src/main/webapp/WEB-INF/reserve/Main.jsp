@@ -5,9 +5,9 @@
 	<section class="rcmd">
 		<div class="swiper-container">
 		  <div class="swiper-wrapper">
-		    <div class="swiper-slide"><a><img src="${ctx}/img/slide1.jpg"></a></div>
-		    <div class="swiper-slide"><a><img src="${ctx}/img/slide2.jpg"></a></div>
-		    <div class="swiper-slide"><a><img src="${ctx}/img/slide3.jpg"></a></div>
+		    <div class="swiper-slide"><a href="#"><img src="${ctx}/img/slide1.jpg"></a></div>
+		    <div class="swiper-slide"><a href="#"><img src="${ctx}/img/slide2.jpg"></a></div>
+		    <div class="swiper-slide"><a href="#"><img src="${ctx}/img/slide3.jpg"></a></div>
 		  </div>
 		</div>
 	</section>

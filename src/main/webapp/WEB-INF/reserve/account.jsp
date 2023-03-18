@@ -34,12 +34,12 @@
 				</div>
 			</div>
 		</div>
-	</form>
 	<p class="pt-3"><input type="checkbox" id="terms"> [필수] 이용약관 동의&nbsp
 		<input type="button" data-bs-toggle="modal" data-bs-target="#showterms" value="전문보기" style="font-size:0.7rem">
 	</p>
 	<p class="py-3"><input class="btn-basic" type="submit" value="회원가입"/> &nbsp
 	<input type="reset" value="취소" class="btn-cancel"/></p>	
+	</form>
 </div>
 
 <div align="center"><%@ include file="./footer.jsp" %></div>

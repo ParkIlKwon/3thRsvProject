@@ -6,7 +6,7 @@ public class Board {
 	private String memberId;
 	private String title;
 	private String body;
-	private String date;
+	private String writedate;
 	
 	public Board(){}
 	
@@ -15,7 +15,7 @@ public class Board {
 		this.memberId = memberId;
 		this.title = title;
 		this.body = body;
-		this.date = date;
+		this.writedate = date;
 	}
 	public int getId() {
 		return id;
@@ -42,10 +42,10 @@ public class Board {
 		this.body = body;
 	}
 	public String getDate() {
-		return date;
+		return writedate;
 	}
 	public void setDate(String date) {
-		this.date = date;
+		this.writedate = date;
 	}
 	
 	

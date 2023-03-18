@@ -9,7 +9,7 @@
 		<result property="memberId" column="memberId" />
 		<result property="title" column="title" />
 		<result property="body" column="body" />
-		<result property="date" column="date" />
+		<result property="writedate" column="writedate" />
 	</resultMap>
   
     <select id="selectAllBoard" resultMap="board">

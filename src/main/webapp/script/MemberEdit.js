@@ -27,7 +27,6 @@ function checkform(id){
 
 function updatepw(id,pw){
 
-	alert(pw)
 	if(frontcheck(id,$("#memberpw").val()) == false){
 		return;
 	}else if(pw == $("#memberpw").val()){
@@ -90,7 +89,13 @@ $(document).on("click", "#hpbtn", function () {
 });
 
 
+function cancelpw(){
+	 $("#memberpw").val("");
+}
 
+function cancelhp(){
+	 $("#memberHP").val("");
+}
 
 
 

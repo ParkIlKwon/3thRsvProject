@@ -1,4 +1,3 @@
-ctx = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
 
 function checkform() {
 	
@@ -34,4 +33,7 @@ function existdate(data,msg){
 	return true;
 }
 
+function test(){
+	alert("들어옴");
+}
 

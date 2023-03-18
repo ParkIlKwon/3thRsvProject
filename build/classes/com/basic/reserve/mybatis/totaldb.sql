@@ -40,6 +40,20 @@ create table TICKET(
 	star float(5) not null #평점 
 )
 
+create table coupon (
+	id int auto_increment primary key, 
+	memberId varchar(20) not null, #소유자아이디
+	name varchar(20) not null, #쿠폰이름 
+	couponvalue int(10) not null, #쿠폰액수
+	dateStart varchar(20) not null,  #발급일
+	dateEnd varchar(20) not null,  #마감일
+	
+	CONSTRAINT fk_Cp_id FOREIGN KEY(memberId) REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE
+)
+
+
+
+
 select * from TICKET;
 delete from TICKET;
 TRUNCATE TABLE TICKET;
@@ -60,7 +74,7 @@ create table BOARD(
 	memberId varchar(30) not null, #글쓴이
 	title varchar(20) not null, #제목
 	body varchar(100) not null, #내용
-	date varchar(20) not null, #글쓴날짜
+	writedate varchar(20) not null, #글쓴날짜
 	CONSTRAINT fk_id FOREIGN KEY (memberId) 
     REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE
 )
@@ -86,7 +100,7 @@ create table RESERVELIST(
 	reserveSeatNum int(5) not null, #예약한좌석번호
 	reservePrice int(5) not null, #예약가격
 	
-	CONSTRAINT fk_Res_id FOREIGN KEY(memberId) REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE #확인요망
+	CONSTRAINT fk_Res_id FOREIGN KEY(memberId) REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE
 );
 
 

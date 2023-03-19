@@ -22,59 +22,59 @@
 </head>
 
 <body>
-<header>
-	<nav class="navbar navbar-expand-md navbar-light px-2" id="topNv" style="background-color:none; max-width:1200px; margin:auto">
-	  <div class="container-fluid">
-	  	<img src="${ctx}/img/logo.png" alt="로고" onclick="location.href ='${ctx}/main.do'" style="cursor:pointer; width:240px">
+<header class="sticky-top" style="background:white;">
+	<nav class="navbar navbar-expand-md navbar-light px-2" id="topNv" style="background-color:none; margin:auto">
+	  <div class="container-fluid" style="max-width:1200px;">
+	  	<img class="logo" src="${ctx}/img/logo.png" alt="Ticketory" onclick="location.href ='${ctx}/main.do'" >
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerList" aria-controls="navbarTogglerList" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	    </button>
 	    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerList">
-			<ul class="nav topNv p-2">
+			<ul class="nav topNv">
 				<c:if test="${id eq null}">
-				<li class="nav-item"><a class="nav-link text-basic" href="${ctx}/login.do">로그인</a></li>
-				<li class="nav-item"><a class="nav-link text-basic" style="font-color:black" href="${ctx}/account.do">회원가입</a></li>
+				<li><a class="text-basic" href="${ctx}/login.do">로그인</a></li>
+				<li><a class="text-basic" style="font-color:black" href="${ctx}/account.do">회원가입</a></li>
 				</c:if>
 				<c:if test="${id ne null}">
-				<li class="nav-item"><a class="nav-link text-basic" href="${ctx}/logout.do">${id}님 로그아웃</a></li>
+				<li><a class="text-basic" href="${ctx}/logout.do">${id}님 로그아웃</a></li>
 				</c:if>
-				<li class="nav-item"><a class="nav-link text-basic" href="#">예약확인/취소</a></li>
-				<li class="nav-item"><a class="nav-link text-basic" href="${ctx}/mypage.do">마이 페이지</a></li>
-				<li class="nav-item"><a class="nav-link text-basic" href="${ctx}/board.do">고객센터</a></li>
+				<li><a class="text-basic" href="#">예약확인/취소</a></li>
+				<li><a class="text-basic" href="${ctx}/mypage.do">마이 페이지</a></li>
+				<li><a class="text-basic" href="${ctx}/board.do">고객센터</a></li>
 			</ul>
 	    </div>
 	  </div>
 	</nav>
 	
-	<nav class="navbar navbar-expand-md navbar-light sticky-top" style="background-color: #f9e7cb;">
-		<div class="container-fluid" style="max-width:1200px; margin:auto">
-			<ul class="navbar-nav me-auto">
-				<li class="nav-item"><a class="navbar-brand nav-link active"
-					href="${ctx}/main.do">홈</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">영화</a></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-					href="#" role="button" aria-haspopup="true" aria-expanded="false">공연</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">뮤지컬</a> <a
-							class="dropdown-item" href="#">연극</a> <a class="dropdown-item"
-							href="#">콘서트</a>
-					</div></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-					href="#" role="button" aria-haspopup="true" aria-expanded="false">스포츠</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">야구</a> <a class="dropdown-item"
-							href="#">축구</a> <a class="dropdown-item" href="#">농구</a>
-					</div></li>
-			</ul>
+	<nav class="navbar md-nav">
+		<div class="container-fluid" style="max-width:1200px;">
+		<ul class="nav_menu">
+			<li class="nav-item"><a class="navbar-brand text-basic active"
+				href="${ctx}/main.do">홈</a></li>
+			<li><a class="text-basic" href="#">영화</a></li>
+			<li class="nav-item dropdown"><a
+				class="text-basic dropdown-toggle" data-bs-toggle="dropdown"
+				href="#" role="button" aria-haspopup="true" aria-expanded="false">공연</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">뮤지컬</a> <a
+						class="dropdown-item" href="#">연극</a> <a class="dropdown-item"
+						href="#">콘서트</a>
+				</div></li>
+			<li class="nav-item dropdown"><a
+				class="text-basic dropdown-toggle" data-bs-toggle="dropdown"
+				href="#" role="button" aria-haspopup="true" aria-expanded="false">스포츠</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">야구</a> <a class="dropdown-item"
+						href="#">축구</a> <a class="dropdown-item" href="#">농구</a>
+				</div></li>
+		</ul>
 			<div class="d-none d-lg-block">
-				<form class="d-flex">
-					<input class="form-control me-sm-1" type="search"
-						placeholder="Search" id="searchData">
-					<button class="btn btn-secondary btn-sm btn-block" type="button"
-						onclick="checkSearch()" id="search">검색</button>
-				</form>
+			<form class="d-flex">
+				<input class="form-control me-sm-1" type="search"
+					placeholder="Search" id="searchData">
+				<button class="btn btn-secondary btn-sm btn-block" type="button"
+					onclick="checkSearch()" id="search">검색</button>
+			</form>
 			</div>
 		</div>
 	</nav>

@@ -24,7 +24,7 @@
 			<div class="mycards">
 			    <div class="row row-cols-1 row-cols-md-3 g-4">
 				<c:forEach var="r" items="${rankshow}">
-			        <div class="col" onclick="location.href='contents.jsp?title=${r.title}'" style="cursor:pointer;">
+			        <div class="col" onclick="location.href='${ctx}/contents.do?title=${r.title}'" style="cursor:pointer;">
 			            <div class="card">
 			                <img src="img/${r.image}" class="card-img-top" alt="...">
 			                <div class="card-body">

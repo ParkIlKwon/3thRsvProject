@@ -30,7 +30,7 @@
 </select>
 	
 	<select id="selectiveTicket" parameterType="String" resultMap="ticket">
-  select * from TICKET where title like CONCAT('%',#{Title},'%')
+  select * from TICKET where title like CONCAT('%',#{title},'%')
 </select>
 	
 	<select id="getNewShow" resultMap="ticket">

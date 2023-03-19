@@ -1,4 +1,4 @@
-ctx = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+let ctx2 = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
 
 function checkSearch(){
 	if(!$.trim($("#searchData").val())){
@@ -9,7 +9,7 @@ function checkSearch(){
 		let data = $("#searchData").val();
 			$.ajax({
 			type : "POST",
-			url : ctx+"/search.do",
+			url : ctx2+"/search.do",
 			data : {"searchData":data},
 			success : function() {
 				window.location.href = "search.do";

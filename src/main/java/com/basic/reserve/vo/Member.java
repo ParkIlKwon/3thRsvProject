@@ -52,4 +52,26 @@ public class Member {
 		this.memberHP = memberHP;
 	}
 	  
+	public void name() {
+
+	}
+	
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

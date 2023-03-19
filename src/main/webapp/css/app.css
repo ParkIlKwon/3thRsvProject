@@ -1,14 +1,12 @@
 @charset "UTF-8";
 
 *{margin:0;	padding:0; color:#212529;}
-html{height:100%;}
+/* html{height:100%;} */
 a{text-decoration:none;}
 
-.text-basic{color:#343a40;}
+.text-basic{color:#70685C;font-weight: bold;}
 .text-basic:hover{color:#efa635;}
 .text-basic:active{color:#efa635;}
-
-ul li{display:inline;}
 
 .btn-basic{
 	background-color:#efa635;
@@ -55,14 +53,14 @@ ul li{display:inline;}
 	color: #212529;
 	padding:2px 1px 2px 10px;
 }
-/* .input-basic:focus{
-	border:1px solid #efa635;
-}
- */
+
 /* 네비게이션 */
-#topNv{font-size:0.8rem; text-align:right;}
-.nav-item{font-weight: bold;}
+.logo{cursor:pointer; width:240px;}
+.topNv{font-size:0.9rem;}
+.md-nav{background-color: #f9e7cb; font-size:1.1rem;}
 #search{white-space : nowrap;}
+.nav_menu {padding:5px 20px; margin:0}
+ul li{list-style-type:none; display:inline-block; margin-right:20px;}
 
 /*추천페이지 슬라이드*/
 input[type="radio"]{display:none;}

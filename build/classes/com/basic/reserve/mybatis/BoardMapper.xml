@@ -13,11 +13,11 @@
 	</resultMap>
   
     <select id="selectAllBoard" resultMap="board">
-  SELECT * FROM BOARD
+  SELECT * FROM board
 </select>
 
 	<delete id="deleteBoard" parameterType="int">
-	delete from BOARD WHERE id=#{id}
+	delete from board WHERE id=#{id}
 	</delete>
 
 

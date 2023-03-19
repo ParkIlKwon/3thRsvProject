@@ -26,20 +26,19 @@
 	</resultMap>
 	
 	  <select id="selectAllTicket" resultMap="ticket">
-  SELECT * FROM TICKET
+  SELECT * FROM ticket
 </select>
 	
 	<select id="selectiveTicket" parameterType="String" resultMap="ticket">
-  select * from TICKET where title like CONCAT('%',#{title},'%')
+  select * from ticket where title like CONCAT('%',#{title},'%')
 </select>
 	
 	<select id="getNewShow" resultMap="ticket">
-	select * from TICKET where Category ="공연" order by DateStart DESC LIMIT 3
+	select * from ticket where Category ="공연" order by DateStart DESC LIMIT 3
 	</select>
 	
-	
 	<select id="getRankingShow" resultMap="ticket">
-	 select * from TICKET where Category ="공연" order by Star DESC LIMIT 3
+	 select * from ticket where Category ="공연" order by Star DESC LIMIT 3
 	</select>
 	
 </mapper>

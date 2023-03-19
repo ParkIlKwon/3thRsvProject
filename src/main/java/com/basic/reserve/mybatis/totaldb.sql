@@ -2,7 +2,7 @@ create database reservedb;
 
 USE reservedb;
 
-create table  MEMBERLIST(
+create table  memberlist(
   id int auto_increment primary key, #유저고유넘버
   memberName varchar(20) not null, #사용자이름
   memberId varchar(30) unique key not null, #사용자아이디
@@ -10,25 +10,25 @@ create table  MEMBERLIST(
   memberHP varchar(30) not null #사용자핸드폰번호
 );
 
-INSERT INTO MEMBERLIST(memberName, memberId, memberPw, memberHP)
+INSERT INTO memberlist(memberName, memberId, memberPw, memberHP)
 VALUES
   ('관리자', 'admin', 'admin', '010-555-1234'),
   ('테스트1', 'qwer', '1234', '010-555-5678'),
   ('테스트2', 'abcd', '1234', '010-555-9012');
 
-delete from MEMBERLIST;
-drop table MEMBERLIST;
-select * from MEMBERLIST;
-delete from MEMBERLIST where memberId = "qwer" and memberPw = "1234";
-select memberId from MEMBERLIST where memberId="admin" and memberPw="admin";      
+delete from memberlist;
+drop table memberlist;
+select * from memberlist;
+delete from memberlist where memberId = "qwer" and memberPw = "1234";
+select memberId from memberlist where memberId="admin" and memberPw="admin";      
 
 
-create table TICKET(
+create table ticket(
 	id int auto_increment primary key, 
 	image VARCHAR(50) not null, #이미지이름
 	contents VARCHAR(50) not null, #세부항목
 	category varchar(20) not null, #카테고리
-	title varchar(20) not null,  #제목
+	title varchar(20) unique key not null,  #제목
 	dateStart varchar(20) not null,  #시작일
 	dateEnd varchar(20) not null,  #끝일
 	info varchar(100) not null,  #소개
@@ -48,20 +48,19 @@ create table coupon (
 	dateStart varchar(20) not null,  #발급일
 	dateEnd varchar(20) not null,  #마감일
 	
-	CONSTRAINT fk_Cp_id FOREIGN KEY(memberId) REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE
+	CONSTRAINT fk_Cp_id FOREIGN KEY(memberId) REFERENCES memberlist(memberId) ON DELETE CASCADE
 )
 
 
 
+select * from ticket;
+delete from ticket;
+TRUNCATE TABLE ticket;
+drop TABLE ticket;
+ select * from ticket where Title like CONCAT('%',"하",'%');
+ select * from ticket where Category ="공연" order by Star DESC LIMIT 3;
 
-select * from TICKET;
-delete from TICKET;
-TRUNCATE TABLE TICKET;
-drop TABLE TICKET;
- select * from TICKET where Title like CONCAT('%',"하",'%');
- select * from TICKET where Category ="공연" order by Star DESC LIMIT 3;
-
-INSERT INTO TICKET (image, Contents, Category, Title, DateStart, DateEnd, Info, Location, Duration, SeatNum, Price, Discount, Star)
+INSERT INTO ticket (image, Contents, Category, Title, DateStart, DateEnd, Info, Location, Duration, SeatNum, Price, Discount, Star)
 VALUES
 ('test1.jpg', '콘서트', '공연', '아이유 콘서트', '2022-05-01', '2022-05-03', '아이유의 새로운 앨범 라이브 공연', '서울 예술의전당', 120, 100, 50000, 45000, 4),
 ('test2.jpg', '뮤지컬', '공연', '레미제라블', '2022-06-01', '2022-06-10', '빅토르 위고의 역사적인 이야기를 담은 뮤지컬', '씨어터 삼각지', 150, 200, 80000, 70000, 4.5),
@@ -69,29 +68,32 @@ VALUES
 ('test4.jpg', '야구', '스포츠', '한화 이글스 경기', '2022-04-01', '2022-04-05', '한화 이글스의 홈 경기를 관람하세요', '인천 SK 행복드림구장', 180, 300, 25000, 20000, 4),
 ('test5.jpg', '연극', '공연', '하이큐!!', '2022-08-01', '2022-08-15', '인기 만화 하이큐!!를 연극으로 재현한 공연', '대학로 소극장', 120, 100, 40000, 35000, 4.5);
 
-create table BOARD(
+
+create table board(
 	id int auto_increment primary key, 
 	memberId varchar(30) not null, #글쓴이
 	title varchar(20) not null, #제목
 	body varchar(100) not null, #내용
 	writedate varchar(20) not null, #글쓴날짜
 	CONSTRAINT fk_id FOREIGN KEY (memberId) 
-    REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE
+    REFERENCES memberlist(memberId) ON DELETE CASCADE
 )
 
-INSERT INTO BOARD (memberId, Title, Body, Date) VALUES
+INSERT INTO board (memberId, title, body, writedate) VALUES
 ('qwer', '첫번째 글', '안녕하세요. 첫번째 글입니다.', '2022-01-01'),
 ('qwer', '두번째 글', '안녕하세요. 두번째 글입니다.', '2022-01-02'),
 ('qwer', '세번째 글', '안녕하세요. 세번째 글입니다.', '2022-01-03'),
 ('abcd', '네번째 글', '안녕하세요. 네번째 글입니다.', '2022-01-04'),
 ('abcd', '다섯번째 글', '안녕하세요. 다섯번째 글입니다.', '2022-01-05');
 
-drop table BOARD;
-select * from BOARD;
-delete from BOARD;
-TRUNCATE TABLE BOARD;
+drop table board;
+select * from board;
+delete from board;
+TRUNCATE TABLE board;
 
-create table RESERVELIST(
+drop table reservelist;
+
+create table reservelist(
 	id int auto_increment primary key, #예약고유번호
     memberId varchar(20) not null, #예약한사람아이디
 	reserveTitle varchar(20) not null, #예약제목
@@ -100,8 +102,38 @@ create table RESERVELIST(
 	reserveSeatNum int(5) not null, #예약한좌석번호
 	reservePrice int(5) not null, #예약가격
 	
-	CONSTRAINT fk_Res_id FOREIGN KEY(memberId) REFERENCES MEMBERLIST(memberId) ON DELETE CASCADE
+	CONSTRAINT fk_Res_id FOREIGN KEY(memberId) REFERENCES memberlist(memberId) ON DELETE CASCADE
 );
+
+create table place(
+	id int auto_increment primary key, #장소고유번호
+	name varchar(20) not null, #해당장소 이름
+	title varchar(20) not null, #해당 티켓 제목
+	image varchar(50) not null, #해당장소 이미지
+	
+	CONSTRAINT fk_pl_id FOREIGN KEY(title) REFERENCES ticket(title) ON DELETE CASCADE
+)
+
+drop table place;
+select * from place;
+delete from place;
+TRUNCATE TABLE place;
+
+INSERT INTO place (name, title, image,) VALUES
+('서울 예술의전당', '아이유 콘서트', '서울예술의전당.jpg'),
+('씨어터 삼각지', '레미제라블', '씨어터삼각지.jpg'),
+('대학로 소극장', '하이큐!!', '대학로소극장.jpg'),
+('인천 SK 행복드림구장', '한화 이글스 경기', '인천SK행복드림구장.jpg');
+
+
+INSERT INTO ticket (image, Contents, Category, Title, DateStart, DateEnd, Info, Location, Duration, SeatNum, Price, Discount, Star)
+VALUES
+('test1.jpg', '콘서트', '공연', '아이유 콘서트', '2022-05-01', '2022-05-03', '아이유의 새로운 앨범 라이브 공연', '서울 예술의전당', 120, 100, 50000, 45000, 4),
+('test2.jpg', '뮤지컬', '공연', '레미제라블', '2022-06-01', '2022-06-10', '빅토르 위고의 역사적인 이야기를 담은 뮤지컬', '씨어터 삼각지', 150, 200, 80000, 70000, 4.5),
+('test3.jpg', '영화', '영화', '빈센트 반 고흐 전시', '2022-07-01', '2022-07-30', '세계적인 화가 빈센트 반 고흐의 대표작품들이 전시됩니다', '국립 현대미술관', 90, 50, 30000, 25000, 3.5),
+('test4.jpg', '야구', '스포츠', '한화 이글스 경기', '2022-04-01', '2022-04-05', '한화 이글스의 홈 경기를 관람하세요', '인천 SK 행복드림구장', 180, 300, 25000, 20000, 4),
+('test5.jpg', '연극', '공연', '하이큐!!', '2022-08-01', '2022-08-15', '인기 만화 하이큐!!를 연극으로 재현한 공연', '대학로 소극장', 120, 100, 40000, 35000, 4.5);
+
 
 
 

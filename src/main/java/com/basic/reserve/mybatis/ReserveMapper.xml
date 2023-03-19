@@ -18,16 +18,16 @@
  	</resultMap>
  
  <select id="selectAllReserve" resultMap="reserve">
- SELECT * from RESERVELIST
+ SELECT * from reservelist
  </select>
  
   <insert id="addReserve" parameterType="reserve">
- INSERT INTO RESERVELIST(memberId, reserveTitle, reserveDate, reserveLocation, reserveSeatNum, reservePrice)
+ INSERT INTO reservelist(memberId, reserveTitle, reserveDate, reserveLocation, reserveSeatNum, reservePrice)
 VALUES (#(memberId),#(reserveTitle),#(reserveDate),#(reserveLocation),#(reserveSeatNum),#(reservePrice))
  </insert>
  
  <delete id="memberDelete" parameterType="int">
-  delete from RESERVELIST where id = #(id)
+  delete from reservelist where id = #(id)
 </delete>
  
  

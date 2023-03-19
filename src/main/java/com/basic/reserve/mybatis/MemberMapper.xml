@@ -12,35 +12,35 @@
 	</resultMap>
 
   <select id="selectAllMembers" resultMap="member">
-  SELECT * FROM MEMBERLIST
+  SELECT * FROM memberlist
 </select>
 
  <select id="memberLogin" parameterType="member" resultType="String">
-   select memberId from MEMBERLIST where memberId=#{memberId} and memberPw=#{memberPw}       
+   select memberId from memberlist where memberId=#{memberId} and memberPw=#{memberPw}       
  </select>
  
  <insert id="memberAccount" parameterType="member">
- INSERT INTO MEMBERLIST(memberName, memberId, memberPw, memberHP)
+ INSERT INTO memberlist(memberName, memberId, memberPw, memberHP)
         VALUES (#{memberName},#{memberId},#{memberPw},#{memberHP})
  </insert>
 
 <delete id="memberDelete" parameterType="String">
-  delete from MEMBERLIST where memberId = #{memberId} and memberPw = #{memberPw}
+  delete from memberlist where memberId = #{memberId} and memberPw = #{memberPw}
 </delete>
 
  <select id="selectOneMembers" parameterType="member" resultMap="member">
-   select * from MEMBERLIST where memberId=#{memberId}       
+   select * from memberlist where memberId=#{memberId}       
  </select>
 
 
      <update id="hpupdate" parameterType="member" >
-         update MEMBERLIST
+         update memberlist
          set memberHP=#{memberHP} 
          where memberId=#{memberId} 	 
     </update>
     
        <update id="updatePw" parameterType="member" >
-         update MEMBERLIST
+         update memberlist
          set memberPw=#{memberPw} 
          where memberId=#{memberId} 	 
     </update>

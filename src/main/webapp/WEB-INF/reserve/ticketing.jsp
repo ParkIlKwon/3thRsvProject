@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp" %>    
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@
 </head>
 <body>
 	
-	<button class="btn btn-primary">¿¹¸ÅÇÏ·¯°¡±â !</button>
+	<button class="btn btn-primary">ì˜ˆë§¤í•˜ëŸ¬ê°€ê¸° !</button>
 	
 </body>
 

@@ -9,22 +9,18 @@ import javax.servlet.http.HttpServletResponse;
 import com.basic.reserve.frontController.Controller;
 import com.basic.reserve.vo.Reserve;
 
-public class ReserveController implements Controller{
+public class TicketingController implements Controller{
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		if(request.getParameter("title") == null) {
-			return "reserve";
+		if(request.getParameter("placename") == null) {
+			return "ticketing";
 		}else {
-			Reserve res = new Reserve();
-			res.setId(Integer.parseInt(request.getParameter("id")));
 			
-			
+			return "ticketingpro";
 		}
-		
-		return "Main";
 	}
 
 }

@@ -22,8 +22,10 @@ function checkform() {
 		return false;
 	}else if(is_checked == false){
 		alert("약관동의에 체크하여 주세요.");
+		return false;
 	}else if(checkDuplication == 0){
 		alert("아이디중복체크해주세요.");
+		return false;
 	}else{
 		alert("회원가입성공");
 		return true;
@@ -43,6 +45,8 @@ function dupcheck(){
 			success : function(data) {
 				if(data == "1"){
 					checkDuplication = 0;
+					alert("아이디가 중복됩니다.!");
+					$("#id").css("border","3px orange solid")
 				}else{
 					checkDuplication = 1;
 					alert("사용가능한 아이디입니다.");

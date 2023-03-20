@@ -20,7 +20,7 @@ public class IdCheckController implements Controller {
 		Member m = new Member();
 		m.setMemberId(request.getParameter("id"));
 
-		String log = MemberDAO.getInstance().login(m);
+		String log = MemberDAO.getInstance().validcheck(m);
 		
 		if(log ==null) {
 			response.getWriter().print("null");

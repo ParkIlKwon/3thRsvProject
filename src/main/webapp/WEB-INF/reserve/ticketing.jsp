@@ -10,9 +10,12 @@
 				</div>
 				<div class="ps-2"">
 					<div class="p-2"><h2><b>${t.title}&nbsp;</b></h2>
-						<span id="running" class="btn-sm-blue">진행중</span>
-						<span id="running" class="btn-sm-red">종료</span>
-						<span id="running" class="btn-sm-green">예정</span>
+					${now}
+						<c:if test="${now}>=${t.dateStart} && ${now}<=${t.dateEnd}"><span id="running" class="btn-sm-blue">진행중</span></c:if>
+						<c:if test="${now} lt ${t.dateStart}"><span id="running" class="btn-sm-green">예정</span></c:if>
+						<c:if test="${now} gt ${t.dateEnd}"><span id="running" class="btn-sm-red">종료</span></c:if>
+				<!-- 		<span id="running" class="btn-sm-red">종료</span>
+						<span id="running" class="btn-sm-green">예정</span> -->
 					</div>
 					<div class="p-2"><b>[${t.category} > ${t.contents}]</b></div>
 					<div class="p-2"><b>날짜 :</b> ${t.dateStart} ~ ${t.dateEnd}</div>
@@ -26,7 +29,7 @@
 				</div>
 				
 				<div id="reserve" style="width:100rem;">
-				<div style="margin: 10px; border-bottom: 2px solid; color: #efa635"></div>
+				<div style="border-bottom: 2px solid; color: #efa635"></div>
 				<h2><b>[예매하기]</b></h2>
 				날짜 선택
 				시간 선택

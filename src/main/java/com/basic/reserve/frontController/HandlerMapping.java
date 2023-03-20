@@ -16,7 +16,6 @@ public class HandlerMapping {
 		mapping.put("/logout.do", new LogoutController());
 		mapping.put("/mypage.do", new MyPageController());
 		mapping.put("/update.do",new UpdateController());
-		mapping.put("/getRank.do",new GetRankController());
 		
 		mapping.put("/board.do", new boardController());
 		mapping.put("/boardDelete.do", new boardController());

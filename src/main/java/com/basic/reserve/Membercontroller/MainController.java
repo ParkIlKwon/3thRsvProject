@@ -21,14 +21,17 @@ public class MainController implements Controller {
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
 		String page = "Main";
 		List<Ticket>newshow = TicketDAO.getInstance().getNewShow();
+		List<Ticket>rankmovie = TicketDAO.getInstance().getRankingMovie();
 		List<Ticket>rankshow = TicketDAO.getInstance().getRankingShow();
+		List<Ticket>ranksports = TicketDAO.getInstance().getRankingSports();
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("newshow", newshow);
 		session.setAttribute("rankshow", rankshow);
+		session.setAttribute("rankmovie", rankmovie);
+		session.setAttribute("ranksports", ranksports);
 		
 		
 		if(request.getParameter("page") != null) {
@@ -41,7 +44,6 @@ public class MainController implements Controller {
 		List<Member>list = MemberDAO.getInstance().getOneMemberList(m);
 		session.setAttribute("mlist", list);
 		}
-		
 		
 		return page;
 	}

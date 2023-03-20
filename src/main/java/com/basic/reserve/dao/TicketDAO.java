@@ -42,9 +42,16 @@ public class TicketDAO {
 		return list;
 	}
 	
-	public List<Ticket>getRanking(Ticket t){
+	public List<Ticket>getRankingMovie(){
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
-		List<Ticket> list = session.selectList("mapper.ticket.getRanking",t);
+		List<Ticket> list = session.selectList("mapper.ticket.getRankingmovie");
+		session.close();
+		return list;
+	}
+	
+	public List<Ticket>getRankingSports(){
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		List<Ticket> list = session.selectList("mapper.ticket.getRankingSports");
 		session.close();
 		return list;
 	}

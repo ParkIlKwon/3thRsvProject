@@ -24,16 +24,23 @@ public class boardController implements Controller {
 		int currentPage = 1;
 		int onepage = 4;
 		int totalBoardCnt = list.size();
+		int paging = totalBoardCnt / onepage + 1;
+		int endidx = 0;
 		
 		if(request.getParameter("pnum") != null) {
 			currentPage = Integer.parseInt(request.getParameter("pnum"));
+		}else {
+			currentPage = 1;
 		}
 		
-		for (int i = 0; i < onepage; i++) {
+		int startidx = onepage * (currentPage - 1);
+		
+		for (int i = startidx; i < onepage; i++) {
 			temp.add(list.get(i));
 		}
 		
-		session.setAttribute("blist", list);
+		session.setAttribute("blist", temp);
+		session.setAttribute("paging", paging);
 		
 		return "board";
 	}

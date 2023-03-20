@@ -51,7 +51,6 @@
             </div>
           </div>
 
-          <!-- F.A.Q Group 1 -->
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">티켓토리 고객님들의 FAQ</h5>
@@ -77,14 +76,17 @@
               </div>
 
             </div>
-          </div><!-- End F.A.Q Group 1 -->
+          </div>
 
         </div>
 
       </div>
+      <c:forEach var ="n" begin="1" end="${paging}">
+      <a href="">${n}</a>	
+      </c:forEach>
     </section>
 
-  </main><!-- End #main -->
+  </main>
 
 </body>
 </html>

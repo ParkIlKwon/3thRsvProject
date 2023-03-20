@@ -1,6 +1,7 @@
 package com.basic.reserve.Membercontroller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -18,6 +19,10 @@ public class LoginController implements Controller {
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String next = "";
+		response.setContentType("text/html;charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+
 		if(request.getParameter("id") == null) {
 			next = "login";
 		}else {
@@ -31,7 +36,7 @@ public class LoginController implements Controller {
 			if(log != null){
 				session.setAttribute("id", log);
 				response.getWriter().print("1");
-			
+
 			}else {
 				response.getWriter().print("null");
 			}

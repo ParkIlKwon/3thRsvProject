@@ -1,6 +1,7 @@
 package com.basic.reserve.Membercontroller;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -22,6 +23,7 @@ public class MainController implements Controller {
 			throws ServletException, IOException {
 		
 		String page = "Main";
+		LocalDate now = LocalDate.now();
 		List<Ticket>newshow = TicketDAO.getInstance().getNewShow();
 		List<Ticket>rankmovie = TicketDAO.getInstance().getRankingMovie();
 		List<Ticket>rankshow = TicketDAO.getInstance().getRankingShow();
@@ -43,6 +45,7 @@ public class MainController implements Controller {
 		m.setMemberId((String)session.getAttribute("id"));	
 		List<Member>list = MemberDAO.getInstance().getOneMemberList(m);
 		session.setAttribute("mlist", list);
+		session.setAttribute("now", now);
 		}
 		
 		return page;

@@ -32,10 +32,11 @@ public class boardController implements Controller {
 		}else {
 			currentPage = 1;
 		}
+		endidx = currentPage == paging ? totalBoardCnt % onepage : onepage * currentPage ;
 		
 		int startidx = onepage * (currentPage - 1);
 		
-		for (int i = startidx; i < onepage; i++) {
+		for (int i = startidx; i < endidx + startidx; i++) {
 			temp.add(list.get(i));
 		}
 		

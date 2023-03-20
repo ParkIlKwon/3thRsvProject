@@ -82,7 +82,7 @@
 
       </div>
       <c:forEach var ="n" begin="1" end="${paging}">
-      <a href="">${n}</a>	
+      <a href="${ctx}/board.do?pnum=${n}">${n}</a>	
       </c:forEach>
     </section>
 

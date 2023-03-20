@@ -27,7 +27,6 @@ a{text-decoration:none;}
 .btn-cancel:hover{background:#6c757d ;}
 
 .btn-lt-basic{
-	border:1px solid #efa635;
 	background-color:#f9e7cb;
 	padding:5px;
 	border-radius:5px 7px;
@@ -37,7 +36,6 @@ a{text-decoration:none;}
 .btn-lt-basic:hover{background:#efa635;color:white;}
 
 .btn-ltsm-basic{
-	border:1px solid #efa635;
 	background-color:#f9e7cb;
  	padding:2px 4px;
  	font-size:0.8rem;
@@ -46,6 +44,36 @@ a{text-decoration:none;}
 	border:none;
 }
 .btn-ltsm-basic:hover{background:#efa635;color:white;}
+
+.btn-sm-blue{
+	background-color:#0080c0;
+ 	padding:2px 4px;
+ 	font-size:0.8rem;
+	border-radius:5px;
+	color:white;
+	font-weight:bold;
+	border:none;
+}
+
+.btn-sm-red{
+	background-color:#ff5b5b;
+ 	padding:2px 4px;
+ 	font-size:0.8rem;
+	border-radius:5px;
+	color:white;
+	font-weight:bold;
+	border:none;
+}
+
+.btn-sm-green{
+	background-color:#008040;
+ 	padding:2px 4px;
+ 	font-size:0.8rem;
+	border-radius:5px;
+	color:white;
+	font-weight:bold;
+	border:none;
+}
 
 .input-basic{
 	border:1px solid lightgray;

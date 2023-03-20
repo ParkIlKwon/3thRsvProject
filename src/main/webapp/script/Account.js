@@ -1,11 +1,14 @@
+let ctx = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+
+let checkDuplication = 0;
+
 
 function checkform() {
-	
+	let id = document.querySelector("#id").value;
 	const checkbox = document.getElementById('terms');
 
     const is_checked = checkbox.checked;
-    
-	let id = document.querySelector("#id").value;
+	
 	let pw1 = document.querySelector("#pw1").value;
 	let pw2 = document.querySelector("#pw2").value;
 	let name = document.querySelector("#name").value;
@@ -19,11 +22,37 @@ function checkform() {
 		return false;
 	}else if(is_checked == false){
 		alert("약관동의에 체크하여 주세요.");
+	}else if(checkDuplication == 0){
+		alert("아이디중복체크해주세요.");
 	}else{
 		alert("회원가입성공");
 		return true;
 	}
 }
+
+function dupcheck(){
+	let id = document.querySelector("#id").value;
+	
+		$.ajax({
+			type : "POST",
+			url : ctx+"/idcheck.do",
+			data : {"id":id},
+			success : function(data) {
+				if(data == "1"){
+					checkDuplication = 0;
+				}else{
+					checkDuplication = 1;
+					alert("사용가능한 아이디입니다.");
+					$("#id").css("border","3px green solid")
+				}
+				
+				
+		}});
+		
+		}
+		
+		
+		
 
 function existdate(data,msg){
 	if(data == ''){
@@ -33,7 +62,12 @@ function existdate(data,msg){
 	return true;
 }
 
-function test(){
-	alert("들어옴");
+
+window.onload = function() {
+	$("#id").keyup(function() {
+		checkDuplication = 0;
+		$("#id").css("border","");
+	});
 }
+
 

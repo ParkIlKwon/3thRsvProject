@@ -14,6 +14,7 @@
 			<div class="row p-3">
 				<div class="col-4">아&nbsp;이&nbsp;디</div>
 				<div class="col-8"><input class="input-basic col-12" type="text" name="id" id="id"/></div>
+				<button class="col-4 btn btn-primary" onclick="dupcheck()">중복체크</button>
 			</div>
 			<div class="row p-3">
 				<div class="col-4">비밀번호</div>

@@ -18,6 +18,7 @@ VALUES
 
 delete from memberlist;
 drop table memberlist;
+TRUNCATE TABLE memberlist;
 select * from memberlist;
 delete from memberlist where memberId = "qwer" and memberPw = "1234";
 select memberId from memberlist where memberId="admin" and memberPw="admin";      
@@ -119,20 +120,12 @@ select * from place;
 delete from place;
 TRUNCATE TABLE place;
 
-INSERT INTO place (name, title, image,) VALUES
+INSERT INTO place (name, title, image) VALUES
 ('서울 예술의전당', '아이유 콘서트', '서울예술의전당.jpg'),
 ('씨어터 삼각지', '레미제라블', '씨어터삼각지.jpg'),
 ('대학로 소극장', '하이큐!!', '대학로소극장.jpg'),
 ('인천 SK 행복드림구장', '한화 이글스 경기', '인천SK행복드림구장.jpg');
 
-
-INSERT INTO ticket (image, Contents, Category, Title, DateStart, DateEnd, Info, Location, Duration, SeatNum, Price, Discount, Star)
-VALUES
-('test1.jpg', '콘서트', '공연', '아이유 콘서트', '2022-05-01', '2022-05-03', '아이유의 새로운 앨범 라이브 공연', '서울 예술의전당', 120, 100, 50000, 45000, 4),
-('test2.jpg', '뮤지컬', '공연', '레미제라블', '2022-06-01', '2022-06-10', '빅토르 위고의 역사적인 이야기를 담은 뮤지컬', '씨어터 삼각지', 150, 200, 80000, 70000, 4.5),
-('test3.jpg', '영화', '영화', '빈센트 반 고흐 전시', '2022-07-01', '2022-07-30', '세계적인 화가 빈센트 반 고흐의 대표작품들이 전시됩니다', '국립 현대미술관', 90, 50, 30000, 25000, 3.5),
-('test4.jpg', '야구', '스포츠', '한화 이글스 경기', '2022-04-01', '2022-04-05', '한화 이글스의 홈 경기를 관람하세요', '인천 SK 행복드림구장', 180, 300, 25000, 20000, 4),
-('test5.jpg', '연극', '공연', '하이큐!!', '2022-08-01', '2022-08-15', '인기 만화 하이큐!!를 연극으로 재현한 공연', '대학로 소극장', 120, 100, 40000, 35000, 4.5);
 
 
 

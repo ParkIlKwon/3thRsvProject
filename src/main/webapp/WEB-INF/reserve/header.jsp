@@ -17,6 +17,7 @@
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <script type="text/javascript" src="script/Search.js" defer></script>
+<script type="text/javascript" src="script/Login.js" defer></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
@@ -32,7 +33,7 @@
 	    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerList">
 			<ul class="nav topNv">
 				<c:if test="${id eq null}">
-				<li><a class="text-basic" href="${ctx}/login.do">로그인</a></li>
+				<li><a class="text-basic" onclick="newTabClick()">로그인</a></li>
 				<li><a class="text-basic" style="font-color:black" href="${ctx}/account.do">회원가입</a></li>
 				</c:if>
 				<c:if test="${id ne null}">
@@ -78,4 +79,10 @@
 			</div>
 		</div>
 	</nav>
+	
+	<script type="text/javascript">
+	
+
+	</script>
+	
 </header>

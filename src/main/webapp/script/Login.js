@@ -1,4 +1,13 @@
-let ctx = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+let ctx1 = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));	    
+
+		 let myWindow;
+        function newTabClick() {
+            myWindow = window.open('/3thRsvProject/login.do', '로그인', 'width=500px,height=800px,scrollbars=no');
+			}
+
+        function closeTabClick() {
+            myWindow.close();
+        }
 
 function idcheck() {
 	if(!$.trim($("#id").val())){
@@ -14,11 +23,12 @@ function idcheck() {
 		let pw=$("#pw").val();
 		$.ajax({
 			type : "POST",
-			url : ctx+"/login.do",
+			url : ctx1+"/login.do",
 			data : {"id":id,"pw":pw},
 			success : function(data) {
 				if(data == "1"){
 					alert("로그인성공");
+					closeTabClick();
 					window.location.href = "main.do";
 				}else {
 					alert("아이디와 패스워드를 확인해주세요.");

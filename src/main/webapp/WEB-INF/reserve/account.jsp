@@ -14,7 +14,7 @@
 			<div class="row p-3">
 				<div class="col-4">아&nbsp;이&nbsp;디</div>
 				<div class="col-5 pe-0"><input class="input-basic col-12" type="text" name="id" id="id"/></div>
-				<div class="col-3 ps-0"><input class="btn-ltsm-basic" type="submit" value="중복체크"/></div>
+				<div class="col-3"><div class="btn-ltsm-basic" onclick="dupcheck()" style="cursor:pointer">중복체크</div></div>
 			</div>
 			<div class="row p-3">
 				<div class="col-4">비밀번호</div>
@@ -35,12 +35,12 @@
 				</div>
 			</div>
 		</div>
-			<p class="py-3"><input class="btn-basic" type="submit" value="회원가입"/> &nbsp;
-	<input type="reset" value="취소" class="btn-cancel"/></p>	
+		<p class="pt-3"><input type="checkbox" id="terms"><label for="terms" style="cursor:pointer"> [필수] 이용약관 동의&nbsp;</label>
+			<input type="button" data-bs-toggle="modal" data-bs-target="#showterms" value="전문보기" style="font-size:0.7rem">
+		</p>
+		<p class="py-3"><input class="btn-basic" type="submit" value="회원가입"/> &nbsp;
+			<input type="reset" value="취소" class="btn-cancel"/></p>	
 	</form>
-	<p class="pt-3"><input type="checkbox" id="terms"> [필수] 이용약관 동의&nbsp;
-		<input type="button" data-bs-toggle="modal" data-bs-target="#showterms" value="전문보기" style="font-size:0.7rem">
-	</p>
 
 </div>
 

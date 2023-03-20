@@ -8,20 +8,23 @@
 				<div style="width: 20rem; height:400px;">
 					<img alt="" src="img/${t.image}" style="width: 100%; height:400px; border-radius:10px">
 				</div>
-				<div class="ps-2"">
+				<div class="ps-2">
 					<div class="p-2"><h2><b>${t.title}&nbsp;</b></h2>
-					${now}
-						<c:if test="${now}>=${t.dateStart} && ${now}<=${t.dateEnd}"><span id="running" class="btn-sm-blue">진행중</span></c:if>
-						<c:if test="${now} lt ${t.dateStart}"><span id="running" class="btn-sm-green">예정</span></c:if>
-						<c:if test="${now} gt ${t.dateEnd}"><span id="running" class="btn-sm-red">종료</span></c:if>
-				<!-- 		<span id="running" class="btn-sm-red">종료</span>
-						<span id="running" class="btn-sm-green">예정</span> -->
+						<c:if test="${now >= t.dateStart && now <= t.dateEnd}"><span id="running" class="btn-sm-blue">진행중</span></c:if>
+						<c:if test="${now < t.dateStart}"><span id="running" class="btn-sm-green">예정</span></c:if>
+						<c:if test="${now > t.dateEnd}"><span id="running" class="btn-sm-red">종료</span></c:if>
 					</div>
 					<div class="p-2"><b>[${t.category} > ${t.contents}]</b></div>
 					<div class="p-2"><b>날짜 :</b> ${t.dateStart} ~ ${t.dateEnd}</div>
 					<div class="p-2"><b>시간 :</b> ${t.duration}분</div>
 					<div class="p-2"><b>평점 : ⭐⭐⭐ ${t.star}</b></div>
-					<div class="p-2"><button class="btn-basic" onclick="location.href='${ctx}/ticketing.do?placename=${p.name}'">예매하기</button></div>
+						<c:if test="${now < t.dateStart || now > t.dateEnd}">
+						<div class="p-2"><button class="btn-disable" disabled>예매하기</button></div>
+						</c:if>
+						<c:if test="${now >= t.dateStart && now <= t.dateEnd}">
+						<div class="p-2"><button class="btn-basic" onclick="location.href='${ctx}/ticketing.do?placename=${p.name}'">예매하기</button></div>
+						</c:if>
+					<%-- <div class="p-2"><button class="btn-basic" onclick="location.href='${ctx}/ticketing.do?placename=${p.name}'">예매하기</button></div> --%>
 				</div>
 				<div id="info" style="width:100rem;">
 				<b>[상세 설명]</b><br>

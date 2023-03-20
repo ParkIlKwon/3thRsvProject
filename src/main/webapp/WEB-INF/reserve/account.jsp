@@ -39,7 +39,7 @@
 			<input type="button" data-bs-toggle="modal" data-bs-target="#showterms" value="전문보기" style="font-size:0.7rem">
 		</p>
 		<p class="py-3"><input class="btn-basic" type="submit" value="회원가입"/> &nbsp;
-			<input type="reset" value="취소" class="btn-cancel"/></p>	
+			<input type="button" value="취소" class="btn-cancel" onclick="location.href='${ctx}/main.do'"/></p>
 	</form>
 
 </div>

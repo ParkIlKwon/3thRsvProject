@@ -13,7 +13,8 @@
 		<div class="col py-2" style="border:2px solid #f9e7cb; font-weight:bold; border-radius:5px" align="center">
 			<div class="row p-3">
 				<div class="col-4">아&nbsp;이&nbsp;디</div>
-				<div class="col-8"><input class="input-basic col-12" type="text" name="id" id="id"/></div>
+				<div class="col-5 pe-0"><input class="input-basic col-12" type="text" name="id" id="id"/></div>
+				<div class="col-3 ps-0"><input class="btn-ltsm-basic" type="submit" value="중복체크"/></div>
 			</div>
 			<div class="row p-3">
 				<div class="col-4">비밀번호</div>

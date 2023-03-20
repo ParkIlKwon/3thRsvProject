@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="./header.jsp" %>
 <div id="container" style="max-width:1200px; margin:auto">
 	<div class="mycards p-5">
@@ -8,10 +9,16 @@
 				<div style="width: 20rem; height:400px;">
 					<img alt="" src="img/${t.image}" style="width: 100%; height:400px; border-radius:10px">
 				</div>
-				<div class="ps-2"">
+				<div class="ps-2">
+				
+				<fmt:formatDate value="${now}" pattern="yyyyMMddhhmm" var="nowDate" />
+				<fmt:formatDate value="${t.dateStart}" pattern="yyyyMMddhhmm" var="openDate" />
+				
 					<div class="p-2"><h2><b>${t.title}&nbsp;</b></h2>
 						<span id="running" class="btn-sm-blue">진행중</span>
+						<c:if test="${openDate > nowDate }">
 						<span id="running" class="btn-sm-red">종료</span>
+						</c:if>
 						<span id="running" class="btn-sm-green">예정</span>
 					</div>
 					<div class="p-2"><b>[${t.category} > ${t.contents}]</b></div>

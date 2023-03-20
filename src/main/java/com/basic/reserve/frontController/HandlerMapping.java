@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import com.basic.reserve.Membercontroller.*;
 import com.basic.reserve.TicketController.*;
-import com.basic.reserve.constController.boardController;
+import com.basic.reserve.constController.*;
 
 public class HandlerMapping {
 	private HashMap<String,Controller>mapping;

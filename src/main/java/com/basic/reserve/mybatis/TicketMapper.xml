@@ -41,5 +41,14 @@
 	 select * from ticket where Category ="공연" order by Star DESC LIMIT 3
 	</select>
 	
+		<select id="getRankingSports" resultMap="ticket">
+	 select * from ticket where Category ="스포츠" order by Star DESC LIMIT 3
+	</select>
+	
+	<select id="getRankingmovie" resultMap="ticket" >
+	 select * from ticket where Category ="영화" order by Star DESC LIMIT 3
+	</select>
+	
+	
 </mapper>
   

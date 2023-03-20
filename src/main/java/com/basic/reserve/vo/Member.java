@@ -7,16 +7,18 @@ public class Member {
 	private String memberId;
 	private String memberPw;
 	private String memberHP;
+	private int memberPoints;
 	
 	public Member(){};
 	
-	public Member(int memberSeq, String memberName, String memberId, String memberPw, String memberHP) {
+	public Member(int memberSeq, String memberName, String memberId, String memberPw, String memberHP,int memberPoints) {
 		super();
 		this.id = memberSeq;
 		this.memberName = memberName;
 		this.memberId = memberId;
 		this.memberPw = memberPw;
 		this.memberHP = memberHP;
+		this.memberPoints = memberPoints;
 	}
 	
 	public int getId() {
@@ -52,6 +54,14 @@ public class Member {
 		this.memberHP = memberHP;
 	}
 	  
+	public int getMemberPoints() {
+		return memberPoints;
+	}
+
+	public void setMemberPoints(int memberPoints) {
+		this.memberPoints = memberPoints;
+	}
+
 	public void name() {
 
 	}

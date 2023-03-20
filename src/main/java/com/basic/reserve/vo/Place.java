@@ -7,6 +7,8 @@ public class Place {
 	private String title;
 	private String image;
 	
+	public Place(){}
+	
 	public Place(int id, String name, String title, String image) {
 		super();
 		this.id = id;

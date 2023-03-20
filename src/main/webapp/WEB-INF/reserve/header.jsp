@@ -34,7 +34,7 @@
 			<ul class="nav topNv">
 				<c:if test="${id eq null}">
 				<li><a class="text-basic" onclick="newTabClick()">로그인</a></li>
-				<li><a class="text-basic" style="font-color:black" href="${ctx}/account.do">회원가입</a></li>
+				<li><a class="text-basic" style="font-color:black" href="javascript:newaccounttab();">회원가입</a></li>
 				</c:if>
 				<c:if test="${id ne null}">
 				<li><a class="text-basic" href="${ctx}/logout.do">${id}님 로그아웃</a></li>

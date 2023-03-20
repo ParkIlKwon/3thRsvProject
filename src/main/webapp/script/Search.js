@@ -1,5 +1,9 @@
 let ctx2 = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
 
+function newaccounttab() {
+	window.open(ctx2 + '/account.do', '로그인', 'width=500px,height=800px,scrollbars=no');
+}
+
 function checkSearch(){
 	if(!$.trim($("#searchData").val())){
 		alert("검색어를 입력하세요.");

@@ -2,7 +2,6 @@ let ctx = window.location.pathname.substring(0, window.location.pathname.indexOf
 
 let checkDuplication = 0;
 
-
 function checkform() {
 	let id = document.querySelector("#id").value;
 	const checkbox = document.getElementById('terms');
@@ -28,6 +27,8 @@ function checkform() {
 		return false;
 	}else{
 		alert("회원가입 성공");
+		window.close();
+		opener.location.reload();	
 		return true;
 	}
 }
@@ -73,6 +74,19 @@ window.onload = function() {
 	$("#id").keyup(function() {
 		checkDuplication = 0;
 		$("#id").css("border","");
+	});
+	
+		$("#hp").keyup(function() {
+			
+			if($("#hp").val().length >=  10){
+			let Str = $("#hp").val();
+			Str.replace(/[^0-9]/g, '')
+				Str = 
+				Str
+				.replace(/[^0-9]/g, '')
+				.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/ , `$1-$2-$3`);
+				$("#hp").val(Str);
+			}
 	});
 }
 

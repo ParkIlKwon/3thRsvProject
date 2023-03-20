@@ -1,10 +1,8 @@
 let ctx1 = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));	    
 
         function newTabClick() {
-            window.open('/3thRsvProject/login.do', '로그인', 'width=500px,height=800px,scrollbars=no');
+            window.open(ctx1+'/login.do', '로그인', 'width=500px,height=800px,scrollbars=no');
 			}
-
-
 
 function idcheck() {
 	if(!$.trim($("#id").val())){

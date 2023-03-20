@@ -45,9 +45,8 @@ public class MainController implements Controller {
 		m.setMemberId((String)session.getAttribute("id"));	
 		List<Member>list = MemberDAO.getInstance().getOneMemberList(m);
 		session.setAttribute("mlist", list);
-		session.setAttribute("now", now);
 		}
-		
+		session.setAttribute("now", now);
 		return page;
 	}
 

@@ -135,6 +135,7 @@ input[id="tab3"]:checked ~ .con3 {display:block;}
 	color:#efa635;
 	border:none
 } */
+
 input[id*="md"]+label:hover{cursor:pointer;}
 
 div[class*="modi"]{display:none;}
@@ -148,3 +149,8 @@ img.card-img-top{height:300px;}
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* 예매화면 노출 */
+div[id="rsvPage"]{display:none;}
+input[id="reserve"]:checked ~ #rsvPage {display:block;}
+input[id="reserve"]:checked ~ #info {display:none;}

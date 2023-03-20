@@ -26,18 +26,25 @@
 						</c:if>
 					<%-- <div class="p-2"><button class="btn-basic" onclick="location.href='${ctx}/ticketing.do?placename=${p.name}'">예매하기</button></div> --%>
 				</div>
-				<div id="info" style="width:100rem;">
-				<b>[상세 설명]</b><br>
-				${t.info}
-				</div>
 				
-				<div id="reserve" style="width:100rem;">
-				<div style="border-bottom: 2px solid; color: #efa635"></div>
-				<h2><b>[예매하기]</b></h2>
-				날짜 선택
-				시간 선택
-				포인트 적용 선택
-				<button class="btn-basic" onclick="location.href='#'">결제하기</button>
+				<div class="col-8"><input type="checkbox" id="reserve" style="display:none">
+					<label for="reserve"><span class="btn-basic">예매하기</span></label>
+					
+				
+					<div id="info" style="width:100rem;">
+						<b>[상세 설명]</b><br>
+						${t.info}
+					</div>
+					
+					<div id="rsvPage" style="width:100rem;">
+					<div style="border-bottom: 2px solid; color: #efa635"></div>
+					<h2><b>[예매하기]</b></h2>
+					날짜 선택
+					시간 선택
+					포인트 적용 선택
+					<button class="btn-basic" onclick="location.href='#'">결제하기</button>
+					</div>
+				
 				</div>
 			</c:forEach>
 		</div>

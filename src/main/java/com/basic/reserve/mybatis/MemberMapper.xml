@@ -9,6 +9,7 @@
   <result property="memberId" column="memberId"/>
   <result property="memberPw" column="memberPw"/>
   <result property="memberHP" column="memberHP"/>
+  <result property="memberPoints" column="memberPoints"/>
 	</resultMap>
 
   <select id="selectAllMembers" resultMap="member">
@@ -24,8 +25,8 @@
  </select>
  
  <insert id="memberAccount" parameterType="member">
- INSERT INTO memberlist(memberName, memberId, memberPw, memberHP)
-        VALUES (#{memberName},#{memberId},#{memberPw},#{memberHP})
+ INSERT INTO memberlist(memberName, memberId, memberPw, memberHP, memberPoints)
+        VALUES (#{memberName},#{memberId},#{memberPw},#{memberHP},#{memberPoints})
  </insert>
 
 <delete id="memberDelete" parameterType="String">

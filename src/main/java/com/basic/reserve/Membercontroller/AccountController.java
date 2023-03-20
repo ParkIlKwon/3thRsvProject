@@ -24,6 +24,7 @@ public class AccountController implements Controller {
 			m.setMemberPw(request.getParameter("pw"));
 			m.setMemberName(request.getParameter("name"));
 			m.setMemberHP(request.getParameter("hp"));
+			m.setMemberPoints(3000);
 			MemberDAO.getInstance().addMember(m);
 			page = "Main";
 		}

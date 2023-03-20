@@ -13,11 +13,11 @@
 	</section>
   
 	<section class="topRk p-4">
-		<input type="radio" name="tabmenu" id="tab1" checked>
+		<input type="radio" name="tabmenu" id="tab1" checked onclick="location.href='${ctx}/getRank.do?rank=영화'">
 		<label for="tab1">영화 순위</label>
-		<input type="radio" name="tabmenu" id="tab2">
+		<input type="radio" name="tabmenu" id="tab2" onclick="location.href='${ctx}/getRank.do?rank=공연'">
 		<label for="tab2">공연 순위</label>
-		<input type="radio" name="tabmenu" id="tab3">
+		<input type="radio" name="tabmenu" id="tab3" onclick="location.href='${ctx}/getRank.do?rank=스포츠'">
 		<label for="tab3">스포츠 순위</label>
 		
 		<div class="conbox con1">

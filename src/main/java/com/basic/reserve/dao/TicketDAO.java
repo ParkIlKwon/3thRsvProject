@@ -42,5 +42,12 @@ public class TicketDAO {
 		return list;
 	}
 	
+	public List<Ticket>getRanking(Ticket t){
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		List<Ticket> list = session.selectList("mapper.ticket.getRanking",t);
+		session.close();
+		return list;
+	}
+	
 	
 }

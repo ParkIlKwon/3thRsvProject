@@ -7,14 +7,15 @@ create table  memberlist(
   memberName varchar(20) not null, #사용자이름
   memberId varchar(30) unique key not null, #사용자아이디
   memberPw varchar(30) not null, #사용자 패스워드
-  memberHP varchar(30) not null #사용자핸드폰번호
+  memberHP varchar(30) not null, #사용자핸드폰번호
+  memberPoints INT(10) not null #사용자 포인트
 );
 
-INSERT INTO memberlist(memberName, memberId, memberPw, memberHP)
+INSERT INTO memberlist(memberName, memberId, memberPw, memberHP,memberPoints)
 VALUES
-  ('관리자', 'admin', 'admin', '010-555-1234'),
-  ('테스트1', 'qwer', '1234', '010-555-5678'),
-  ('테스트2', 'abcd', '1234', '010-555-9012');
+  ('관리자', 'admin', 'admin', '010-555-1234',3000),
+  ('테스트1', 'qwer', '1234', '010-555-5678',3000),
+  ('테스트2', 'abcd', '1234', '010-555-9012',3000);
 
 delete from memberlist;
 drop table memberlist;
@@ -40,18 +41,6 @@ create table ticket(
 	discount int(5) not null,  #할인율
 	star float(5) not null #평점 
 )
-
-create table coupon (
-	id int auto_increment primary key, 
-	memberId varchar(20) not null, #소유자아이디
-	name varchar(20) not null, #쿠폰이름 
-	couponvalue int(10) not null, #쿠폰액수
-	dateStart varchar(20) not null,  #발급일
-	dateEnd varchar(20) not null,  #마감일
-	
-	CONSTRAINT fk_Cp_id FOREIGN KEY(memberId) REFERENCES memberlist(memberId) ON DELETE CASCADE
-)
-
 
 
 select * from ticket;

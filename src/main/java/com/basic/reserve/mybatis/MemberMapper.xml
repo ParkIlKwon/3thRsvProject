@@ -19,6 +19,10 @@
    select memberId from memberlist where memberId=#{memberId} and memberPw=#{memberPw}       
  </select>
  
+ <select id="idvaild" parameterType="member" resultType="String">
+ select memberId from memberlist where memberId=#{memberId}
+ </select>
+ 
  <insert id="memberAccount" parameterType="member">
  INSERT INTO memberlist(memberName, memberId, memberPw, memberHP)
         VALUES (#{memberName},#{memberId},#{memberPw},#{memberHP})

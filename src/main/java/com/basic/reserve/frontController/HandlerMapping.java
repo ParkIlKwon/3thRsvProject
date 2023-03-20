@@ -22,6 +22,7 @@ public class HandlerMapping {
 		
 		mapping.put("/search.do", new SearchController());
 		mapping.put("/ticketing.do", new TicketingController());
+		mapping.put("/idcheck.do",new IdCheckController());
 		
 	}
 	

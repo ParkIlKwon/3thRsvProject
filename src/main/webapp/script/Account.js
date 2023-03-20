@@ -32,8 +32,11 @@ function checkform() {
 
 function dupcheck(){
 	let id = document.querySelector("#id").value;
-	
-		$.ajax({
+		
+		if(!existdate(id,"아이디")){
+			return;
+		}else{
+			$.ajax({
 			type : "POST",
 			url : ctx+"/idcheck.do",
 			data : {"id":id},
@@ -45,10 +48,8 @@ function dupcheck(){
 					alert("사용가능한 아이디입니다.");
 					$("#id").css("border","3px green solid")
 				}
-				
-				
 		}});
-		
+		}
 		}
 		
 		

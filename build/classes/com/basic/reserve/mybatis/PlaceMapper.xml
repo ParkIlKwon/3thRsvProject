@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="mapper.place">
+  
+  	<resultMap type="com.basic.reserve.vo.Place" id="place">
+  	<id property="id" column="id"/>
+  <result property="name" column="name"/>
+  <result property="title" column="title"/>	
+  <result property="image" column="image"/>
+  
+  	</resultMap>
+  	
+  <select id="selectAllTicket" resultMap="place">
+  SELECT * FROM place
+</select>
+
+	<select id="selectivePlace" parameterType="String" resultMap="place">
+  select * from place where title like CONCAT('%',#{title},'%')
+</select>
+
+  	
+  	
+  	
+   </mapper>
+	

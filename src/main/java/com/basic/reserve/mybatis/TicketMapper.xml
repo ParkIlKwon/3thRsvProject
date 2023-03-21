@@ -26,7 +26,7 @@
 	</resultMap>
 	
 	  <select id="selectAllTicket" resultMap="ticket">
-  SELECT * FROM ticket
+  select * from ticket
 </select>
 	
 	<select id="selectiveTicket" parameterType="String" resultMap="ticket">

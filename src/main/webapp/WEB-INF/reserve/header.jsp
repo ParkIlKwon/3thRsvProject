@@ -69,6 +69,18 @@
 				</div></li>
 			<li><a class="text-basic" href="#">랭킹</a></li>
 			<li><a class="text-basic" href="#">이벤트</a></li>
+			<c:if test="${id eq 'admin'}">
+			
+				<li class="nav-item dropdown"><a
+				class="text-basic dropdown-toggle" data-bs-toggle="dropdown"
+				href="#" role="button" aria-haspopup="true" aria-expanded="false">관리자메뉴</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="${ctx}/ticketmanagement.do">등록티켓관리</a> 
+					<a class="dropdown-item"href="${ctx}/addticket.do">티켓추가</a>
+					
+				</div></li>
+			
+			</c:if>
 		</ul>
 			<div class="d-none d-lg-block">
 			<form class="d-flex">

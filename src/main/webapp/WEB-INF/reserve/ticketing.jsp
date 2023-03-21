@@ -19,7 +19,7 @@
 			<div class="p-1 fw-bold text-secondary">[${t.category} > ${t.contents}]</div>
 				<div class="p-2"><b>기간 :</b> ${t.dateStart} ~ ${t.dateEnd}</div>
 				<div class="p-2"><b>장소 :</b> ${t.location}</div>
-				<div class="p-2"><b>시간 :</b> ${t.duration}분</div>
+				<div class="p-2"><b>시간 :</b> ${t.duration}</div>
 				<div class="p-2"><b>평점 : ⭐⭐⭐ ${t.star}</b></div>
 				<c:if test="${now < t.dateStart || now > t.dateEnd}">
 				<div class="p-2"><button class="btn-disable" disabled>예매하기</button></div>

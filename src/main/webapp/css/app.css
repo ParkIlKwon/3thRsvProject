@@ -158,3 +158,17 @@ img.card-img-top{height:300px;}
 /* div[id="rsvPage"]{display:none;}
 input[id="reserve"]:checked ~ #rsvPage {display:block;}
 input[id="reserve"]:checked ~ #info {display:none;} */
+
+
+
+.cropping{
+	max-height: 200px;
+     overflow: hidden;
+}
+
+.cropping img{
+	 width : 400px;
+}
+
+
+

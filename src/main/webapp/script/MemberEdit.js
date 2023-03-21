@@ -1,4 +1,4 @@
-let ctx1 = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+let ctx11 = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
 
 function checkform(id){
 
@@ -8,7 +8,7 @@ function checkform(id){
 		let pw = $("#pw").val();
 		$.ajax({
 			type : "POST",
-			url : ctx1+"/mypage.do",
+			url : ctx11+"/mypage.do",
 			data : {"pw":pw},
 			success : function(data) {
 				if(data == ("1")){

@@ -2,6 +2,7 @@ package com.basic.reserve.frontController;
 
 import java.util.HashMap;
 
+import com.basic.reserve.Admin.*;
 import com.basic.reserve.Membercontroller.*;
 import com.basic.reserve.TicketController.*;
 import com.basic.reserve.constController.*;
@@ -23,6 +24,9 @@ public class HandlerMapping {
 		mapping.put("/search.do", new SearchController());
 		mapping.put("/ticketing.do", new TicketingController());
 		mapping.put("/idcheck.do",new IdCheckController());
+		
+		mapping.put("/ticketmanagement.do",new TicketManagementController());
+		mapping.put("/addticket.do",new TicketAddController());
 		
 	}
 	

@@ -11,14 +11,14 @@ public class Ticket {
 	private String dateEnd;
 	private String location;
     private String info;
-	private int duration;
+	private String duration;
 	private int seatNum ;
 	private int price; 
 	private int discount;
 	private float star;
 	
 	public Ticket(int id, String image, String contents, String category, String title, String dateStart,
-			String dateEnd, String location, String info, int duration, int seatNum, int price, int discount,
+			String dateEnd, String location, String info, String duration, int seatNum, int price, int discount,
 			float star) {
 		this.id = id;
 		this.image = image;
@@ -108,11 +108,11 @@ public class Ticket {
 		this.info = info;
 	}
 
-	public int getDuration() {
+	public String getDuration() {
 		return duration;
 	}
 
-	public void setDuration(int duration) {
+	public void setDuration(String duration) {
 		this.duration = duration;
 	}
 

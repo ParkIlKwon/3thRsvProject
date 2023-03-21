@@ -26,7 +26,7 @@
 			<div class="fw-bold" style="font-size:0.8rem; color:#efa635">[${t.category} > ${t.contents}]</div>
 			<div><b>기간 :</b> ${t.dateStart} ~ ${t.dateEnd}</div>
 			<div><b>장소 :</b> ${t.location}</div>
-			<div><b>시간 :</b> ${t.duration}분</div>
+			<div><b>시간 :</b> ${t.duration}</div>
 			<div><b>평점 : ⭐⭐⭐ ${t.star}</b></div>
 			<div class="my-2" style="border-top:1px solid #efa635;  font-size:0.9rem">
 				<b>[상세 소개]</b>
@@ -55,16 +55,28 @@ ${endDate - strDate+1 }
 					<fmt:formatNumber value="${std}" pattern="yyyy-MM-dd" />
 				</c:forEach> --%>
 				
+				날짜 선택
 				<c:forEach var="i" begin="0" end="${endDate - strDate}">
 				<c:set var="nextDay" value="<%=new Date(new Date().getTime() + 60 * 60 * 24 * 1000 * (int) pageContext.getAttribute(\"i\"))%>" />
 				<span><fmt:formatDate value="${nextDay}" pattern="yyyy-MM-dd"/></span>
 				</c:forEach>
+				<div>티켓 장수 (잔여석 :<span style="color:red"> ${t.seatNum} </span>석): <input type="number" id="seat" /></div>
+				<div>포인트 적용 : x원</div>
+				<div><b id="totalprice">${t.price} \</b></div>
+				<br>
+				<h2>예매자 정보</h2>
+				<span style="color:red">
+				<c:if test="${id  eq null}">로그인 해주세요</c:if>
+				  </span>
+				<c:forEach var="m" items="${mlist}">
+				이름 : ${m.memberName} <br>
+				연락처 : ${m.memberHP}
+				</c:forEach>
 				
-					날짜 선택
-					시간 선택
-					포인트 적용 선택
-				
-			<div class="p-2"><button class="btn-basic" onclick="location.href='${ctx}/ticketing.do?placename=${p.name}'">예매하기</button></div>
+				<div class="p-2">
+				<button class="btn-basic" onclick="reserve()">결제하기</button>
+				<button class="btn-cancel" onclick="location.href='${ctx}/main.do'">취소하기</button>
+				</div>
 <%-- 				</c:if> --%>
 		</div>
 		</c:forEach>

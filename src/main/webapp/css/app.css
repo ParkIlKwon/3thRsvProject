@@ -55,7 +55,7 @@ a{text-decoration:none;}
 .btn-sm-blue{
 	background-color:#0080c0;
  	padding:2px 4px;
- 	font-size:0.8rem;
+ 	font-size:0.9rem;
 	border-radius:5px;
 	color:white;
 	font-weight:bold;
@@ -65,7 +65,7 @@ a{text-decoration:none;}
 .btn-sm-red{
 	background-color:#ff5b5b;
  	padding:2px 4px;
- 	font-size:0.8rem;
+ 	font-size:0.9rem;
 	border-radius:5px;
 	color:white;
 	font-weight:bold;
@@ -75,7 +75,7 @@ a{text-decoration:none;}
 .btn-sm-green{
 	background-color:#008040;
  	padding:2px 4px;
- 	font-size:0.8rem;
+ 	font-size:0.9rem;
 	border-radius:5px;
 	color:white;
 	font-weight:bold;
@@ -98,7 +98,7 @@ a{text-decoration:none;}
 ul li{list-style-type:none; display:inline-block; margin-right:20px;}
 
 /*추천페이지 슬라이드*/
-.topRk input[type="radio"]{display:none;}
+input[type="radio"]{display:none;}
 .swiper-container{
 	display:block;
 	width:100%;
@@ -123,6 +123,10 @@ input[id*="tab"]:checked+label {background:#f9e7cb;color:#000;}
 input[id="tab1"]:checked ~ .con1 {display:block;}
 input[id="tab2"]:checked ~ .con2 {display:block;}
 input[id="tab3"]:checked ~ .con3 {display:block;}
+
+/* 예메/상세페이지 */
+input[id="tab_r1"]:checked ~ .con_r1 {display:block;}
+input[id="tab_r2"]:checked ~ .con_r2 {display:block;}
 
 /* 변경버튼 클릭 */
 /* #mdPw{display:none;margin:10px;}

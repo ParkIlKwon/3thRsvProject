@@ -52,7 +52,6 @@
 		<ul class="nav_menu">
 			<li class="nav-item"><a class="navbar-brand text-basic active"
 				href="${ctx}/main.do">홈</a></li>
-			<li><a class="text-basic" href="#">영화</a></li>
 			<li class="nav-item dropdown"><a
 				class="text-basic dropdown-toggle" data-bs-toggle="dropdown"
 				href="#" role="button" aria-haspopup="true" aria-expanded="false">공연</a>
@@ -68,6 +67,8 @@
 					<a class="dropdown-item" href="#">야구</a> <a class="dropdown-item"
 						href="#">축구</a> <a class="dropdown-item" href="#">농구</a>
 				</div></li>
+			<li><a class="text-basic" href="#">랭킹</a></li>
+			<li><a class="text-basic" href="#">이벤트</a></li>
 		</ul>
 			<div class="d-none d-lg-block">
 			<form class="d-flex">

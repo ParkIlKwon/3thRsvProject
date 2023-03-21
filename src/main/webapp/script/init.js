@@ -1,36 +1,56 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-<title>Insert title here</title>
-</head>
-<script>
+let flag = true;
 
-let SeriveKey = '3a6e44a951484653af996a5f0c78bd8a';
-let sKey = "63e0efd506f242358e65498f7cadf1d2";
-
-function getInfo() {
-	
-	$.ajax({
+function check(){
+	if(sessionStorage.getItem('ck') == null){
+		sessionStorage.setItem('ck',true)
 		
-		type: "GET",
-		 url: `http://www.kopis.or.kr/openApi/restful/pblprfr?service=${SeriveKey}&stdate=20160601&eddate=20160630&cpage=1&rows=5&prfstate=02&signgucode=11&signgucodesub=1111&kidstate=Y`
-		,
-		success: function(response){
-			
-			alert(response);
-		}
-		})
+		
+		
+		
+	}	
 }
 
-getInfo();
+check();
 
+let SeriveKey = '3a6e44a951484653af996a5f0c78bd8a';
+//
+window.onload = function() {
+	
+	function getInfo() {
+		$.ajax({
+			
+    		type: "GET",
+    		
+    		url: "http://www.kopis.or.kr/openApi/restful/pblprfr?service=`+SeriveKey+`&stdate=20221201&eddate=20230401&cpage=1&rows=10"
+    		,
+    		success: function(response){
+				alert("들어옴");
+                let XmlNode = new DOMParser().parseFromString(response, "text/xml");
+                let obj = xmlToJson(XmlNode);
+                console.log(obj);
+    			
+
+                let item = [...obj.response.body.items.item];
+                console.log(item);
+                
+                item.forEach(e => {
+                    console.log(e.title)
+                });
+
+    		}
+    		})
+	}
+	getInfo();
+	
+}
 
 function xmlToJson(xml) {
+  // Create the return object
   var obj = {};
 
   if (xml.nodeType == 1) {
+    // element
+    // do attributes
     if (xml.attributes.length > 0) {
       obj["@attributes"] = {};
       for (var j = 0; j < xml.attributes.length; j++) {
@@ -68,8 +88,4 @@ function xmlToJson(xml) {
   return obj;
 }
 
-</script>
-<body>
 
-</body>
-</html>

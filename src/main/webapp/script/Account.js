@@ -58,7 +58,9 @@ function dupcheck(){
 		}
 		}
 		
-		
+function closetab(){
+	window.close();
+}	
 		
 
 function existdate(data,msg){

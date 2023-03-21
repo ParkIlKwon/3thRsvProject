@@ -56,5 +56,14 @@ public class TicketDAO {
 		return list;
 	}
 	
+	public void addTicket(Ticket t){
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		session.selectList("mapper.ticket.addTicket",t);
+		session.close();
+	}
+	
+	
+	
+	
 	
 }

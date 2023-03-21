@@ -49,6 +49,32 @@
 	 select * from ticket where Category ="영화" order by Star DESC LIMIT 3
 	</select>
 	
+	<insert id="addTicket" parameterType="ticket" >
+	 
+	 INSERT INTO ticket (image, contents, category, title, dateStart, dateEnd, info, location, duration, seatNum, price, discount, star)
+	VALUES
+	(       
+	    #{image},
+        #{contents},
+        #{category},
+        #{title},
+        #{dateStart},
+        #{dateEnd},
+        #{info},
+        #{location},
+        #{duration},
+        #{seatNum},
+        #{price},
+        #{discount},
+        #{star}
+        )
+	 
+	</insert>
+	
+	
+	
+	
+	
 	
 </mapper>
   

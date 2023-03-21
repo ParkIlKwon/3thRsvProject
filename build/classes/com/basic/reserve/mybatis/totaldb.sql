@@ -27,15 +27,15 @@ select memberId from memberlist where memberId="admin" and memberPw="admin";
 
 create table ticket(
 	id int auto_increment primary key, 
-	image VARCHAR(50) not null, #이미지이름
+	image VARCHAR(100) not null, #이미지이름
 	contents VARCHAR(50) not null, #세부항목
 	category varchar(20) not null, #카테고리
-	title varchar(20) unique key not null,  #제목
+	title varchar(50) unique key not null,  #제목
 	dateStart varchar(20) not null,  #시작일
 	dateEnd varchar(20) not null,  #끝일
 	info varchar(100) not null,  #소개
-	location varchar(20) not null, #장소
-	duration varchar(10) not null,  #기간
+	location varchar(50) not null, #장소
+	duration varchar(50) not null,  #기간
 	seatNum int(5) not null, #좌석몇까지 있는지
 	price int(5) not null, #좌석가격
 	discount int(5) not null,  #할인율

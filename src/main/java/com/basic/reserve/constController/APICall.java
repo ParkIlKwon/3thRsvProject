@@ -18,6 +18,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.basic.reserve.dao.TicketDAO;
 import com.basic.reserve.vo.Ticket;
 
 
@@ -29,7 +30,7 @@ public class APICall {
 		return api;
 	}
 	
-	public void getItem(String elementId) throws IOException, SAXException, ParserConfigurationException {
+	public void getItem(String elementId,String s) throws IOException, SAXException, ParserConfigurationException {
 		StringBuilder urlBuilder = new StringBuilder("http://www.kopis.or.kr/openApi/restful/pblprfr"); /*URL*/
 		urlBuilder.append("/" + URLEncoder.encode(elementId,"UTF-8")); /*Service Key*/
 		urlBuilder.append("?" + URLEncoder.encode("service","UTF-8") + "=3a6e44a951484653af996a5f0c78bd8a");
@@ -62,7 +63,9 @@ public class APICall {
       NodeList nodes5 = doc.getElementsByTagName("prfpdto"); //마감일
       NodeList nodes6 = doc.getElementsByTagName("sty"); //줄거리
       NodeList nodes7 = doc.getElementsByTagName("fcltynm"); //장소
-      
+      NodeList nodes8 = doc.getElementsByTagName("prfruntime"); //길이
+      NodeList nodes9 = doc.getElementsByTagName("pcseguidance"); //티켓가격
+      	
       
       Element e1 = (Element) nodes.item(0);
       String title = e1.getTextContent();
@@ -84,18 +87,34 @@ public class APICall {
       
       Element e7 = (Element) nodes7.item(0);
       String place = e7.getTextContent();
+      
+      Element e8 = (Element) nodes8.item(0);
+      String duration = e8.getTextContent();
+      
+      Element e9 = (Element) nodes9.item(0);
+      String price = e8.getTextContent();
 		
       System.out.println("===================");
       if(info.length() <= 1) {
     	 info = title + "입니다";
       }
       
-      Random rand = new Random();
-      double randomNumber = rand.nextDouble() * 3 + 1;  //3~4
+      String intStr = price.replaceAll("[^0-9]", "");
+      System.out.println(intStr + " ----- ");
+      int tprice = Integer.parseInt(intStr);
+      if(tprice <= 1000){
+    	  tprice = tprice * 1000;
+      }
+      System.out.println(tprice);
+  	Random rand = new Random();
+    float randomNumber = rand.nextFloat() * 2 + 2; //2~4 
+    float roundedNumber = (float) (Math.round(randomNumber * 10.0) / 10.0); // rounds the number to two decimal places
+      //3~4
+      int dis = rand.nextInt(10)+2;
       
-      double roundedNumber = Math.round(randomNumber * 10.0) / 10.0;
-      
-      //Ticket t = new Ticket(poster,category,"공연",title,startD,endD,info,place);
+      Ticket t = new Ticket(poster,category,s,title,startD,endD,info,place,duration,30,tprice,dis,roundedNumber);
+      TicketDAO.getInstance().addTicket(t);
+	
 	}
 	
 	public void getId(String s) throws IOException, SAXException, ParserConfigurationException{
@@ -107,7 +126,6 @@ public class APICall {
        urlBuilder.append("&" + URLEncoder.encode("cpage","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
        urlBuilder.append("&" + URLEncoder.encode("rows","UTF-8") + "=" + URLEncoder.encode("5", "UTF-8")); /*한페이지당 수*/
        urlBuilder.append("&" + URLEncoder.encode("shcate","UTF-8") + "=" + URLEncoder.encode(s, "UTF-8")); /*카테고리*/ 
-       
        
        URL url = new URL(urlBuilder.toString());
        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -132,7 +150,7 @@ public class APICall {
        for (int i = 0; i < nodes.getLength(); i++) {
            Element element = (Element) nodes.item(i);
            String mt20id = element.getTextContent();
-           getItem(mt20id);
+           getItem(mt20id,s);
        }
 		
 	}

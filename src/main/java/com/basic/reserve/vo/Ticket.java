@@ -17,10 +17,9 @@ public class Ticket {
 	private int discount;
 	private float star;
 	
-	public Ticket(int id, String image, String contents, String category, String title, String dateStart,
+	public Ticket(String image, String contents, String category, String title, String dateStart,
 			String dateEnd, String location, String info, String duration, int seatNum, int price, int discount,
 			float star) {
-		this.id = id;
 		this.image = image;
 		this.contents = contents;
 		this.category = category;

@@ -98,7 +98,7 @@ a{text-decoration:none;}
 ul li{list-style-type:none; display:inline-block; margin-right:20px;}
 
 /*추천페이지 슬라이드*/
-input[type="radio"]{display:none;}
+.topRk input[type="radio"]{display:none;}
 .swiper-container{
 	display:block;
 	width:100%;
@@ -151,6 +151,6 @@ img.card-img-top{height:300px;}
 }
 
 /* 예매화면 노출 */
-div[id="rsvPage"]{display:none;}
+/* div[id="rsvPage"]{display:none;}
 input[id="reserve"]:checked ~ #rsvPage {display:block;}
-input[id="reserve"]:checked ~ #info {display:none;}
+input[id="reserve"]:checked ~ #info {display:none;} */

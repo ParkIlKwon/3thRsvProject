@@ -42,6 +42,26 @@ public class TicketDAO {
 		return list;
 	}
 	
+	public List<Ticket>getAscShow(){
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		List<Ticket> list = session.selectList("mapper.ticket.getAscShow");
+		session.close();
+		return list;
+	}
+	
+	
+	  public List<Ticket>getAscSports(){ SqlSession session =
+	  MybatisConfig.getInstance().openSession(true); List<Ticket> list =
+	  session.selectList("mapper.ticket.getAscSports"); session.close();
+	  return list;
+	  }
+	 
+	
+	
+	
+	
+	
+	
 	public List<Ticket>getNewSports(){
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
 		List<Ticket> list = session.selectList("mapper.ticket.getNewSports");

@@ -25,9 +25,16 @@ public class MainController implements Controller {
 		LocalDate now = LocalDate.now();
 		List<Ticket>newshow = TicketDAO.getInstance().getNewShow();
 		List<Ticket>newsports = TicketDAO.getInstance().getNewSports();
+		
+		List<Ticket>ascshow = TicketDAO.getInstance().getAscShow();
+		List<Ticket>ascsports = TicketDAO.getInstance().getAscSports();
+		
+		
 		List<Ticket>rankmovie = TicketDAO.getInstance().getRankingMovie();
 		List<Ticket>rankshow = TicketDAO.getInstance().getRankingShow();
 		List<Ticket>ranksports = TicketDAO.getInstance().getRankingSports();
+		
+		
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("newshow", newshow);
@@ -35,6 +42,9 @@ public class MainController implements Controller {
 		session.setAttribute("rankshow", rankshow);
 		session.setAttribute("rankmovie", rankmovie);
 		session.setAttribute("ranksports", ranksports);
+		
+		session.setAttribute("ascshow", ascshow);
+		session.setAttribute("ascsports", ascsports);
 		
 		
 		if(request.getParameter("page") != null) {

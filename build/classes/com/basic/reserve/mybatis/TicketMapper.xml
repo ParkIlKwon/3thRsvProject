@@ -59,6 +59,14 @@
 	 select * from ticket where Category ="영화" order by Star DESC LIMIT 3
 	</select>
 	
+	<select id="getAscShow" resultMap="ticket" >
+	 select * from ticket where Category ="공연" order by dateStart
+	</select>
+	
+	<select id="getAscSports" resultMap="ticket" >
+	 select * from ticket where Category ="스포츠" order by dateStart
+	</select>
+
 	<insert id="addTicket" parameterType="ticket" >
 	 
 	 INSERT INTO ticket (image, contents, category, title, dateStart, dateEnd, info, location, duration, seatNum, price, discount, star)

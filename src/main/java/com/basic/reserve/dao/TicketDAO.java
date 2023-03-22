@@ -35,6 +35,14 @@ public class TicketDAO {
 		return list;
 	}
 	
+	public List<Ticket>getNewSports(){
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		List<Ticket> list = session.selectList("mapper.ticket.getNewSports");
+		session.close();
+		return list;
+	}
+	
+	
 	public List<Ticket>getRankingShow(){
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
 		List<Ticket> list = session.selectList("mapper.ticket.getRankingShow");
@@ -62,7 +70,11 @@ public class TicketDAO {
 		session.close();
 	}
 	
-	
+	public void deleteSelectiveTicket(Ticket t) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		session.selectList("mapper.ticket.deleteTicket",t);
+		session.close();
+	}
 	
 	
 	

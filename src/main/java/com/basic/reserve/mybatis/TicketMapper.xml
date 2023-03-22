@@ -37,6 +37,11 @@
 	select * from ticket where Category ="공연" order by DateStart DESC LIMIT 3
 	</select>
 	
+	<select id="getNewSports" resultMap="ticket">
+	select * from ticket where Category ="스포츠" order by DateStart DESC LIMIT 3
+	</select>
+	
+	
 	<select id="getRankingShow" resultMap="ticket">
 	 select * from ticket where Category ="공연" order by Star DESC LIMIT 3
 	</select>
@@ -71,7 +76,9 @@
 	 
 	</insert>
 	
-	
+	<delete id="deleteTicket" parameterType="int">
+	DELETE FROM ticket WHERE id = #{id}
+	</delete>
 	
 	
 	

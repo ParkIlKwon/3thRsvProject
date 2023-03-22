@@ -117,6 +117,10 @@ public class APICall {
       //3~4
       int dis = rand.nextInt(10)+2;
       
+      if(s.equals("GGGA")){
+    	  s = "공연";
+      }
+      
       Ticket t = new Ticket(poster,category,s,title,startD,endD,info,place,duration,30,tprice,dis,roundedNumber);
       TicketDAO.getInstance().addTicket(t);
 	

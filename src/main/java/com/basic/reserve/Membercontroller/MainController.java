@@ -37,15 +37,15 @@ public class MainController implements Controller {
 		
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("newshow", newshow);
-		session.setAttribute("newsports", newsports);
-		session.setAttribute("rankshow", rankshow);
-		session.setAttribute("rankmovie", rankmovie);
-		session.setAttribute("ranksports", ranksports);
+		request.setAttribute("newshow", newshow);
+		request.setAttribute("newsports", newsports);
 		
-		session.setAttribute("ascshow", ascshow);
-		session.setAttribute("ascsports", ascsports);
+		request.setAttribute("rankshow", rankshow);
+		request.setAttribute("rankmovie", rankmovie);
+		request.setAttribute("ranksports", ranksports);
 		
+		request.setAttribute("ascshow", ascshow);
+		request.setAttribute("ascsports", ascsports);
 		
 		if(request.getParameter("page") != null) {
 			page = request.getParameter("page");

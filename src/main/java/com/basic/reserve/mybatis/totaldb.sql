@@ -19,6 +19,7 @@ VALUES
 
 delete from memberlist;
 drop table memberlist;
+drop table coupon;
 TRUNCATE TABLE memberlist;
 select * from memberlist;
 delete from memberlist where memberId = "qwer" and memberPw = "1234";
@@ -120,25 +121,7 @@ create table reservelist(
 	CONSTRAINT fk_Res_id FOREIGN KEY(memberId) REFERENCES memberlist(memberId) ON DELETE CASCADE
 );
 
-create table place(
-	id int auto_increment primary key, #장소고유번호
-	name varchar(20) not null, #해당장소 이름
-	title varchar(20) not null, #해당 티켓 제목
-	image varchar(50) not null, #해당장소 이미지
-	
-	CONSTRAINT fk_pl_id FOREIGN KEY(title) REFERENCES ticket(title) ON DELETE CASCADE
-)
 
-drop table place;
-select * from place;
-delete from place;
-TRUNCATE TABLE place;
-
-INSERT INTO place (name, title, image) VALUES
-('서울 예술의전당', '아이유 콘서트', '서울예술의전당.jpg'),
-('씨어터 삼각지', '레미제라블', '씨어터삼각지.jpg'),
-('대학로 소극장', '하이큐!!', '대학로소극장.jpg'),
-('인천 SK 행복드림구장', '한화 이글스 경기', '인천SK행복드림구장.jpg');
 
 
 

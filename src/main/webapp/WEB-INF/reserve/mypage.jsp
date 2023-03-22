@@ -41,7 +41,8 @@
 			<div class="card-header"><b>MY 쿠폰함</b></div>
 			<div class="card-body p-2">
 				<B>회원가입 쿠폰 </B> 3,000원 할인<br>
-				<B>일일출석 쿠폰 </B> 1,000원 할인
+				<B>일일출석 쿠폰 </B> 1,000원 할인<br>
+				<B>포인트 잔액 : ${m.memberPoints}</B><br>
 			</div>
 		</div>
 		<div class="pt-4 p-2"><font style="color:grey; font-size:0.8rem">&nbsp&nbsp※ 회원탈퇴는 

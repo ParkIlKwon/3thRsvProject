@@ -100,6 +100,11 @@ public class APICall {
       }
       
       String intStr = price.replaceAll("[^0-9]", "");
+      System.out.println(info);
+      if(intStr.equals("")) {
+    	  System.out.println("들어옴");
+    	  intStr = "15000";
+      }
       System.out.println(intStr + " ----- ");
       int tprice = Integer.parseInt(intStr);
       if(tprice <= 1000){

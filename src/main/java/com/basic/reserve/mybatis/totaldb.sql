@@ -83,7 +83,7 @@ VALUES
 ('sports8.jpg', '배구', '스포츠', '한국여자배구연맹컵', '2023-05-10', '2023-05-15', '한국여자배구연맹컵 대회가 열립니다.', '청주체육관', '2시간30분', 120, 20000, 10, 4.3),
 ('sports9.jpg', '골프', '스포츠', '제주오픈 골프대회', '2023-08-01', '2023-08-04', '제주에서 열리는 국내 최고의 골프대회인 제주오픈이 시작됩니다.', '제주 골프장', '2시간30분', 150, 100000, 20, 4.8);
 
-
+select * from ticket where Category ="스포츠" order by dateStart;
 
 create table board(
 	id int auto_increment primary key, 

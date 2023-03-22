@@ -97,7 +97,18 @@ function cancelhp(){
 	 $("#memberHP").val("");
 }
 
-
+		$("#memberHP").keyup(function() {
+			
+			if($("#memberHP").val().length >=  10){
+			let Str = $("#memberHP").val();
+			Str.replace(/[^0-9]/g, '')
+				Str = 
+				Str
+				.replace(/[^0-9]/g, '')
+				.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/ , `$1-$2-$3`);
+				$("#memberHP").val(Str);
+			}
+	});
 
 
 

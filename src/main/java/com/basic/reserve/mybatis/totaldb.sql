@@ -50,6 +50,10 @@ drop TABLE ticket;
  select * from ticket where Title like CONCAT('%',"하",'%');
  select * from ticket where Category ="공연" order by Star DESC LIMIT 3;
  select * from ticket where dateStart >= '2022-04-04';
+ 
+ select * from ticket where Category ="공연" order by dateStart;
+ select * from ticket where Category ="스포츠" order by dateStart;
+ 
 --#################### set show dummy data ; ################### 
  
 INSERT INTO ticket (image, Contents, Category, Title, DateStart, DateEnd, Info, Location, Duration, SeatNum, Price, Discount, Star)

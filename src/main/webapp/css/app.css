@@ -97,16 +97,42 @@ a{text-decoration:none;}
 .nav_menu {padding:5px 20px; margin:0}
 ul li{list-style-type:none; display:inline-block; margin-right:20px;}
 
-/*추천페이지 슬라이드*/
+/*오늘티켓 슬라이드*/
+img.card-img-top2{
+	size:100%;
+	width:180px;
+	height:200px;
+	border-radius:5px}
+.ellipsis2 {
+ /*  white-space: nowrap; */
+ 	padding:5px 20px 5px 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
+
 input[type="radio"]{display:none;}
+
 .swiper-container{
 	display:block;
 	width:100%;
-	height:450px;
+	height:100%;
 	overflow:hidden;
 }
 
-/*랭킹페이지 탭*/
+.swiper-slide {width:100%; height:100%;
+	padding:10px; margin:0 auto;}
+	
+#slideBox{color:white;}
+
+/*메인 랭킹*/
+img.card-img-top{max-height:350px;}
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 input[id*="tab"]+label {
 	display:inline-block; padding:10px 20px;
 	border-radius:10px 10px 0 0;
@@ -145,14 +171,6 @@ input[id*="md"]+label:hover{cursor:pointer;}
 div[class*="modi"]{display:none;}
 input[id="mdPw"]:checked ~ .modiPw {display:block;}
 input[id="mdHp"]:checked ~ .modiHp {display:block;}
-
-/* 메인 영화순위 */
-img.card-img-top{max-height:350px;}
-.ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 
 /* 예매화면 노출 */
 /* div[id="rsvPage"]{display:none;}

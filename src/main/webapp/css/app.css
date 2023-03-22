@@ -33,6 +33,8 @@ a{text-decoration:none;}
 	}
 .btn-cancel:hover{background:#6c757d ;}
 
+.text-lt{color:#f9e7cb;}
+
 .btn-lt-basic{
 	background-color:#f9e7cb;
 	padding:5px;
@@ -100,30 +102,27 @@ ul li{list-style-type:none; display:inline-block; margin-right:20px;}
 /*오늘티켓 슬라이드*/
 img.card-img-top2{
 	size:100%;
-	width:180px;
+	width:100%;
 	height:200px;
 	border-radius:5px}
 .ellipsis2 {
- /*  white-space: nowrap; */
- 	padding:5px 20px 5px 5px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
+	padding:5px 20px 5px 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
 }
 
 input[type="radio"]{display:none;}
 
 .swiper-container{
 	display:block;
-	width:100%;
+	max-width:100%;
 	height:100%;
-	overflow:hidden;
+	overflow-x:hidden;
 }
 
-.swiper-slide {width:100%; height:100%;
+.swiper-slide {width:1200px; height:100%;
 	padding:10px; margin:0 auto;}
-	
-#slideBox{color:white;}
 
 /*메인 랭킹*/
 img.card-img-top{max-height:350px;}

@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<jsp:useBean id="now" class="java.util.Date"/>
+<%-- <fmt:formatDate value="${now}" type="DATE" pattern="yyyy-MM-dd"/> --%>
+<fmt:parseNumber value="${now.time / (1000*60*60*24)}" integerOnly="true" var="today"></fmt:parseNumber>
+
 <section class="swiper-container p-2 bg-dark">
 	<div class="swiper-wrapper" style="max-width:1200px; margin:auto">
 		<div class="swiper-slide px-3">
 			<div class="fs-3 fw-bold" style="color:#d2850c">오늘의 공연</div>
 		    <div class="row row-cols-1 row-cols-md-3 g-2">
-			<c:forEach var="sh" items="${newshow}">
+			<c:forEach var="sh" items="${ascshow}">
+			<fmt:parseDate value="${sh.dateStart }" var="strD" pattern="yyyy-MM-dd"/>
+			<fmt:parseNumber value="${strD.time / (1000*60*60*24)}" integerOnly="true" var="strDate"></fmt:parseNumber>
+				<c:if test="${strD>=today}">
 		        <div class="card mb-3 border-0 bg-dark text-white" style="max-width:400px; cursor:pointer;" onclick="location.href='${ctx}/ticketing.do?title=${sh.title}'">
 		            <div class="row row-cols-md-2 g-1">
 		                <div class="col-5"><img src="img/${sh.image}" class="card-img-top2" alt="..."></div>
@@ -19,6 +27,7 @@
 		            </div>
 					<div class="ellipsis2 text-light pt-3">${sh.info}</div>
 		        </div>
+		        </c:if>
 			</c:forEach>
 		    </div>
 		</div>

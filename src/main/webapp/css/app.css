@@ -147,7 +147,7 @@ input[id="mdPw"]:checked ~ .modiPw {display:block;}
 input[id="mdHp"]:checked ~ .modiHp {display:block;}
 
 /* 메인 영화순위 */
-img.card-img-top{height:300px;}
+img.card-img-top{max-height:350px;}
 .ellipsis {
   white-space: nowrap;
   overflow: hidden;

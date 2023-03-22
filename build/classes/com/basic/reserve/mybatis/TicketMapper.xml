@@ -32,6 +32,11 @@
 	<select id="selectiveTicket" parameterType="String" resultMap="ticket">
   select * from ticket where title like CONCAT('%',#{title},'%')
 </select>
+
+	<select id="selectiveTicketbyId" parameterType="int" resultMap="ticket">
+  select * from ticket where id = #{id}
+</select>
+
 	
 	<select id="getNewShow" resultMap="ticket">
 	select * from ticket where Category ="공연" order by DateStart DESC LIMIT 3
@@ -80,6 +85,11 @@
 	DELETE FROM ticket WHERE id = #{id}
 	</delete>
 	
+	<update id="updateTicket" parameterType="ticket"> 
+	update ticket
+	set title = #{title},dateStart = #{dateStart},dateEnd = #{dateEnd},star = #{star}
+	WHERE id = #{id}
+	</update>
 	
 	
 	

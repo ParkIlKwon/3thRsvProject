@@ -26,10 +26,25 @@ public class TicketManagementController implements Controller {
 			
 			TicketDAO.getInstance().deleteSelectiveTicket(t);
 			
+		}else if(request.getParameter("id") != null){
+			int id = Integer.parseInt(request.getParameter("id"));
+			String title = request.getParameter("title");
+			float star = Float.parseFloat(request.getParameter("star"));
+			String sdate = request.getParameter("sdate");
+			String edate = request.getParameter("edate");
 			
-		}else {
+			Ticket t = new Ticket();
+			t.setId(id);
 			
+			List<Ticket>onelist = TicketDAO.getInstance().getSelectiveTicketListbyId(t);
+			t = onelist.get(0);
 			
+			t.setTitle(title);
+			t.setStar(star);
+			t.setDateStart(sdate);
+			t.setDateEnd(edate);
+		
+			TicketDAO.getInstance().updateTicket(t);
 		}
 
 		HttpSession session = request.getSession();

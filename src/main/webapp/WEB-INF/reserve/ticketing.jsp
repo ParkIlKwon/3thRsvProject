@@ -2,6 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<jsp:useBean id="tday" class="java.util.Date"/>
+<fmt:parseNumber value="${tday.time / (1000*60*60*24)}" integerOnly="true" var="today"></fmt:parseNumber>
 <link rel="stylesheet" type="text/css" href="${ctx}/css/datepicker.css">
 <script type="text/javascript" src="script/datepicker.js" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
@@ -12,19 +15,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
 
-
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<jsp:useBean id="now" class="java.util.Date"/>
-<%-- <fmt:formatDate value="${now}" type="DATE" pattern="yyyy-MM-dd"/> --%>
-<%-- <fmt:parseNumber value="${now.time / (1000*60*60*24)}" integerOnly="true" var="today"></fmt:parseNumber> --%>
 <div id="container" style="max-width:1200px; margin:auto">
 	<div class="row p-4">
 		<c:forEach var="t" items="${selection}">
-		
 		<div class="col-md-auto">
 			<div class="p-2">
-				<c:if test="${now >= t.dateStart && now <= t.dateEnd}"><span class="btn-sm-blue">진행중</span></c:if>
-				<c:if test="${now < t.dateStart}"><span class="btn-sm-green">예정</span></c:if>
+				<fmt:parseDate value="${t.dateStart }" var="strD" pattern="yyyy-MM-dd"/>
+				<fmt:parseNumber value="${strD.time / (1000*60*60*24)}" integerOnly="true" var="strDate"></fmt:parseNumber>
+			    <c:if test="${today >= strDate-2 && now <= t.dateEnd}"><span class="btn-sm-blue">진행중</span></c:if>
+				<c:if test="${today < strDate-2}"><span class="btn-sm-green">예정</span></c:if>
 				<c:if test="${now > t.dateEnd}"><span class="btn-sm-red">종료</span></c:if>
 			</div>
 			<div style="width: 18rem; max-height:350px">
@@ -48,35 +47,25 @@
 			</div>
 		</div>
 		<div class="p-2 my-2" style="border:2px solid #f9e7cb; border-radius:10px">
-<%-- 				<c:if test="${now < t.dateStart || now > t.dateEnd}">
-				<div class="p-1"><button class="btn-disable" disabled>예매불가</button></div>
-				</c:if> --%>
-<%-- 				<c:forEach var="d" varStatus="status" begin="1" end="${endDate - strDate+1 }">
-				<c:set var="i" value="${i+1}"/> --%>
-				<%-- <fmt:formatDate value="${strDate}" type="DATE" pattern="yyyy-MM-dd"/> --%>
-					<%-- <fmt:formatDate value="${strDate+i}" pattern="yyyy-MM-dd" /> --%>
-					<%-- ${strDate} --%>
-<%-- 					${strDate+i}
-					<fmt:parseNumber value="${strDate*(1000*60*60*24)}" integerOnly="true" var="std"></fmt:parseNumber>
-					<fmt:formatNumber value="${std}" pattern="yyyy-MM-dd" />
-				</c:forEach> --%>
+				<c:if test="${id  eq null && today >= strDate-2 && now <= t.dateEnd}">
+					<h5 style="color:red">로그인 후 예매 가능합니다</h5>
+					<div class="p-1"><button class="btn-disable" disabled>예매불가</button></div>
+				</c:if>
 				
+ 				<c:if test="${today < strDate-2 || now > t.dateEnd}">
+					<div class="p-1"><button class="btn-disable" disabled>예매불가</button></div>
+				</c:if>
+				
+				<c:if test="${id ne null && today >= strDate-2 && now <= t.dateEnd}">
 				날짜 선택
-				<input type="text" id="datepicker" class="datepicker mr-2" placeholder="Select Date" name="date"><br>
+				<input type="text" id="datepicker" class="datepicker mr-2" placeholder="날짜를 선택하세요" name="date"><br>
 			    <input type="hidden" id = "str" value="${t.dateStart}"> 
 				<input type="hidden" id = "ed" value="${t.dateEnd}">
-				<c:forEach var="i" begin="0" end="${endDate - strDate}">
-				<c:set var="nextDay" value="<%=new Date(new Date().getTime() + 60 * 60 * 24 * 1000 * (int) pageContext.getAttribute(\"i\"))%>" />
-				<span><fmt:formatDate value="${nextDay}" pattern="yyyy-MM-dd"/></span>
-				</c:forEach>
 				<div>티켓 장수 (잔여석 :<span style="color:red"> ${t.seatNum} </span>석): <input type="number" id="seat" /></div>
 				<div>포인트 적용 : x원</div>
 				<div><b id="totalprice">${t.price} \</b></div>
-				<br>
+				
 				<h2>예매자 정보</h2>
-				<span style="color:red">
-				<c:if test="${id  eq null}">로그인 해주세요</c:if>
-				  </span>
 				<c:forEach var="m" items="${mlist}">
 				이름 : ${m.memberName} <br>
 				연락처 : ${m.memberHP}
@@ -86,7 +75,7 @@
 				<button class="btn-basic" onclick="reserve()">결제하기</button>
 				<button class="btn-cancel" onclick="location.href='${ctx}/main.do'">취소하기</button>
 				</div>
-<%-- 				</c:if> --%>
+ 				</c:if>
 		</div>
 		</c:forEach>
 	</div>

@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="./header.jsp" %>      
+<%@ include file="./header.jsp" %> 
+<script type="text/javascript" src="script/Admin.js" defer></script>     
 <meta charset="EUC-KR">
 <title>어드민 티켓영역</title>
 </head>
@@ -23,12 +24,12 @@
   </thead>
   
   <tbody>
-  <c:forEach var="t" items="${ticketAllList}">
+  <c:forEach var="t" items="${ticketAllList}" varStatus="status">
     <tr>
-      <th><input class="input-basic" type="text" value="${t.title}"/></th>
-      <td data-bs-toggle="tooltip" data-bs-placement="left" title="클릭해서 수정">${t.star}</td>
-      <td>${t.dateStart}</td>
-      <td>${t.dateEnd}</td>
+      <th><input class="input-basic" data-idx1="${status.index}" type="text" value="${t.title}" id="title"/></th>
+      <td data-bs-toggle="tooltip" data-bs-placement="left" title="입력후 Enter"><input class="input-basic" type="text" value="${t.star}" style="width:100px" id="star"/></td>
+      <td><input class="input-basic" data-idx3="${status.index}" value="${t.dateStart}"></td>
+      <td><input class="input-basic" data-idx4="${status.index}" value="${t.dateEnd}"></td>
       <td>
       <c:if test="${now >= t.dateStart && now <= t.dateEnd}"><span class="btn-sm-blue">진행중</span></c:if>
 	  <c:if test="${now < t.dateStart}"><span class="btn-sm-green">예정</span></c:if>
@@ -36,6 +37,7 @@
       </td>
       <td><button class="btn btn-danger btn-sm" onclick="location.href='${ctx}/ticketmanagement.do?num=${t.id}'">삭제</button></td>
     </tr>
+    <input type="hidden" data-idx2="${status.index}" value="${t.id}">
 </c:forEach>
   </tbody>
 </table>

@@ -1,10 +1,9 @@
 @charset "UTF-8";
 
 *{margin:0;	padding:0; color:#212529;}
-/* html{height:100%;} */
 a{text-decoration:none;}
 
-.text-basic{color:#70685C;font-weight: bold;}
+.text-basic{color:#70685C; font-weight: bold;}
 .text-basic:hover{color:#efa635;}
 .text-basic:active{color:#efa635;}
 

@@ -24,12 +24,14 @@ public class MainController implements Controller {
 		String page = "Main";
 		LocalDate now = LocalDate.now();
 		List<Ticket>newshow = TicketDAO.getInstance().getNewShow();
+		List<Ticket>newsports = TicketDAO.getInstance().getNewSports();
 		List<Ticket>rankmovie = TicketDAO.getInstance().getRankingMovie();
 		List<Ticket>rankshow = TicketDAO.getInstance().getRankingShow();
 		List<Ticket>ranksports = TicketDAO.getInstance().getRankingSports();
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("newshow", newshow);
+		session.setAttribute("newsports", newsports);
 		session.setAttribute("rankshow", rankshow);
 		session.setAttribute("rankmovie", rankmovie);
 		session.setAttribute("ranksports", ranksports);

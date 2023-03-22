@@ -92,7 +92,7 @@ public class APICall {
       String duration = e8.getTextContent();
       
       Element e9 = (Element) nodes9.item(0);
-      String price = e8.getTextContent();
+      String price = e9.getTextContent();
 		
       System.out.println("===================");
       if(info.length() <= 1) {

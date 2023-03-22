@@ -27,6 +27,9 @@ public class TicketManagementController implements Controller {
 			TicketDAO.getInstance().deleteSelectiveTicket(t);
 			
 			
+		}else {
+			
+			
 		}
 
 		HttpSession session = request.getSession();

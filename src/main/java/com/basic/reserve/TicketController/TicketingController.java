@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.basic.reserve.dao.ReserveDAO;
 import com.basic.reserve.dao.TicketDAO;
 import com.basic.reserve.frontController.Controller;
 import com.basic.reserve.vo.Reserve;
@@ -31,9 +32,21 @@ public class TicketingController implements Controller{
 			
 			return "ticketing";
 		}else {
+			List<Ticket>list = (List<Ticket>) session.getAttribute("selection");
+			
+			String memberId = (String) session.getAttribute("id");
+			
+			String reserveTitle = list.get(0).getTitle();
+			String reserveDate = request.getParameter("rdate");
+			String reserveLocation = list.get(0).getLocation();
+			int reserveSeatNum = Integer.parseInt(request.getParameter("seatNum"));
+			int reservePrice = Integer.parseInt(request.getParameter("price"));
+			
+			Reserve r = new Reserve(memberId,reserveTitle,reserveDate,reserveLocation,reserveSeatNum,reservePrice);
+			
+			ReserveDAO.getInstance().addReserve(r);
 			
 			return "ticketingpro";
 		}
 	}
-
 }

@@ -29,12 +29,9 @@ public class MainController implements Controller {
 		List<Ticket>ascshow = TicketDAO.getInstance().getAscShow();
 		List<Ticket>ascsports = TicketDAO.getInstance().getAscSports();
 		
-		
 		List<Ticket>rankmovie = TicketDAO.getInstance().getRankingMovie();
 		List<Ticket>rankshow = TicketDAO.getInstance().getRankingShow();
 		List<Ticket>ranksports = TicketDAO.getInstance().getRankingSports();
-		
-		
 		
 		HttpSession session = request.getSession();
 		request.setAttribute("newshow", newshow);
@@ -51,14 +48,7 @@ public class MainController implements Controller {
 			page = request.getParameter("page");
 		}
 		
-		if(session.getAttribute("id") != null) {
-		Member m = new Member();
-		m.setMemberId((String)session.getAttribute("id"));	
-		List<Member>list = MemberDAO.getInstance().getOneMemberList(m);
-		session.setAttribute("mlist", list);
-		}
 		session.setAttribute("now", now);
 		return page;
 	}
-
 }

@@ -7,6 +7,7 @@
 <fmt:parseNumber value="${tday.time / (1000*60*60*24)}" integerOnly="true" var="today"></fmt:parseNumber>
 <link rel="stylesheet" type="text/css" href="${ctx}/css/datepicker.css">
 <script type="text/javascript" src="script/datepicker.js" defer></script>
+<script type="text/javascript" src="script/reserve.js" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
@@ -14,6 +15,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<body>
 
 <div id="container" style="max-width:1200px; margin:auto">
 	<div class="row p-4">
@@ -57,22 +61,24 @@
 				</c:if>
 				
 				<c:if test="${id ne null && today >= strDate-2 && now <= t.dateEnd}">
+				<fmt:formatNumber var = "totalprice" type="number" value="${t.price * ((100 - t.discount)*0.01)}" maxFractionDigits="0"/>
+				<c:forEach var="m" items="${mlist}">
 				날짜 선택
-				<input type="text" id="datepicker" class="datepicker mr-2" placeholder="날짜를 선택하세요" name="date"><br>
+				<input type="text" id="datepicker" class="input-basic datepicker mr-2" placeholder="날짜를 선택하세요" name="date"><br>
 			    <input type="hidden" id = "str" value="${t.dateStart}"> 
 				<input type="hidden" id = "ed" value="${t.dateEnd}">
-				<div>티켓 장수 (잔여석 :<span style="color:red"> ${t.seatNum} </span>석): <input type="number" id="seat" /></div>
-				<div>포인트 적용 : x원</div>
-				<div><b id="totalprice">${t.price} \</b></div>
+				<div>티켓 장수 (잔여석 :<span style="color:red"> ${t.seatNum} </span>석): <input class="input-basic" type="number" id="seat" /></div>
+				<div><input class="input-basic" type="number"> 사용가능 포인트 : ${m.memberPoints}원 <button>포인트적용</button></div>
+				<div><b id="totalprice">최종가: ${totalprice} 원</b></div>
 				
 				<h2>예매자 정보</h2>
-				<c:forEach var="m" items="${mlist}">
+				
 				이름 : ${m.memberName} <br>
 				연락처 : ${m.memberHP}
 				</c:forEach>
 				
 				<div class="p-2">
-				<button class="btn-basic" onclick="reserve()">결제하기</button>
+				<button class="btn-basic" onclick="reserve(${totalprice})">결제하기</button>
 				<button class="btn-cancel" onclick="location.href='${ctx}/main.do'">취소하기</button>
 				</div>
  				</c:if>
@@ -80,4 +86,6 @@
 		</c:forEach>
 	</div>
 </div>
+
+</body>
 <%@ include file="./footer.jsp" %>

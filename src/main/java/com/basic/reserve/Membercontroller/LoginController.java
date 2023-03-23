@@ -1,7 +1,6 @@
 package com.basic.reserve.Membercontroller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -21,7 +20,6 @@ public class LoginController implements Controller {
 		String next = "";
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
-		PrintWriter out = response.getWriter();
 
 		if(request.getParameter("id") == null) {
 			next = "login";
@@ -35,6 +33,11 @@ public class LoginController implements Controller {
 			String log = MemberDAO.getInstance().login(m);
 			if(log != null){
 				session.setAttribute("id", log);
+				
+				m.setMemberId((String)session.getAttribute("id"));	
+				List<Member>list = MemberDAO.getInstance().getOneMemberList(m);
+				session.setAttribute("mlist", list);
+				
 				response.getWriter().print("1");
 
 			}else {

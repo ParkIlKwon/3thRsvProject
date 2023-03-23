@@ -5,14 +5,12 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.basic.reserve.util.MybatisConfig;
-import com.basic.reserve.vo.Member;
 import com.basic.reserve.vo.Reserve;
-import com.basic.reserve.vo.Ticket;
 
 public class ReserveDAO {
 	private ReserveDAO(){}
 	static public ReserveDAO rdao = new ReserveDAO();
-	static ReserveDAO getInstance() {
+	static public ReserveDAO getInstance() {
 		return rdao;
 	}
 	
@@ -23,7 +21,7 @@ public class ReserveDAO {
 		return list;
 	}
 	
-	public String addMember(Reserve r) {
+	public String addReserve(Reserve r) {
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
 		String log = session.selectOne("mapper.reserve.addReserve",r);
 		session.close();

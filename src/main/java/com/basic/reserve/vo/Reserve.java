@@ -11,10 +11,8 @@ public class Reserve {
 	
 	public Reserve(){}
 	
-	public Reserve(int id, String memberId, String reserveTitle, String reserveDate, String reserveLocation,
+	public Reserve(String memberId, String reserveTitle, String reserveDate, String reserveLocation,
 			int reserveSeatNum, int reservePrice) {
-		super();
-		this.id = id;
 		this.memberId = memberId;
 		this.reserveTitle = reserveTitle;
 		this.reserveDate = reserveDate;

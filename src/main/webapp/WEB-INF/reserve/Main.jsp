@@ -6,15 +6,16 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<section class="bg-dark">
+<section >
 	<div class="swiper-container p-2" style="max-width:1200px; margin:auto"> 
 	<div class="fs-3 fw-bold pt-2 px-4 blinking" style="color:#d2850c">추천 티켓</div>
-		<div class="swiper-wrapper" >
+	<hr style="border-width:3px 0 0 0; border-style:dotted; border-color:#efa635">
+		<div class="swiper-wrapper">
 			<div class="swiper-slide">
 			    <div class="row row-cols-1 row-cols-md-3 g-2">
-				<c:forEach var="sh" items="${ascshow}">
+				<c:forEach var="sh" items="${ascshow}" end="3">
 					<c:if test="${sh.dateStart >= now}">
-			        <div class="card border-0 bg-dark text-white" style="max-width:400px; cursor:pointer;" onclick="location.href='${ctx}/ticketing.do?title=${sh.title}'">
+			        <div class="card border-0" style="max-width:400px; cursor:pointer;" onclick="location.href='${ctx}/ticketing.do?title=${sh.title}'">
 			            <div class="row row-cols-md-2 g-1">
 			                <div class="col-5"><img src="img/${sh.image}" class="card-img-top2" alt="..."></div>
 			                <div class="col-7 card-body">
@@ -25,14 +26,14 @@
 									<c:if test="${today < strDate-2}"><span class="btn-sm-green">예정</span></c:if>
 									<c:if test="${now > sh.dateEnd}"><span class="btn-sm-red">종료</span></c:if>
 								</div>
-			                    <h5 class="card-title text-lt fw-bold">${sh.title}</h5>
-			                    <div class="text-info fw-bold">⭐⭐⭐ ${sh.star}</div>
-			                    <div class="text-white">${sh.location}</div>
-			                    <div class="text-white fw-bold">${sh.price}</div>
+			                    <h5 class="card-title text-dark fw-bold">${sh.title}</h5>
+			                    <div class="text-primary fw-bold">⭐⭐⭐ ${sh.star}</div>
+			                    <div class="text-dark">${sh.location}</div>
+			                    <div class="text-dark fw-bold">${sh.price}원</div>
 			                    <div class="text-danger fw-bold">${sh.discount}%</div>
 			                </div>
 			            </div>
-						<div class="ellipsis2 text-light pt-3">${sh.info}</div>
+						<div class="ellipsis2 text-dark pt-3">${sh.info}</div>
 			        </div>
 			        </c:if>
 				</c:forEach>
@@ -41,9 +42,9 @@
 		   
 			<div class="swiper-slide">
 			    <div class="row row-cols-1 row-cols-md-3 g-2" id="slideBox">
-				<c:forEach var="sp" items="${ascsports}" end="4">
+				<c:forEach var="sp" items="${ascsports}" end="3">
 					<c:if test="${sp.dateStart >= now}">
-			        <div class="card border-0 bg-dark text-white" style="max-width:400px; cursor:pointer;" onclick="location.href='${ctx}/ticketing.do?title=${sp.title}'">
+			        <div class="card border-0" style="max-width:400px; cursor:pointer;" onclick="location.href='${ctx}/ticketing.do?title=${sp.title}'">
 			            <div class="row row-cols-md-2 g-1">
 			                <div class="col-5"><img src="img/${sp.image}" class="card-img-top2" alt="..."></div>
 			                <div class="col-7 card-body">
@@ -54,20 +55,21 @@
 									<c:if test="${today < strDate-2}"><span class="btn-sm-green">예정</span></c:if>
 									<c:if test="${now > sp.dateEnd}"><span class="btn-sm-red">종료</span></c:if>
 								</div>
-			                    <h5 class="card-title text-lt fw-bold">${sp.title}</h5>
-			                    <div class="text-info fw-bold">⭐⭐⭐ ${sp.star}</div>
-			                    <div class="text-white">${sp.location}</div>
-			                    <div class="text-white fw-bold">${sp.price}</div>
+			                    <h5 class="card-title text-dark fw-bold">${sp.title}</h5>
+			                    <div class="text-primary fw-bold">⭐⭐⭐ ${sp.star}</div>
+			                    <div class="text-dark">${sp.location}</div>
+			                    <div class="text-dark fw-bold">${sp.price}원</div>
 			                    <div class="text-danger fw-bold">${sp.discount}%</div>
 			                </div>
 			            </div>
-						<div class="ellipsis2 text-light pt-3">${sp.info}</div>
+						<div class="ellipsis2 text-dark pt-3">${sp.info}</div>
 			        </div>
 			        </c:if>
 				</c:forEach>
 			    </div>
 		   </div>
 	    </div>
+	    <hr style="border-width:3px 0 0 0; border-style:dotted; border-color:#efa635">
     </div>
 </section>
  
@@ -79,7 +81,7 @@
 	
 	<div class="conbox con1 px-5">
 	    <div class="row row-cols-1 row-cols-md-3 g-5">
-		<c:forEach var="r" items="${rankshow}">
+		<c:forEach var="r" items="${rankshow}" end="3">
 		<c:if test="${r.dateStart >= now}">
 	        <div class="col" onclick="location.href='${ctx}/ticketing.do?title=${r.title}'" style="cursor:pointer;">
 	            <div class="card h-100">
@@ -97,7 +99,7 @@
 	</div>
 	<div class="conbox con2 px-5" >
 	    <div class="row row-cols-1 row-cols-md-3 g-5">
-		<c:forEach var="r" items="${ranksports}">
+		<c:forEach var="r" items="${ranksports}" end="3">
 		<c:if test="${r.dateStart >= now}">
 	        <div class="col" onclick="location.href='${ctx}/ticketing.do?title=${r.title}'" style="cursor:pointer;">
 	            <div class="card h-100">

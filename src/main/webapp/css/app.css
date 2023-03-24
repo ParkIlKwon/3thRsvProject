@@ -6,6 +6,7 @@ a{text-decoration:none;}
 .text-basic{color:#70685C; font-weight: bold;}
 .text-basic:hover{color:#efa635;}
 .text-basic:active{color:#efa635;}
+.text-lt{color:#f9e7cb;}
 
 .btn-basic{
 	background-color:#efa635;
@@ -24,7 +25,8 @@ a{text-decoration:none;}
 	border:none;
 	}
 .btn-cancel{
-	background-color:#adb5bd;
+	/* background-color:#adb5bd; */
+	background-color:#d1cfcd;
 	padding:5px 7px;
 	border-radius:5px;
 	color:white;
@@ -32,7 +34,6 @@ a{text-decoration:none;}
 	}
 .btn-cancel:hover{background:#6c757d ;}
 
-.text-lt{color:#f9e7cb;}
 
 .btn-lt-basic{
 	background-color:#f9e7cb;

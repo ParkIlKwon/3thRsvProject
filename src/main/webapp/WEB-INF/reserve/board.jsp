@@ -66,6 +66,7 @@
                   <div id="${b.memberId}${b.id}" class="accordion-collapse collapse" data-bs-parent="#faq-group-1" style="">
                     <div class="accordion-body">
                       ${b.body}
+                      ${b.writedate}
                       <button onclick=""> </button>
                     </div>
                   </div>

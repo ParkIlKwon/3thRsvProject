@@ -41,11 +41,12 @@ public class Board {
 	public void setBody(String body) {
 		this.body = body;
 	}
-	public String getDate() {
+	
+	public String getWritedate() {
 		return writedate;
 	}
-	public void setDate(String date) {
-		this.writedate = date;
+	public void setWritedate(String writedate) {
+		this.writedate = writedate;
 	}
 	
 	

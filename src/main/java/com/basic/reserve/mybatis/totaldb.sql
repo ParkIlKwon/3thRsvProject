@@ -106,6 +106,7 @@ drop table board;
 select * from board;
 delete from board;
 TRUNCATE TABLE board;
+SELECT * FROM board;
 
 drop table reservelist;
 

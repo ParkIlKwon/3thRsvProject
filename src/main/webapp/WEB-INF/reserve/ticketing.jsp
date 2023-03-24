@@ -16,6 +16,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
 
+<%@ include file="../modal/reservecheck.jsp" %>
+
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <body>
 
@@ -80,26 +82,27 @@
 						<div class="col-4 pl-5" style="border-right:2px dashed #f9e7cb">
 							<h4 class="text-R fw-bold py-3">예약정보</h4>
 							관람 날짜&nbsp;
-							<input type="text" id="datepicker" class="input-basic datepicker mr-2" placeholder="날짜를 선택하세요" name="date"><br>
+							<input type="text" id="datepicker" class="input-basic datepicker mr-2" placeholder="날짜를 선택하세요" onchange="setDate()"><br>
 						    <input type="hidden" id = "str" value="${t.dateStart}"> 
 							<input type="hidden" id = "ed" value="${t.dateEnd}"><br>
 							예매 수량 (잔여:<span class="text-danger fw-bold"> ${t.seatNum} </span>석) : &nbsp;
-							<input class="input-basic" type="number" id="seat" style="width:70px"/>석
+							<input class="input-basic" type="number" id="seat" style="width:70px" onchange="cgSeat()"/>석
 						</div>
 						<div class="col-5 px-4" style="border-right:2px dashed #f9e7cb">
 							<h4 class="text-R fw-bold py-3">결제정보</h4>
 							<div>티켓 금액 : ${totalprice}원</div>
 							<div class="py-2">포인트 : 
 							<input class="input-basic" id="pts" type="number" style="width:150px" placeholder="잔여포인트(${m.memberPoints})">원&nbsp;
-							<button class="btn-ltsm-basic" onclick="setPoint()">사용</button><br></div>
+							<button class="btn-ltsm-basic" onclick="setpts(${m.memberPoints})">사용</button><br></div>
 							<hr class="text-R">
-							<div class="pb-3">결제 금액 : <b id="totalprice">${totalprice}원</b></div>
+							<div class="pb-3">결제 금액 : <b><input id="cprice" value="${totalprice}" style="border:none; width: 100px" readonly/>원</b></div>
 						</div>
 						<div class="col-3 p-4" style="line-height:40px">
-						관람 날짜 : ****<br>
-						예매 좌석 : ****석<br>
-						결제 금액 : <b>****원</b><br>
-						<button class="btn-basic" onclick="reserve(${t.price},${t.discount})">결제하기</button>
+						관람 날짜 : <input type="text" style="border:none; width: 100px" value="" id="tdate" readonly/><br>
+						예매 좌석 : <input type="number" style="border:none; width: 80px" value="" id="tseat" readonly/>석<br>
+						결제 금액 : <b><input type="number" style="border:none; width: 80px" value="0" id="tpcs" readonly/>원</b><br>
+						
+						<button class="btn-basic" data-bs-toggle="modal" data-bs-target="#checkreserve" onclick="reserve('${m.id},${t.id},${t.location}')">결제하기</button>
 						<button class="btn-cancel" onclick="location.href='${ctx}/main.do'">다시선택</button>
 						</div>
 					</div>
@@ -107,6 +110,9 @@
  				</c:if>
 			</div>
 		</div>
+		
+		<input type="hidden" id="dispercent" value="${t.discount}"/>
+		<input type="hidden" id="singleprice" value="${t.price}"/>
 		</c:forEach>
 	</div>
 </div>

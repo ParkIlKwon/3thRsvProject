@@ -27,7 +27,7 @@
 	<mapper resource="com/basic/reserve/mybatis/MemberMapper.xml"/>
 	<mapper resource="com/basic/reserve/mybatis/TicketMapper.xml"/>
 	<mapper resource="com/basic/reserve/mybatis/BoardMapper.xml"/>
-		<mapper resource="com/basic/reserve/mybatis/ReserveMapper.xml"/>
+	<mapper resource="com/basic/reserve/mybatis/ReserveMapper.xml"/>
 	</mappers>
 </configuration>
 

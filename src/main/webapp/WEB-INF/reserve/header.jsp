@@ -38,7 +38,7 @@
 				<c:if test="${id ne null}">
 				<li><a class="text-basic" href="${ctx}/logout.do">${id}님 로그아웃</a></li>
 				</c:if>
-				<li><a class="text-basic" href="#">예약확인/취소</a></li>
+				<li><a class="text-basic" href="${ctx}/ticketingPro.do">예약확인/취소</a></li>
 				<li><a class="text-basic" href="${ctx}/mypage.do">마이 페이지</a></li>
 				<li><a class="text-basic" href="${ctx}/board.do">고객센터</a></li>
 			</ul>

@@ -44,6 +44,13 @@ public class MemberDAO {
 		return list;
 	}
 	
+	public List<Member>getOneMemberListbyId(Member m){
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		List<Member> list = session.selectList("mapper.member.selectOneMembersbyId",m);
+		session.close();
+		return list;
+	}
+	
 	
 	public String addMember(Member m) {
 		SqlSession session = MybatisConfig.getInstance().openSession(true);

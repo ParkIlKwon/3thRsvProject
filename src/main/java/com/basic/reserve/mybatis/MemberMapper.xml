@@ -36,6 +36,10 @@
  <select id="selectOneMembers" parameterType="member" resultMap="member">
    select * from memberlist where memberId=#{memberId}       
  </select>
+ 
+  <select id="selectOneMembersbyId" parameterType="int" resultMap="member">
+   select * from memberlist where id=#{id}       
+ </select>
 
 
      <update id="hpupdate" parameterType="member" >

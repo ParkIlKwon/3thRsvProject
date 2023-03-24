@@ -22,9 +22,15 @@ function checkSearch(){
 	}
 }
 
-window.onload = function() {
+window.addEventListener("load", init);
+function init(){
 	$("#searchData").keyup(function() {
 		$("#searchData").css("border","");
 	});
-	
+	$("#customTable tbody tr").click(function () {
+    var checkbox = $(this).find('td:first-child :checkbox');
+    checkbox.attr('checked', !checkbox.is(':checked'));
+  });
 }
+
+	

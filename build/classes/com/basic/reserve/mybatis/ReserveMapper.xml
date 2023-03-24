@@ -16,19 +16,34 @@
  	<result property="reservePrice" column="reservePrice"/>
  	
  	</resultMap>
+ 	
  
  <select id="selectAllReserve" resultMap="reserve">
  SELECT * from reservelist
  </select>
  
+   <select id="selectiveReserve" resultMap="reserve" parameterType="String">
+ SELECT * from reservelist where memberId = #{memberId}
+ </select>
+ 
+  <select id="selectoneReservebyId" resultMap="reserve" parameterType="int">
+ SELECT * from reservelist where id = #{id}
+ </select>
+ 
+ 
   <insert id="addReserve" parameterType="reserve">
  INSERT INTO reservelist(memberId, reserveTitle, reserveDate, reserveLocation, reserveSeatNum, reservePrice)
-VALUES (#(memberId),#(reserveTitle),#(reserveDate),#(reserveLocation),#(reserveSeatNum),#(reservePrice))
+VALUES (#{memberId},#{reserveTitle},#{reserveDate},#{reserveLocation},#{reserveSeatNum},#{reservePrice})
+
  </insert>
  
- <delete id="memberDelete" parameterType="int">
+ <delete id="reserveDelete" parameterType="int">
   delete from reservelist where id = #(id)
 </delete>
+ 
+ <select id="getLastReserve" resultMap="reserve">
+ select * from reservelist order by id desc limit 1
+ </select>
  
  
  </mapper>

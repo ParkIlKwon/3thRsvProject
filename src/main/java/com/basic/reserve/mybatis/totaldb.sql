@@ -121,12 +121,14 @@ create table reservelist(
 	CONSTRAINT fk_Res_id FOREIGN KEY(memberId) REFERENCES memberlist(memberId) ON DELETE CASCADE
 );
 
+ INSERT INTO reservelist(memberId, reserveTitle, reserveDate, reserveLocation, reserveSeatNum, reservePrice)
+VALUES ("qwer","gfasda","2922","오켓",2,2000)
 
+select * from reservelist;
+delete from reservelist;
+TRUNCATE TABLE reservelist;
 
-
-
-
-
+select * from reservelist order by id desc limit 1;
 
 
 

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.basic.reserve.util.MybatisConfig;
+import com.basic.reserve.vo.Member;
 import com.basic.reserve.vo.Reserve;
 
 public class ReserveDAO {
@@ -21,10 +22,37 @@ public class ReserveDAO {
 		return list;
 	}
 	
+	public List<Reserve> getlastReserveList() {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		List<Reserve> list = session.selectList("mapper.reserve.getLastReserve");
+		session.close();
+		return list;
+	}
+	
+	public List<Reserve> getSelectiveReserve(Reserve r) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		List<Reserve> list = session.selectList("mapper.reserve.selectiveReserve",r);
+		session.close();
+		return list;
+	}
+	
+	public List<Reserve> getoneReserveListbyID(Reserve r) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		List<Reserve> list = session.selectList("mapper.reserve.selectoneReservebyId",r);
+		session.close();
+		return list;
+	}
+	
 	public String addReserve(Reserve r) {
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
 		String log = session.selectOne("mapper.reserve.addReserve",r);
 		session.close();
 		return log;
 	}
+	
+	
+	
+	
+	
+	
 }

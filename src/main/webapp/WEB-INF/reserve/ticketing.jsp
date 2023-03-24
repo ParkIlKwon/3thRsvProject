@@ -15,7 +15,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
-<%@ include file="../modal/reservecheck.jsp" %>
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <body>
@@ -23,6 +22,7 @@
 <div id="container" style="max-width:1200px; margin:auto">
 	<div class="row p-4">
 		<c:forEach var="t" items="${selection}">
+		<!-- 컨텐츠 이미지 -->
 		<div class="col-md-auto">
 			<div class="p-2">
 				<fmt:parseDate value="${t.dateStart }" var="strD" pattern="yyyy-MM-dd"/>
@@ -31,24 +31,22 @@
 				<c:if test="${today < strDate-2}"><span class="btn-sm-green">예정</span></c:if>
 				<c:if test="${now > t.dateEnd}"><span class="btn-sm-red">종료</span></c:if>
 			</div>
-			<div style="width: 18rem; max-height:350px">
-					
+			<div class="imgBox" style="width: 18rem; max-height:350px">
 				<c:choose>
 				<c:when test="${fn:startsWith(t.image, 'http')}">
 					<!-- Load the image from a URL -->
-				<img alt="" src="${t.image}" style="width:95%; max-height:350px; border-radius:10px">
+				<div class="img-text text-danger fw-bold">이미지 보기</div>
+				<img alt="" src="${t.image}" class="card-img-top3" onclick="window.open(this.src)">
 				</c:when>
 				<c:otherwise>
 					<!-- Load the image from a file path -->
-					<img alt="" src="img/${t.image}" style="width:95%; max-height:350px; border-radius:10px">
+					<div class="img-text text-danger fw-bold">이미지 보기</div>
+					<img src="img/${t.image}" class="card-img-top4" onclick="window.open(this.src)">
 				</c:otherwise>
 			</c:choose>
-
-			
-				
 			</div>
 		</div>
-		
+		<!-- 컨텐츠 상세정보 -->
 		<div class="col p-3" style="line-height:2">
 			<div class="pt-3" style="font-size:1.4rem; font-weight:bold">${t.title}&nbsp;</div>
 			<div class="fw-bold" style="font-size:0.8rem; color:#efa635">[${t.category} > ${t.contents}]</div>
@@ -64,8 +62,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="p-2 my-2" style="border:2px solid #f9e7cb; border-radius:10px">
-		<c:forEach var="m" items="${mlist}">
+		<div class="p-3">
+			<div style="border:2px solid #f9e7cb; border-radius:10px">
 				<c:if test="${id  eq null && today >= strDate-2 && now <= t.dateEnd}">
 					<h5 style="color:red">로그인 후 예매 가능합니다</h5>
 					<div class="p-1"><button class="btn-disable" disabled>예매불가</button></div>
@@ -76,27 +74,38 @@
 				</c:if>
 				
 				<c:if test="${id ne null && today >= strDate-2 && now <= t.dateEnd}">
-				<fmt:formatNumber var = "totalprice" type="number" value="${t.price * ((100 - t.discount)*0.01)}" maxFractionDigits="0"/>
-				
-				날짜 선택
-				<input type="text" id="datepicker" class="input-basic datepicker mr-2" placeholder="날짜를 선택하세요" name="date"><br>
-			    <input type="hidden" id = "str" value="${t.dateStart}"> 
-				<input type="hidden" id = "ed" value="${t.dateEnd}">
-				<div>티켓 장수 (잔여석 :<span style="color:red"> ${t.seatNum} </span>석): <input class="input-basic" type="number" id="seat" /></div>
-				<div><input class="input-basic" id="pts" type="number"> 사용가능 포인트 : ${m.memberPoints}원 <button onclick="setPoint(${t.price},${t.discount})">포인트적용</button></div>
-				<div><b id="totalprice">최종가: ${totalprice} 원</b></div>
-				<div><input type="hidden" value="${t.price * ((100 - t.discount)*0.01)}" id="tp"></div>
-				<h2>예매자 정보</h2>
-				
-				이름 : ${m.memberName} <br>
-				연락처 : ${m.memberHP}
-				
-				<div class="p-2">
-				<button class="btn-basic" data-bs-toggle="modal" data-bs-target="#checkreserve" onclick="reserve(${m.id},${t.id},${t.location})">결제하기</button>
-				<button class="btn-cancel" onclick="location.href='${ctx}/main.do'">취소하기</button>
-				</div>
+					<fmt:formatNumber var = "totalprice" type="number" value="${t.price * ((100 - t.discount)*0.01)}" maxFractionDigits="0"/>
+					<c:forEach var="m" items="${mlist}">
+					<div class="row row-cols-1 row-cols-md-3">
+						<div class="col-4 pl-5" style="border-right:2px dashed #f9e7cb">
+							<h4 class="text-R fw-bold py-3">예약정보</h4>
+							관람 날짜&nbsp;
+							<input type="text" id="datepicker" class="input-basic datepicker mr-2" placeholder="날짜를 선택하세요" name="date"><br>
+						    <input type="hidden" id = "str" value="${t.dateStart}"> 
+							<input type="hidden" id = "ed" value="${t.dateEnd}"><br>
+							예매 수량 (잔여:<span class="text-danger fw-bold"> ${t.seatNum} </span>석) : &nbsp;
+							<input class="input-basic" type="number" id="seat" style="width:70px"/>석
+						</div>
+						<div class="col-5 px-4" style="border-right:2px dashed #f9e7cb">
+							<h4 class="text-R fw-bold py-3">결제정보</h4>
+							<div>티켓 금액 : ${totalprice}원</div>
+							<div class="py-2">포인트 : 
+							<input class="input-basic" id="pts" type="number" style="width:150px" placeholder="잔여포인트(${m.memberPoints})">원&nbsp;
+							<button class="btn-ltsm-basic" onclick="setPoint()">사용</button><br></div>
+							<hr class="text-R">
+							<div class="pb-3">결제 금액 : <b id="totalprice">${totalprice}원</b></div>
+						</div>
+						<div class="col-3 p-4" style="line-height:40px">
+						관람 날짜 : ****<br>
+						예매 좌석 : ****석<br>
+						결제 금액 : <b>****원</b><br>
+						<button class="btn-basic" onclick="reserve(${t.price},${t.discount})">결제하기</button>
+						<button class="btn-cancel" onclick="location.href='${ctx}/main.do'">다시선택</button>
+						</div>
+					</div>
+					</c:forEach>
  				</c:if>
- 			</c:forEach>
+			</div>
 		</div>
 		</c:forEach>
 	</div>

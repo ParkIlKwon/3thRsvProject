@@ -109,7 +109,9 @@
 	    <c:set var="i" value="1"/>
 		<c:forEach var="r" items="${rankshow}">
 		<c:if test="${loop eq false}">
-			<c:if test="${r.dateEnd >= now}">
+		<fmt:parseDate value="${r.dateEnd }" var="endD" pattern="yyyy-MM-dd"/>
+		<fmt:parseNumber value="${endD.time / (1000*60*60*24)}" integerOnly="true" var="endDate"></fmt:parseNumber>
+			<c:if test="${endDate+7 >= today}">
 		        <div class="col" onclick="location.href='${ctx}/ticketing.do?title=${r.id}'" style="cursor:pointer;">
 		            <div class="card h-100">
 		            	<c:choose>
@@ -142,7 +144,9 @@
 	    <c:set var="i" value="1"/>
 		<c:forEach var="r" items="${ranksports}">
 		<c:if test="${loop eq false}">
-			<c:if test="${r.dateEnd >= now}">
+		<fmt:parseDate value="${r.dateEnd }" var="endD" pattern="yyyy-MM-dd"/>
+		<fmt:parseNumber value="${endD.time / (1000*60*60*24)}" integerOnly="true" var="endDate"></fmt:parseNumber>
+			<c:if test="${endDate+7 >= today}">
 		        <div class="col" onclick="location.href='${ctx}/ticketing.do?title=${r.id}'" style="cursor:pointer;">
 		            <div class="card rank-card h-100">
 		                <div style="height:330px"><img src="img/${r.image}" class="card-img-top1" alt="..."></div>

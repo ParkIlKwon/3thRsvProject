@@ -78,7 +78,7 @@
 				</c:forEach>
 				
 				<div class="p-2">
-				<button class="btn-basic" onclick="reserve(${totalprice})">결제하기</button>
+				<button class="btn-basic" onclick="reserve(${t.price},${t.discount})">결제하기</button>
 				<button class="btn-cancel" onclick="location.href='${ctx}/main.do'">취소하기</button>
 				</div>
  				</c:if>

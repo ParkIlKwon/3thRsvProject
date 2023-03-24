@@ -1,19 +1,47 @@
 
+// let result = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
 function test(){
-	alert("들어옴");
+	alert("테스트");
 }
 
-
-function setPoint(totalprice,discount){
-	let pcs = Math.floor(totalprice * ((100 - discount)*0.01)) - $("#pts").val();
+function cgSeat(){
 	
+	let snum = $("#seat").val();
+	if(snum < 0 ){
+		$("#seat").val(0);
+		return;
+	}
+	$("#tseat").val(snum);
+	$("#tpcs").val(snum * (getCurrentprice() - $("#pts").val()));
+}
+
+function setpts(mpts){
+	if($("#pts").val() > mpts){
+		alert("소유하신 포인트가 더 작습니다.");
+		return;
+	}
+	let pcs = getCurrentprice();
+	$("#cprice").val(pcs - $("#pts").val());
 };
 
+function getCurrentprice(){
+	let price = $("#singleprice").val();
+	let discount = $("#dispercent").val();
+	return Math.floor(price * ((100 - discount)*0.01));
+}
+
+function setDate(){
+	$("#tdate").val($("#datepicker").val());
+}
+
 function reserve(id,tid,location){
-	let totalpcs =  Math.floor($("#tp").val());
+	
+	let totalpcs =  $("#tpcs").val();
 	let seat = $("#seat").val();
 	let date = $('#datepicker').val();
-	 
+	alert(location);	 
+
 	 $("#date.body-contents").val(date);
 	 $("#loc.body-contents").val(location);
 	 $("#qty.body-contents").val(seat);
@@ -28,5 +56,6 @@ function reserve(id,tid,location){
 			}
 		});
 	
+	return;
 }
 

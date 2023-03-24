@@ -1,6 +1,7 @@
 package com.basic.reserve.TicketController;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +23,15 @@ public class TicketingProController implements Controller {
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if(request.getParameter("tid") == null) {
-			HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
+		if(session.getAttribute("id") == null) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			String ctx = request.getContextPath();
+			out.println("<script>alert('로그인 후 확인 가능합니다.');location.href='"+ctx+"/main.do'; </script>");
+			return null;
+		}else {
+			if(request.getParameter("tid") == null) {
 			String user = (String)session.getAttribute("id");
 			Reserve r = new Reserve();
 			r.setMemberId(user);
@@ -31,8 +39,17 @@ public class TicketingProController implements Controller {
 			request.setAttribute("res",res);
 			
 			return "ticketingpro";
+			}
 		}
-		
+		/*
+		 * if(request.getParameter("tid") == null) { HttpSession session =
+		 * request.getSession(); String user = (String)session.getAttribute("id");
+		 * Reserve r = new Reserve(); r.setMemberId(user); List<Reserve>res =
+		 * ReserveDAO.getInstance().getSelectiveReserve(r);
+		 * request.setAttribute("res",res);
+		 * 
+		 * return "ticketingpro"; }
+		 */		
 		int mid =  Integer.parseInt(request.getParameter("id"));
 		int tid = Integer.parseInt(request.getParameter("tid"));
 		int seat = Integer.parseInt(request.getParameter("seat"));

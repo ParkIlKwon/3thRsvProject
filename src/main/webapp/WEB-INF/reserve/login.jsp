@@ -25,4 +25,12 @@
 	</p>
 </div>
 
-<div align="center"><%@ include file="./footer.jsp" %></div>
+<div align="center">
+	<div style="margin: 10px; border-bottom: 2px solid; color: #efa635"></div>
+	<div class="p-3" id="footer" style="max-width:1200px; margin:auto">
+		<font style="font-size: 1.2rem; font-weight: bold; color: #efa635">티켓토리</font><br>
+		Ticketory ⓒ2023 PIK/LJH, All rights reserved.
+	</div>
+</div>
+</body>
+</html>

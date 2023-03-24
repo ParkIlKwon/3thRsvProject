@@ -9,8 +9,8 @@
 <script type="text/javascript" src="script/datepicker.js" defer></script>
 <script type="text/javascript" src="script/reserve.js" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css"> -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
@@ -64,7 +64,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="p-3">
+		<div class="px-3 pb-2">
 			<div style="border:2px solid #f9e7cb; border-radius:10px">
 				<c:if test="${id  eq null && today >= strDate-2 && now <= t.dateEnd}">
 					<h5 style="color:red">로그인 후 예매 가능합니다</h5>
@@ -79,31 +79,37 @@
 					<fmt:formatNumber var = "totalprice" type="number" value="${t.price * ((100 - t.discount)*0.01)}" maxFractionDigits="0"/>
 					<c:forEach var="m" items="${mlist}">
 					<div class="row row-cols-1 row-cols-md-3">
-						<div class="col-4 pl-5" style="border-right:2px dashed #f9e7cb">
-							<h4 class="text-R fw-bold py-3">예약정보</h4>
+						<div class="col-4 ps-5" style="border-right:2px dashed #f9e7cb">
+							<h5 class="text-R fw-bold py-3">예매하기 >></h5>
 							관람 날짜&nbsp;
 							<input type="text" id="datepicker" class="input-basic datepicker mr-2" placeholder="날짜를 선택하세요" onchange="setDate()"><br>
 						    <input type="hidden" id = "str" value="${t.dateStart}"> 
 							<input type="hidden" id = "ed" value="${t.dateEnd}"><br>
 							예매 수량 (잔여:<span class="text-danger fw-bold"> ${t.seatNum} </span>석) : &nbsp;
-							<input class="input-basic" type="number" id="seat" style="width:70px" onchange="cgSeat()"/>석
+							<input class="input-basic" type="number" min="1" id="seat" style="width:70px" onchange="cgSeat()"/>석
 						</div>
 						<div class="col-5 px-4" style="border-right:2px dashed #f9e7cb">
-							<h4 class="text-R fw-bold py-3">결제정보</h4>
+							<h5 class="text-R fw-bold py-3">할인 내역 >></h5>
 							<div>티켓 금액 : ${totalprice}원</div>
-							<div class="py-2">포인트 : 
-							<input class="input-basic" id="pts" type="number" style="width:150px" placeholder="잔여포인트(${m.memberPoints})">원&nbsp;
-							<button class="btn-ltsm-basic" onclick="setpts(${m.memberPoints})">사용</button><br></div>
-							<hr class="text-R">
-							<div class="pb-3">결제 금액 : <b><input id="cprice" value="${totalprice}" style="border:none; width: 100px" readonly/>원</b></div>
+							<div class="pt-2">- 할인율 : ${t.discount}%</div>
+							<div class="pt-2">- 포인트 : 
+							<input class="input-basic" id="pts" type="number" style="width:100px">원&nbsp;
+							<button class="btn-ltsm-basic" onclick="setpts(${m.memberPoints})">사용</button><br>
+							<span style="padding-left:80px; font-size:0.8rem; color:blue">잔여포인트 : ${m.memberPoints}원</span> 
+							</div>
 						</div>
-						<div class="col-3 p-4" style="line-height:40px">
-						관람 날짜 : <input type="text" style="border:none; width: 100px" value="" id="tdate" readonly/><br>
-						예매 좌석 : <input type="number" style="border:none; width: 80px" value="" id="tseat" readonly/>석<br>
-						결제 금액 : <b><input type="number" style="border:none; width: 80px" value="0" id="tpcs" readonly/>원</b><br>
-						
-						<button class="btn-basic" data-bs-toggle="modal" data-bs-target="#checkreserve" onclick="reserve('${m.id},${t.id},${t.location}')">결제하기</button>
-						<button class="btn-cancel" onclick="location.href='${ctx}/main.do'">다시선택</button>
+						<div class="col-3 ps-5">
+							<h4 class="text-DR fw-bold pt-3">결제 진행</h4>
+							<div class="pt-2">관람 날짜 : <input type="text" style="border:none; width: 100px" id="tdate" readonly/></div>
+							<div class="pt-2">예매 좌석 : <input type="text" style="border:none; width: 100px" id="tseat" readonly/></div>
+							<div class="fw-bold pt-1">최종 결제 금액 : <span id="cprice" class="text-danger fs-5">${totalprice}</span>원</div>
+							
+							<!-- <div class="py-2">결제 금액 : <input id="cprice" value="${totalprice}" style="border:none; width: 100px" readonly/>원</div> -->
+							<!-- <b><input type="number" style="border:none; width: 80px" value="0" id="tpcs" readonly/>원</b><br> -->
+							<div class="py-3">
+								<button class="btn-basic" data-bs-toggle="modal" data-bs-target="#checkreserve" onclick="reserve('${m.id},${t.id},${t.location}')">결제하기</button>&nbsp;
+								<button class="btn-cancel" onclick="reload()">다시선택</button>
+							</div>
 						</div>
 					</div>
 					</c:forEach>

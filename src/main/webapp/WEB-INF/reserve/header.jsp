@@ -32,7 +32,7 @@
 	    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerList">
 			<ul class="nav topNv">
 				<c:if test="${id eq null}">
-				<li><a class="text-basic" onclick="newTabClick()">로그인</a></li>
+				<li><a class="text-basic" href="javascript:newTabClick();">로그인</a></li>
 				<li><a class="text-basic" href="javascript:newaccounttab();">회원가입</a></li>
 				</c:if>
 				<c:if test="${id ne null}">

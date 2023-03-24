@@ -14,6 +14,10 @@
 				<div class="col-8" style="color:#efa635; font-weight:bold">${m.memberId}</div>
 			</div>
 			<div class="row p-3">
+				<div class="col-4">포&nbsp인&nbsp트</div>
+				<div class="col-8" style="color:#efa635; font-weight:bold">${m.memberPoints}원</div>
+			</div>
+			<div class="row p-3">
 				<div class="col-4">비밀번호</div>
 				<div class="col-8"><input type="password" style="border:none;color:#efa635;background-color:white" value="${m.memberPw}" disabled></div>
 				<div class="col-4"></div>
@@ -37,14 +41,6 @@
 			</div>
 		</div>
 		
-		<div class="card m-3" style="width: 270px" align="center">
-			<div class="card-header"><b>MY 쿠폰함</b></div>
-			<div class="card-body p-2">
-				<B>회원가입 쿠폰 </B> 3,000원 할인<br>
-				<B>일일출석 쿠폰 </B> 1,000원 할인<br>
-				<B>포인트 잔액 : ${m.memberPoints}</B><br>
-			</div>
-		</div>
 		<div class="pt-4 p-2"><font style="color:grey; font-size:0.8rem">&nbsp&nbsp※ 회원탈퇴는 
 		<a style="color:red; font-weight:bold;" data-bs-toggle="modal" href="#deleteMember">[여기]</a>를 클릭하세요.</font></div>
 	</c:forEach>

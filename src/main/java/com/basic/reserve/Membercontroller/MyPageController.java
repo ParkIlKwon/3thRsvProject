@@ -22,7 +22,7 @@ public class MyPageController implements Controller {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			String ctx = request.getContextPath();
-			out.println("<script>alert('로그인먼저해주세요.');location.href='"+ctx+"/main.do'; </script>");
+			out.println("<script>alert('로그인 후 확인 가능합니다.');location.href='"+ctx+"/main.do'; </script>");
 			return null;
 		}else {
 			if(request.getParameter("pw") != null){

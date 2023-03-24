@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <jsp:useBean id="tday" class="java.util.Date"/>
 <fmt:parseNumber value="${tday.time / (1000*60*60*24)}" integerOnly="true" var="today"></fmt:parseNumber>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -15,9 +16,23 @@
 			    <div class="row row-cols-1 row-cols-md-3 g-2">
 				<c:forEach var="sh" items="${ascshow}" end="3">
 					<c:if test="${sh.dateStart >= now}">
-			        <div class="card border-0" style="max-width:400px; cursor:pointer;" onclick="location.href='${ctx}/ticketing.do?title=${sh.title}'">
+			        <div class="card border-0" style="max-width:400px; cursor:pointer;" onclick="location.href='${ctx}/ticketing.do?title=${sh.id}'">
 			            <div class="row row-cols-md-2 g-1">
-			                <div class="col-5"><img src="img/${sh.image}" class="card-img-top2" alt="..."></div>
+			            	
+			                <div class="col-5">
+
+								<c:choose>
+									<c:when test="${fn:startsWith(sh.image, 'http')}">
+										<!-- Load the image from a URL -->
+										<img src="${sh.image}" class="card-img-top2" alt="...">
+									</c:when>
+									<c:otherwise>
+										<!-- Load the image from a file path -->
+										<img src="img/${sh.image}" class="card-img-top2" alt="...">
+									</c:otherwise>
+								</c:choose>
+									</div>
+			                
 			                <div class="col-7 card-body">
 			                	<div class="pb-1">
 			                		<fmt:parseDate value="${sh.dateStart }" var="strD" pattern="yyyy-MM-dd"/>
@@ -44,7 +59,7 @@
 			    <div class="row row-cols-1 row-cols-md-3 g-2" id="slideBox">
 				<c:forEach var="sp" items="${ascsports}" end="3">
 					<c:if test="${sp.dateStart >= now}">
-			        <div class="card border-0" style="max-width:400px; cursor:pointer;" onclick="location.href='${ctx}/ticketing.do?title=${sp.title}'">
+			        <div class="card border-0" style="max-width:400px; cursor:pointer;" onclick="location.href='${ctx}/ticketing.do?title=${sp.id}'">
 			            <div class="row row-cols-md-2 g-1">
 			                <div class="col-5"><img src="img/${sp.image}" class="card-img-top2" alt="..."></div>
 			                <div class="col-7 card-body">

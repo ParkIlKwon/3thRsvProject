@@ -31,7 +31,20 @@
 				<c:if test="${now > t.dateEnd}"><span class="btn-sm-red">종료</span></c:if>
 			</div>
 			<div style="width: 18rem; max-height:350px">
-				<img alt="" src="img/${t.image}" style="width:95%; max-height:350px; border-radius:10px">
+					
+				<c:choose>
+				<c:when test="${fn:startsWith(t.image, 'http')}">
+					<!-- Load the image from a URL -->
+				<img alt="" src="${t.image}" style="width:95%; max-height:350px; border-radius:10px">
+				</c:when>
+				<c:otherwise>
+					<!-- Load the image from a file path -->
+					<img alt="" src="img/${t.image}" style="width:95%; max-height:350px; border-radius:10px">
+				</c:otherwise>
+			</c:choose>
+
+			
+				
 			</div>
 		</div>
 		
@@ -68,7 +81,7 @@
 			    <input type="hidden" id = "str" value="${t.dateStart}"> 
 				<input type="hidden" id = "ed" value="${t.dateEnd}">
 				<div>티켓 장수 (잔여석 :<span style="color:red"> ${t.seatNum} </span>석): <input class="input-basic" type="number" id="seat" /></div>
-				<div><input class="input-basic" type="number"> 사용가능 포인트 : ${m.memberPoints}원 <button>포인트적용</button></div>
+				<div><input class="input-basic" id="pts" type="number"> 사용가능 포인트 : ${m.memberPoints}원 <button onclick="setPoint()">포인트적용</button></div>
 				<div><b id="totalprice">최종가: ${totalprice} 원</b></div>
 				
 				<h2>예매자 정보</h2>

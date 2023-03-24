@@ -4,13 +4,19 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 
 import org.w3c.dom.Document;
@@ -81,6 +87,9 @@ public class APICall {
       
       Element e5 = (Element) nodes5.item(0);
       String endD = e5.getTextContent();
+      
+      startD = startD.replace(".","-");
+      endD = endD.replace(".","-");
       
       Element e6 = (Element) nodes6.item(0);
       String info = e6.getTextContent();

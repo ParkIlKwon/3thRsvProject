@@ -22,11 +22,11 @@ public class TicketingController implements Controller{
 		HttpSession session = request.getSession();
 		
 		if(request.getParameter("placename") == null) {
-			String title = request.getParameter("title");
+			int idNum = Integer.parseInt(request.getParameter("title"));
 			Ticket t = new Ticket();
-			t.setTitle(title);
+			t.setId(idNum);
 			
-			List<Ticket>list = TicketDAO.getInstance().getSelectiveTicketList(t);
+			List<Ticket>list = TicketDAO.getInstance().getSelectiveTicketListbyId(t);
 			
 			session.setAttribute("selection",list);
 			

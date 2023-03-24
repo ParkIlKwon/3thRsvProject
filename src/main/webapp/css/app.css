@@ -2,6 +2,13 @@
 
 *{margin:0;	padding:0; color:#212529;}
 a{text-decoration:none;}
+a.page{
+	background:#f9e7cb;
+	border-radius:50px;
+	color:black;
+	font-weight:bold;
+	padding:1px 6px;
+}
 
 .text-basic{color:#70685C; font-weight: bold;}
 .text-basic:hover{color:#efa635;}

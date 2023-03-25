@@ -102,7 +102,26 @@
 					</c:forEach>
 				</div>
 				<div class="row p-3">
-				<div class="col-3"><button class="btn-basic">글쓰기</button></div>
+				<div class="col-3">
+<!-- 					<button class="btn-basic">글쓰기</button> -->
+					<div id="add-post-modal" class="modal">
+					  <div class="modal-content">
+					    <span class="close">&times;</span>
+					    <h2>새 글쓰기</h2>
+					    <form id="add-post-form">
+					      <label for="title">제목:</label>
+					      <input type="text" id="title" name="title" required>
+					      <label for="content">내용:</label>
+					      <textarea id="content" name="content" required></textarea>
+					      <button type="submit">작성 완료</button>
+					    </form>
+					  </div>
+					</div>
+					
+<%-- 					<c:if test="${id eq 'admin'}">
+					<button class="btn-basic">답글 달기</button>
+					</c:if> --%>
+				</div>
 				<div class="col pe-4" align="right">
 					<c:forEach var="n" begin="1" end="${paging}">
 						<a class="page" href="${ctx}/board.do?pnum=${n}">${n}</a>&nbsp;

@@ -239,3 +239,9 @@ input[id="reserve"]:checked ~ #info {display:none;} */
 	border-radius:10px; cursor:pointer;
 	box-shadow: 0px 0px 10px 2px #000;
 }
+
+/* 빨간 취소선 */
+s {
+	color: gray;
+	text-decoration: line-through;
+}

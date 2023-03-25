@@ -20,9 +20,11 @@ public class BoardDAO {
 		return list;
 	}
 	
-	public void addBoard() {
+	public void addBoard(Board b) {
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
-		session.selectOne("mapper.board.addBoard");
+		/* session.selectOne("mapper.board.addBoard"); */
+		session.insert("mapper.board.addBoard", b);
+		System.out.println("테스트");
 		session.close();
 	}
 	
@@ -32,6 +34,14 @@ public class BoardDAO {
 		session.close();
 		return log;
 	}
+	
+	public void updateBoard(Board b) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		session.update("mapper.board.updateBoard",b);
+		session.close();
+	}
+	
+	
 	
 	
 }

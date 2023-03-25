@@ -173,22 +173,5 @@
   </div>
 </div>
 
-<div class="modal fade" id="join" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="joinModalLabel">회원가입 완료</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	      </div>
-	      <div class="modal-body">
-			<div align="center"><img src="img/회원가입2.png" alt="Ticketory" style="width:100%"></div>
-	      </div>
-	      <div class="modal-footer">
-        <button type="button" class="btn-basic" data-bs-dismiss="modal">확인</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>

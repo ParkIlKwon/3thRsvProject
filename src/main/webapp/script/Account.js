@@ -23,14 +23,11 @@ function submit(){
 			url : ctx+"/account.do",
 			data : {"id":id , "pw1":pw1 ,"name":name,"hp":hp},
 			success : function() {
-					alert("회원가입 성공");
-					window.close();
-					opener.location.reload();	
+				$("#accountPage").html("<img src='img/회원가입2.png' style='width:100%'><div class='p-4 text-center'><button class='btn-basic' onclick='window.close()'>닫기</button></div>");
 			}
 		})	
 	}
 }
-
 
 
 function checkform(id,is_checked,pw1,pw2,name,hp) {

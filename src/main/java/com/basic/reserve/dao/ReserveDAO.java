@@ -50,8 +50,12 @@ public class ReserveDAO {
 		return log;
 	}
 	
-	
-	
+	public String deleteReserve(Reserve r) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		String log = session.selectOne("mapper.reserve.reserveDelete",r);
+		session.close();
+		return log;
+	}
 	
 	
 	

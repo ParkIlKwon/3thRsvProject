@@ -1,4 +1,4 @@
-
+let data = {};
 
 function ischecked() {
 	
@@ -13,8 +13,22 @@ function ischecked() {
 	if(check.checked){
 		 checkedIds.push(idNum);
 	}
+	
   });
 
+	data.addList = checkedIds;
+	
+	jQuery.ajaxSettings.traditional = true;
+	
+	
+	$.ajax({
+			type : "POST",
+			url : ctx2+"/reserveDelete.do",
+			data : {"checkedIds":checkedIds},
+			success : function() {
+			location.reload();
+			}
+		});
 
 
 	

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp" %>
 <div id="container" style="max-width: 1200px; margin: auto">
+<%@ include file="../modal/boardModal.jsp" %>
 
 	<section class="section faq p-4">
 		<h1 class="fw-bold text-DR pb-4">티켓토리 고객센터</h1>
@@ -80,22 +81,29 @@
 					<c:forEach var="b" items="${blist}">
 						<div class="accordion-item">
 							<h2 class="accordion-header">
+							<c:if test="${id eq b.memberId || id eq 'admin'}">
 								<button class="accordion-button collapsed"
 									data-bs-target="#${b.memberId}${b.id}" type="button"
 									data-bs-toggle="collapse" aria-expanded="false">
 									<div class="row">
 										<div class="fw-bold p-1">${b.title}</div>
 										<div style="font-size:0.9rem">${b.writedate} (${b.memberId}) </div>
-										
 									</div>
 								</button>
+							</c:if>
 							</h2>
 							<div id="${b.memberId}${b.id}"
 								class="accordion-collapse collapse"
 								data-bs-parent="#faq-group-1" style="">
-								<div class="accordion-body">
-									${b.body}
-									<button onclick=""></button>
+								<div class="accordion-body row">
+									<div class="col-9">${b.body}</div>
+									<div class="col-3" align="right">
+										<button class="btn-ltsm-basic" onclick="">수정</button>
+										<button class="btn-sm-basic" onclick="">삭제</button>
+										<c:if test="${id eq 'admin'}">
+											<button class="btn-sm-cancel">답글</button>
+										</c:if>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -103,24 +111,7 @@
 				</div>
 				<div class="row p-3">
 				<div class="col-3">
-<!-- 					<button class="btn-basic">글쓰기</button> -->
-					<div id="add-post-modal" class="modal">
-					  <div class="modal-content">
-					    <span class="close">&times;</span>
-					    <h2>새 글쓰기</h2>
-					    <form id="add-post-form">
-					      <label for="title">제목:</label>
-					      <input type="text" id="title" name="title" required>
-					      <label for="content">내용:</label>
-					      <textarea id="content" name="content" required></textarea>
-					      <button type="submit">작성 완료</button>
-					    </form>
-					  </div>
-					</div>
-					
-<%-- 					<c:if test="${id eq 'admin'}">
-					<button class="btn-basic">답글 달기</button>
-					</c:if> --%>
+					<button id="addBd" class="btn-basic" data-bs-toggle="modal" data-bs-target="#addBoard">글쓰기</button>
 				</div>
 				<div class="col pe-4" align="right">
 					<c:forEach var="n" begin="1" end="${paging}">

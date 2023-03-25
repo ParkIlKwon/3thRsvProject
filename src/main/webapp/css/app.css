@@ -51,6 +51,16 @@ a.page{
 }
 .btn-lt-basic:hover{background:#efa635;color:white;}
 
+.btn-sm-basic{
+	background-color:#efa635;
+ 	padding:2px 4px;
+ 	font-size:0.8rem;
+	border-radius:5px;
+	color:white;
+	border:none;
+}
+.btn-sm-basic:hover{background:#d2850c;color:white;}
+
 .btn-ltsm-basic{
 	background-color:#f9e7cb;
  	padding:2px 4px;
@@ -60,6 +70,15 @@ a.page{
 	border:none;
 }
 .btn-ltsm-basic:hover{background:#efa635;color:white;}
+
+.btn-sm-cancel{
+	background-color:#d1cfcd;
+	padding:2px 4px;
+ 	font-size:0.8rem;
+	border-radius:5px;
+	border:none;
+	}
+.btn-sm-cancel:hover{background:#6c757d ;}
 
 .btn-sm-blue{
 	background-color:#0080c0;

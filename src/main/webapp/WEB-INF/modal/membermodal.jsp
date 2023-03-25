@@ -24,9 +24,6 @@
   </div>
 </div>
 
-
-
-
 <div class="modal fade" id="updatePassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -47,7 +44,6 @@
     </div>
   </div>
 </div>
-
 
 <div class="modal fade" id="updateHP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

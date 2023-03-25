@@ -3,6 +3,7 @@
 <%@ include file="./header.jsp" %>      
 
 <link rel="stylesheet" type="text/css" href="${ctx}/css/tableApp.css">
+<script type="text/javascript" src="script/ReserveCheck.js" defer></script>
 	
 <body>
 
@@ -20,10 +21,10 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="t" items="${res}">
+					<c:forEach var="t" items="${res}" varStatus="status">
 					<tr>
 					     <td>  
-					     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+					     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-idx2="${status.index}">
   						</td>
 						<td>${t.reserveTitle}</td>
 						<td>${t.reserveLocation}</td>
@@ -31,22 +32,16 @@
 						</td>
 						<td>${t.reservePrice}</td>
 					</tr>
+					
+						<input type="hidden" value="${t.id}" data-idx="${status.index}" id="tid">
 					</c:forEach>
 					
 				</tbody>
 			</table>
 		</div>
 
+	<button onclick="ischecked()">테스트</button>
 
-
-	<c:forEach var = "r" items="${rsv}">
-	
-	${r.reserveTitle}
-	${r.reserveDate}
-	${r.reserveSeatNum}
-	${r.reservePrice}
-
-</c:forEach>
 
 </body>
 	

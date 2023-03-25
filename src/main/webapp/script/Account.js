@@ -2,7 +2,9 @@ let ctx = window.location.pathname.substring(0, window.location.pathname.indexOf
 
 let checkDuplication = 0;
 
-function checkform() {
+
+function submit(){
+	
 	let id = document.querySelector("#id").value;
 	const checkbox = document.getElementById('terms');
 
@@ -13,6 +15,26 @@ function checkform() {
 	let name = document.querySelector("#name").value;
 	let hp = document.querySelector("#hp").value;
 	
+	if(!checkform(id,is_checked,pw1,pw2,name,hp)){
+		return;
+	}else{
+			$.ajax({
+			type : "POST",
+			url : ctx+"/account.do",
+			data : {"id":id , "pw1":pw1 ,"name":name,"hp":hp},
+			success : function() {
+					alert("회원가입 성공");
+					window.close();
+					opener.location.reload();	
+			}
+		})	
+	}
+}
+
+
+
+function checkform(id,is_checked,pw1,pw2,name,hp) {
+
 	if (!existdate(id,"아이디") ||!existdate(pw1,"비밀번호") ||!existdate(pw2,"비밀번호확인")
 		||!existdate(name,"이름") || !existdate(hp,"핸드폰번호")) {
 		return false;
@@ -26,12 +48,11 @@ function checkform() {
 		alert("아이디 중복체크가 필요합니다.");
 		return false;
 	}else{
-		alert("회원가입 성공");
-		window.close();
-		opener.location.reload();	
 		return true;
 	}
 }
+
+
 
 function dupcheck(){
 	let id = document.querySelector("#id").value;
@@ -61,7 +82,6 @@ function dupcheck(){
 function closetab(){
 	window.close();
 }	
-		
 
 function existdate(data,msg){
 	if(data == ''){

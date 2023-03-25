@@ -1,24 +1,36 @@
 
 // let result = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-function test(){
-	alert("테스트");
+function test(d){
+	alert(d)
 }
 
 function setpts(mpts){
 	if($("#pts").val() > mpts){
 		alert("소유하신 포인트가 더 작습니다.");
 		return;
+	}else if($("#seat").val() == ''){
+		alert("먼저 필요한 좌석수를 입력하세요.");
+		return;
 	}
 	let pcs = getCurrentprice();
-	$("#cprice").val(pcs - $("#pts").val());
+	$("#currentprice").val(pcs - $("#pts").val());
+	cgSeat();
 };
 
 function getCurrentprice(){
 	let price = $("#singleprice").val();
 	let discount = $("#dispercent").val();
+		alert("작동");
 	return Math.floor(price * ((100 - discount)*0.01));
 }
+
+function getsingleprice(){
+	let price = $("#currentprice").val();
+	let discount = $("#dispercent").val();
+	return Math.floor(price * ((100 - discount)*0.01));
+}
+
 
 /*날짜 확인*/
 function setDate(){
@@ -28,6 +40,7 @@ function setDate(){
 /*좌석수 확인*/
 function cgSeat(){
 	$("#tseat").val($("#seat").val()+"석");
+	$("#cprice").html($("#seat").val() * getsingleprice());
 }
 
 /*화면 새로고침*/
@@ -37,10 +50,9 @@ function reload(){
 
 function reserve(id,tid,location){
 	
-	let totalpcs =  $("#tpcs").val();
+	let totalpcs =  $("#cprice").html();
 	let seat = $("#seat").val();
 	let date = $('#datepicker').val();
-	alert(location);	 
 
 	 $("#date.body-contents").val(date);
 	 $("#loc.body-contents").val(location);

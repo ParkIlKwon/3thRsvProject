@@ -16,16 +16,17 @@ public class AccountController implements Controller {
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String page = "";
+		request.setCharacterEncoding("utf-8");
 		if(request.getParameter("id") == null) {
 			page = "account";
 		}else {
 			Member m = new Member();
 			m.setMemberId(request.getParameter("id"));
-			m.setMemberPw(request.getParameter("pw"));
+			m.setMemberPw(request.getParameter("pw1"));
 			m.setMemberName(request.getParameter("name"));
 			m.setMemberHP(request.getParameter("hp"));
 			m.setMemberPoints(3000);
-			MemberDAO.getInstance().addMember(m);
+			System.out.println(MemberDAO.getInstance().addMember(m));
 			page = "Main";
 		}
 		

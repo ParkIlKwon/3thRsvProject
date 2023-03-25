@@ -3,8 +3,11 @@
 <!DOCTYPE html>
 <html>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var = "ctx" value="${pageContext.request.contextPath}"/>
 <head>
 <meta charset="UTF-8">
+<style type="text/css"></style>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/modalApp.css">
 </head>
 <body>
 

@@ -107,7 +107,8 @@
 							<!-- <div class="py-2">결제 금액 : <input id="cprice" value="${totalprice}" style="border:none; width: 100px" readonly/>원</div> -->
 							<!-- <b><input type="number" style="border:none; width: 80px" value="0" id="tpcs" readonly/>원</b><br> -->
 							<div class="py-3">
-								<button class="btn-basic" data-bs-toggle="modal" data-bs-target="#checkreserve" onclick="reserve('${m.id},${t.id},${t.location}')">결제하기</button>&nbsp;
+								<button onclick="test('${t.location}')">테스트</button>
+								<button class="btn-basic" data-bs-toggle="modal" data-bs-target="#checkreserve" onclick="reserve(${m.id},${t.id},'${t.location}')">결제하기</button>&nbsp;
 								<button class="btn-cancel" onclick="reload()">다시선택</button>
 							</div>
 						</div>
@@ -118,7 +119,9 @@
 		</div>
 		
 		<input type="hidden" id="dispercent" value="${t.discount}"/>
+		<input type="hidden" id="currentprice" value="${t.price}"/>
 		<input type="hidden" id="singleprice" value="${t.price}"/>
+		
 		</c:forEach>
 	</div>
 </div>

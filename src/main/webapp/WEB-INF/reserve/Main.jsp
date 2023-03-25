@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="script/Main.js" defer></script>
 <section >
 	<div class="swiper-container p-2" style="max-width:1200px; margin:auto"> 
 	<div class="fs-3 fw-bold pt-2 px-4 blinking" style="color:#d2850c">추천 티켓</div>
@@ -166,13 +167,6 @@
 	</div>
 </section>
 <script type = "text/javascript">
-  new Swiper('.swiper-container', {
-    slidesPerView: 'auto', //한번에 보여줄 요소 갯수. auto 설정가능
-    spaceBetween: 0, //슬라이드간 padding값
-    loop: true, //loop > true는 무한반복
-    autoplay: {
-      delay: 3000, //3초에 한번씩 자동으로 슬라이드
-    },
-  });
+
 </script>
 <%@ include file="./footer.jsp" %>

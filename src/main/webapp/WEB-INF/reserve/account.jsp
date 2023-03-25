@@ -8,7 +8,6 @@
 	<p class="pt-4 pb-3"><font style="font-size:1.4rem; font-weight:bold;">
 	<font style="color:#d2850c; font-size:1.7rem">티켓토리 </font>회원가입</font></p>
 	
-	<form action="${ctx}/account.do" method="POST" onsubmit="return checkform();">
 	
 		<div class="col py-2" style="border:2px solid #f9e7cb; font-weight:bold; border-radius:5px" align="center">
 			<div class="row p-3">
@@ -38,9 +37,8 @@
 		<p class="pt-3"><input type="checkbox" id="terms"><label for="terms" style="cursor:pointer"> [필수] 이용약관 동의&nbsp;</label>
 			<input type="button" data-bs-toggle="modal" data-bs-target="#showterms" value="전문보기" style="font-size:0.7rem">
 		</p>
-		<p class="py-3"><input class="btn-basic" type="submit" value="회원가입"/> &nbsp;
+		<p class="py-3"><button class="btn-basic" onclick="submit()"/>회원가입</button> &nbsp;
 			<input type="button" value="취소" class="btn-cancel" onclick="closetab()"/></p>
-	</form>
 </div>
 
 <div align="center">

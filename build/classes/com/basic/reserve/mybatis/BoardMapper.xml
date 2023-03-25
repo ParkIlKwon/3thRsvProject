@@ -19,6 +19,13 @@
 	<delete id="deleteBoard" parameterType="int">
 	delete from board WHERE id=#{id}
 	</delete>
+	
+	
+	  <insert id="addBoard" parameterType="board">
+ 	INSERT INTO board(memberId, title, body, writedate)
+	VALUES (#{memberId},#{title},#{body},#{writedate})
+
+ </insert>
 
 
   

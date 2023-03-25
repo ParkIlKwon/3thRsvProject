@@ -13,8 +13,7 @@ function setpts(mpts){
 		alert("먼저 필요한 좌석수를 입력하세요.");
 		return;
 	}
-	$("#tseat").val($("#seat").val()+"석");
-	$("#currentpoint").val(mpts);
+	$("#currentpoint").val($("#pts").val());
 	cgSeat();
 };
 
@@ -50,6 +49,9 @@ function reserve(id,tid,location){
 
 	if(date == ''){
 		alert("날짜를 선택하여 주세요.");
+		return;
+	}else if(seat == ''){
+		alert("예매할 좌석수를 입력하여 주세요.");
 		return;
 	}
 

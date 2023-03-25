@@ -90,8 +90,8 @@
 						</div>
 						<div class="col-5 px-4" style="border-right:2px dashed #f9e7cb">
 							<h5 class="text-R fw-bold py-3">할인 내역 >></h5>
-							<div>티켓 금액 : ${totalprice}원</div>
-							<div class="pt-2">- 할인율 : ${t.discount}%</div>
+							<div>티켓 금액 : <s>${t.price}원</s><b class="text-danger">&nbsp;${t.discount}%</b></div>
+							<div class="pt-2">- 할인가 : <b>${totalprice}원</b></div>
 							<div class="pt-2">- 포인트 : 
 							<input class="input-basic" id="pts" min="0" type="number" style="width:100px">원&nbsp;
 							<button class="btn-ltsm-basic" onclick="setpts(${m.memberPoints})">사용</button><br>
@@ -104,10 +104,7 @@
 							<div class="pt-2">예매 좌석 : <input type="text" style="border:none; width: 100px" id="tseat" readonly/></div>
 							<div class="fw-bold pt-1">최종 결제 금액 : <span id="cprice" class="text-danger fs-5">${totalprice}</span>원</div>
 							
-							<!-- <div class="py-2">결제 금액 : <input id="cprice" value="${totalprice}" style="border:none; width: 100px" readonly/>원</div> -->
-							<!-- <b><input type="number" style="border:none; width: 80px" value="0" id="tpcs" readonly/>원</b><br> -->
 							<div class="py-3">
-								<button onclick="test('${t.location}')">테스트</button>
 								<button class="btn-basic" data-bs-toggle="modal" data-bs-target="#checkreserve" onclick="reserve(${m.id},${t.id},'${t.location}')">결제하기</button>&nbsp;
 								<button class="btn-cancel" onclick="reload()">다시선택</button>
 							</div>

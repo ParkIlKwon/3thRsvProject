@@ -38,7 +38,7 @@ VALUES (#{memberId},#{reserveTitle},#{reserveDate},#{reserveLocation},#{reserveS
  </insert>
  
  <delete id="reserveDelete" parameterType="int">
-  delete from reservelist where id = #(id)
+  delete from reservelist where id = #{id}
 </delete>
  
  <select id="getLastReserve" resultMap="reserve">

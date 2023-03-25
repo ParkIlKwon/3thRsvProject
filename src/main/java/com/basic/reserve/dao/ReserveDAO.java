@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.basic.reserve.util.MybatisConfig;
 import com.basic.reserve.vo.Member;
 import com.basic.reserve.vo.Reserve;
+import com.basic.reserve.vo.Ticket;
 
 public class ReserveDAO {
 	private ReserveDAO(){}
@@ -50,9 +51,19 @@ public class ReserveDAO {
 		return log;
 	}
 	
-	
-	
-	
+	public String deleteReserve(Reserve r) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		String log = session.selectOne("mapper.reserve.reserveDelete",r);
+		session.close();
+		return log;
+	}
+
+	public void updateSeat(Ticket t) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		session.selectOne("mapper.ticket.updateTickets",t);
+		session.close();
+	}
+
 	
 	
 }

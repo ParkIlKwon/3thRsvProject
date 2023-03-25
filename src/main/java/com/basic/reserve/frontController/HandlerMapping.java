@@ -25,7 +25,9 @@ public class HandlerMapping {
 		mapping.put("/ticketing.do", new TicketingController());
 		mapping.put("/ticketingPro.do", new TicketingProController());
 		mapping.put("/reserveCheck.do", new ReserveCheckController());
+		mapping.put("/reserveDelete.do", new ReserveDeleteController());
 		mapping.put("/idcheck.do",new IdCheckController());
+		
 		
 		mapping.put("/ticketmanagement.do",new TicketManagementController());
 		mapping.put("/addticket.do",new TicketAddController());

@@ -130,6 +130,8 @@ select * from reservelist;
 delete from reservelist;
 TRUNCATE TABLE reservelist;
 
+delete from reservelist where id = 3;
+
 select * from reservelist order by id desc limit 1;
 
 

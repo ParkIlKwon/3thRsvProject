@@ -37,7 +37,7 @@
 		<p class="pt-3"><input type="checkbox" id="terms"><label for="terms" style="cursor:pointer"> [필수] 이용약관 동의&nbsp;</label>
 			<input type="button" data-bs-toggle="modal" data-bs-target="#showterms" value="전문보기" style="font-size:0.7rem">
 		</p>
-		<p class="py-3"><button class="btn-basic" onclick="submit()"/>회원가입</button> &nbsp;
+		<p class="py-3"><button class="btn-basic" onclick="submit()" data-bs-toggle="modal" data-bs-target="#join" >회원가입</button> &nbsp;
 			<input type="button" value="취소" class="btn-cancel" onclick="closetab()"/></p>
 </div>
 

@@ -93,7 +93,7 @@
 							<div>티켓 금액 : ${totalprice}원</div>
 							<div class="pt-2">- 할인율 : ${t.discount}%</div>
 							<div class="pt-2">- 포인트 : 
-							<input class="input-basic" id="pts" type="number" style="width:100px">원&nbsp;
+							<input class="input-basic" id="pts" min="0" type="number" style="width:100px">원&nbsp;
 							<button class="btn-ltsm-basic" onclick="setpts(${m.memberPoints})">사용</button><br>
 							<span style="padding-left:80px; font-size:0.8rem; color:blue">잔여포인트 : ${m.memberPoints}원</span> 
 							</div>
@@ -120,7 +120,7 @@
 		
 		<input type="hidden" id="dispercent" value="${t.discount}"/>
 		<input type="hidden" id="currentprice" value="${t.price}"/>
-		<input type="hidden" id="singleprice" value="${t.price}"/>
+		<input type="hidden" id="currentpoint" value="0"/>
 		
 		</c:forEach>
 	</div>

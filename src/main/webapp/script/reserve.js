@@ -13,19 +13,12 @@ function setpts(mpts){
 		alert("먼저 필요한 좌석수를 입력하세요.");
 		return;
 	}
-	let pcs = getCurrentprice();
-	$("#currentprice").val(pcs - $("#pts").val());
+	$("#tseat").val($("#seat").val()+"석");
+	$("#currentpoint").val(mpts);
 	cgSeat();
 };
 
 function getCurrentprice(){
-	let price = $("#singleprice").val();
-	let discount = $("#dispercent").val();
-		alert("작동");
-	return Math.floor(price * ((100 - discount)*0.01));
-}
-
-function getsingleprice(){
 	let price = $("#currentprice").val();
 	let discount = $("#dispercent").val();
 	return Math.floor(price * ((100 - discount)*0.01));
@@ -40,7 +33,8 @@ function setDate(){
 /*좌석수 확인*/
 function cgSeat(){
 	$("#tseat").val($("#seat").val()+"석");
-	$("#cprice").html($("#seat").val() * getsingleprice());
+	let point = $("#currentpoint").val();
+	$("#cprice").html($("#seat").val() * getCurrentprice() - point);
 }
 
 /*화면 새로고침*/

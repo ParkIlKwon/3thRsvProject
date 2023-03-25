@@ -100,6 +100,12 @@
 	</update>
 	
 	
+ 	<update id="updateTickets" parameterType="ticket"> 
+	update ticket set seatNum = #{seatNum} WHERE id = #{id}
+	</update> 
+	
+	
+	
 	
 </mapper>
   

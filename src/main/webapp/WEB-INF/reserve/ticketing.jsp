@@ -83,7 +83,10 @@
 							<h5 class="text-R fw-bold py-3">예매하기 >></h5>
 							관람 날짜&nbsp;
 							<input type="text" id="datepicker" class="input-basic datepicker mr-2" placeholder="날짜를 선택하세요" onchange="setDate()"><br>
-						    <input type="hidden" id = "str" value="${t.dateStart}"> 
+							<c:if test="${now >= t.dateStart}"><input type="hidden" id = "str" value="${now}"></c:if>
+							<c:if test="${now < t.dateStart}"><input type="hidden" id = "str" value="${t.dateStart}"></c:if>
+							<input type="hidden" id = "str" value="${t.dateStart}">
+						
 							<input type="hidden" id = "ed" value="${t.dateEnd}"><br>
 							예매 수량 (잔여:<span class="text-danger fw-bold"> ${t.seatNum} </span>석) : &nbsp;
 							<input class="input-basic" type="number" min="1" id="seat" style="width:70px" onchange="cgSeat()"/>석
@@ -105,7 +108,7 @@
 							<div class="fw-bold pt-1">최종 결제 금액 : <span id="cprice" class="text-danger fs-5">${totalprice}</span>원</div>
 							
 							<div class="py-3">
-								<button class="btn-basic" data-bs-toggle="modal" data-bs-target="#checkreserve" onclick="reserve(${m.id},${t.id},'${t.location}')">결제하기</button>&nbsp;
+								<button class="btn-basic" onclick="reserve(${m.id},${t.id},'${t.location}')">결제하기</button>&nbsp;
 								<button class="btn-cancel" onclick="reload()">다시선택</button>
 							</div>
 						</div>

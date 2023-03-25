@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.basic.reserve.util.MybatisConfig;
-import com.basic.reserve.vo.Member;
 import com.basic.reserve.vo.Ticket;
 
 public class TicketDAO {
@@ -50,17 +49,11 @@ public class TicketDAO {
 	}
 	
 	
-	  public List<Ticket>getAscSports(){ SqlSession session =
-	  MybatisConfig.getInstance().openSession(true); List<Ticket> list =
-	  session.selectList("mapper.ticket.getAscSports"); session.close();
-	  return list;
+	  public List<Ticket>getAscSports(){ 
+		  SqlSession session =MybatisConfig.getInstance().openSession(true);
+		  List<Ticket> list =session.selectList("mapper.ticket.getAscSports"); session.close();
+		  return list;
 	  }
-	 
-	
-	
-	
-	
-	
 	
 	public List<Ticket>getNewSports(){
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
@@ -105,7 +98,7 @@ public class TicketDAO {
 	
 	public void updateTicket(Ticket t){
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
-		session.selectList("mapper.ticket.updateTicket",t);
+		session.selectOne("mapper.ticket.updateTicket",t);
 		session.close();
 	}
 }

@@ -41,15 +41,9 @@ public class TicketingProController implements Controller {
 			return "ticketingpro";
 			}
 		}
-		/*
-		 * if(request.getParameter("tid") == null) { HttpSession session =
-		 * request.getSession(); String user = (String)session.getAttribute("id");
-		 * Reserve r = new Reserve(); r.setMemberId(user); List<Reserve>res =
-		 * ReserveDAO.getInstance().getSelectiveReserve(r);
-		 * request.setAttribute("res",res);
-		 * 
-		 * return "ticketingpro"; }
-		 */		
+		
+		
+		
 		int mid =  Integer.parseInt(request.getParameter("id"));
 		int tid = Integer.parseInt(request.getParameter("tid"));
 		int seat = Integer.parseInt(request.getParameter("seat"));
@@ -64,10 +58,16 @@ public class TicketingProController implements Controller {
 		List<Member>mlist = MemberDAO.getInstance().getOneMemberListbyId(m);
 		List<Ticket>tlist = TicketDAO.getInstance().getSelectiveTicketListbyId(t);
 		
+		int reserveSeatNum = Integer.parseInt(request.getParameter("seat"));
+		int currentSeatNum = tlist.get(0).getSeatNum() - reserveSeatNum;
+		t.setSeatNum(currentSeatNum);
+		
+		
 		Reserve rsv = new Reserve(mlist.get(0).getMemberId() ,tlist.get(0).getTitle(), date,
 				tlist.get(0).getLocation(),seat,price);
 		
 		ReserveDAO.getInstance().addReserve(rsv);
+		ReserveDAO.getInstance().updateSeat(t);
 		
 		return "ticketingpro";
 	}

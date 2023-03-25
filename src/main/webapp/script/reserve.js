@@ -48,6 +48,13 @@ function reserve(id,tid,location){
 	let seat = $("#seat").val();
 	let date = $('#datepicker').val();
 
+	if(date == ''){
+		alert("날짜를 선택하여 주세요.");
+		return;
+	}
+
+	$('#checkreserve').modal('show');
+
 	 $("#date").html(date);
 	 $("#loc").html(location);
 	 $("#qty").html(seat+"장");

@@ -34,17 +34,32 @@ public class TicketingController implements Controller{
 		}else {
 			List<Ticket>list = (List<Ticket>) session.getAttribute("selection");
 			
+			
+			
 			String memberId = (String) session.getAttribute("id");
 			
 			String reserveTitle = list.get(0).getTitle();
 			String reserveDate = request.getParameter("rdate");
 			String reserveLocation = list.get(0).getLocation();
+			
 			int reserveSeatNum = Integer.parseInt(request.getParameter("seatNum"));
+			int currentSeatNum = list.get(0).getSeatNum() - reserveSeatNum;
+			
 			int reservePrice = Integer.parseInt(request.getParameter("price"));
 			
 			Reserve r = new Reserve(memberId,reserveTitle,reserveDate,reserveLocation,reserveSeatNum,reservePrice);
+			Ticket t = new Ticket();
+			t.setId(list.get(0).getId());
+			t.setSeatNum(currentSeatNum);
+			
+			System.out.println(list.get(0).getSeatNum());
+			System.out.println("=========================");
+			System.out.println(reserveSeatNum);
+			System.out.println("=========================");
+			System.out.println(currentSeatNum);
 			
 			ReserveDAO.getInstance().addReserve(r);
+			ReserveDAO.getInstance().updateSeat(t); 
 			
 			return "ticketingpro";
 		}

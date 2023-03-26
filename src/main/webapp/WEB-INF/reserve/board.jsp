@@ -98,8 +98,8 @@
 								<div class="accordion-body row">
 									<div class="col-9">${b.body}</div>
 									<div class="col-3" align="right">
-										<button class="btn-ltsm-basic" onclick="">수정</button>
-										<button class="btn-sm-basic" onclick="">삭제</button>
+										<button class="btn-ltsm-basic" data-bs-toggle="modal" data-bs-target="#editBoard">수정</button>
+										<button class="btn-sm-basic" onclick="location.href='${ctx}/boardDelete.do?id=${b.id}'">삭제</button>
 										<c:if test="${id eq 'admin'}">
 											<button class="btn-sm-cancel">답글</button>
 										</c:if>

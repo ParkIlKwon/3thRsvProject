@@ -19,7 +19,7 @@ public class HandlerMapping {
 		mapping.put("/update.do",new UpdateController());
 		
 		mapping.put("/board.do", new boardController());
-		mapping.put("/boardDelete.do", new boardController());
+		mapping.put("/boardDelete.do", new boardDeleteController());
 		
 		mapping.put("/search.do", new SearchController());
 		mapping.put("/ticketing.do", new TicketingController());

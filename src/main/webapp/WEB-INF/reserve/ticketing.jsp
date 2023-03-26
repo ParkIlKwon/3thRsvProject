@@ -77,10 +77,10 @@
 					<fmt:formatNumber var = "totalprice" type="number" value="${t.price * ((100 - t.discount)*0.01)}" maxFractionDigits="0"/>
 					<c:forEach var="m" items="${mlist}">
 					<div class="row row-cols-1 row-cols-md-3">
-						<div class="col-4 ps-5" style="border-right:2px dashed #f9e7cb">
+						<div class="col ps-5" style="border-right:2px dashed #f9e7cb">
 							<h5 class="text-R fw-bold py-3">예매하기 >></h5>
 							관람 날짜&nbsp;
-							<input type="text" id="datepicker" style="width:100px" class="input-basic datepicker" placeholder="날짜 선택" onchange="setDate()"><br>
+							<input type="text" id="datepicker" style="width:150px" class="input-basic datepicker" placeholder="날짜 선택" onchange="setDate()"><br>
 							<c:if test="${now >= t.dateStart}"><input type="hidden" id = "str" value="${now}"></c:if>
 							<c:if test="${now < t.dateStart}"><input type="hidden" id = "str" value="${t.dateStart}"></c:if>
 							<input type="hidden" id = "str" value="${t.dateStart}">
@@ -89,7 +89,7 @@
 							예매 수량 (잔여:<span class="text-danger fw-bold"> ${t.seatNum} </span>석) : &nbsp;
 							<input class="input-basic" type="number" min="1" id="seat" style="width:70px" onchange="cgSeat()"/>석
 						</div>
-						<div class="col-5 px-4" style="border-right:2px dashed #f9e7cb">
+						<div class="col px-4" style="border-right:2px dashed #f9e7cb">
 							<h5 class="text-R fw-bold py-3">할인 적용 >></h5>
 							<div>티켓 금액 : <s>${t.price}원</s><b class="text-danger">&nbsp;${t.discount}%</b></div>
 							<div class="pt-2">- 할인가 : <b>${totalprice}원</b></div>
@@ -99,7 +99,7 @@
 							<span style="padding-left:80px; font-size:0.8rem; color:blue">잔여포인트 : ${m.memberPoints}원</span> 
 							</div>
 						</div>
-						<div class="col-3 ps-5">
+						<div class="col ps-5">
 							<h4 class="text-DR fw-bold pt-3">결제 진행</h4>
 							<div class="pt-2">관람 날짜 : <input type="text" style="border:none; width: 100px" id="tdate" readonly/></div>
 							<div class="pt-2">예매 좌석 : <input type="text" style="border:none; width: 100px" id="tseat" readonly/></div>

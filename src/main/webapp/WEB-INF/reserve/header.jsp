@@ -38,7 +38,7 @@
 				<c:if test="${id ne null}">
 				<li><a class="text-basic" href="${ctx}/logout.do">${id}님 로그아웃</a></li>
 				</c:if>
-				<li><a class="text-basic" href="${ctx}/ticketingPro.do">예약확인/취소</a></li>
+				<li><a class="text-basic" href="${ctx}/ticketingPro.do">예매확인/취소</a></li>
 				<li><a class="text-basic" href="${ctx}/mypage.do">마이 페이지</a></li>
 				<li><a class="text-basic" href="${ctx}/board.do">고객센터</a></li>
 			</ul>
@@ -51,9 +51,8 @@
 		<ul class="nav_menu">
 			<li class="nav-item"><a class="navbar-brand text-basic active"
 				href="${ctx}/main.do">홈</a></li>
-			<li><a class="text-basic" href="${ctx}/contents.do?ctg='show'">공연</a></li>
-			<li><a class="text-basic" href="${ctx}/contents.do?ctg='sports'">스포츠</a></li>
-			<li><a class="text-basic" href="#">랭킹</a></li>
+			<li><a class="text-basic" href="${ctx}/contents.do?ctg=show">공연</a></li>
+			<li><a class="text-basic" href="${ctx}/contents.do?ctg=sports">스포츠</a></li>
 			<li><a class="text-basic" href="${ctx}/event.do">이벤트</a></li>
 			<c:if test="${id eq 'admin'}">
 			
@@ -61,9 +60,9 @@
 				class="text-basic dropdown-toggle" data-bs-toggle="dropdown"
 				href="#" role="button" aria-haspopup="true" aria-expanded="false">관리자메뉴</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="${ctx}/ticketmanagement.do">등록티켓관리</a> 
-					<a class="dropdown-item"href="${ctx}/addticket.do">티켓추가</a>
-					<a class="dropdown-item" href="${ctx}/adminmember.do">멤버관리</a> 
+					<a class="dropdown-item" href="${ctx}/ticketmanagement.do">티켓관리</a> 
+			<%-- 		<a class="dropdown-item"href="${ctx}/addticket.do">티켓추가</a> --%>
+					<a class="dropdown-item" href="${ctx}/adminmember.do">회원관리</a>
 				</div></li>
 			
 			</c:if>

@@ -2,35 +2,37 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ include file="./header.jsp" %>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 
-	<table class="table table-hover">
-	<tr><th>ID</th><th>NAME</th><th>H.P</th><th>POINT</th><th>EDIT</th><th>DELETE</th></tr>
+<div id="container" style="max-width:1200px; margin:auto">
+	<div class="col-8 p-4 text-DR fs-1 fw-bold">회원관리</div>
+
+	<table class="table table-hover text-center m-auto" style="width:95%">
+		<tr style="background:#d1cfcd">
+			<th>ID</th>
+			<th>이름</th>
+			<th>휴대폰번호</th>
+			<th>포인트</th>
+			<th>수정</th>
+			<th>삭제</th>
+		</tr>
 		<c:forEach var="m" items="${mlist}">
-		   <c:if test="${m.memberId ne 'admin'}">
-			<tr>
-			<td>${m.memberId}</td>
-			<td>${m.memberName}</td>
-			<td>${m.memberHP}</td>
-			<td><input class="input-basic" type="number" value="${m.memberPoints}"/></td>
-			<td><button class="btn btn-primary">수정</button></td>
-			<td><button class="btn btn-danger" onclick="location.href='${ctx}/admindelete.do?id=${m.id}'">삭제</button></td>
-			
-			</tr>
-				</c:if>
+			<c:if test="${m.memberId ne 'admin'}">
+				<tr>
+					<td>${m.memberId}</td>
+					<td>${m.memberName}</td>
+					<td>${m.memberHP}</td>
+					<td><input class="input-basic" type="number"
+						value="${m.memberPoints}" /></td>
+					<td><button class="btn btn-basic">수정</button></td>
+					<td><button class="btn btn-cancel"
+							onclick="location.href='${ctx}/admindelete.do?id=${m.id}'">삭제</button></td>
+
+				</tr>
+			</c:if>
 
 		</c:forEach>
 	</table>
 
+</div>
 
-
-
-
-</body>
 <%@ include file="./footer.jsp" %>
-</html>

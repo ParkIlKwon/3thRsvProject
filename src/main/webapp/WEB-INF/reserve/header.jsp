@@ -51,8 +51,8 @@
 		<ul class="nav_menu">
 			<li class="nav-item"><a class="navbar-brand text-basic active"
 				href="${ctx}/main.do">홈</a></li>
-			<li><a class="text-basic" href="#">공연</a></li>
-			<li><a class="text-basic" href="#">스포츠</a></li>
+			<li><a class="text-basic" href="${ctx}/contents.do?ctg='show'">공연</a></li>
+			<li><a class="text-basic" href="${ctx}/contents.do?ctg='sports'">스포츠</a></li>
 			<li><a class="text-basic" href="#">랭킹</a></li>
 			<li><a class="text-basic" href="${ctx}/event.do">이벤트</a></li>
 			<c:if test="${id eq 'admin'}">

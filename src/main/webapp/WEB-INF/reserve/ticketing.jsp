@@ -9,8 +9,6 @@
 <script type="text/javascript" src="script/datepicker.js" defer></script>
 <script type="text/javascript" src="script/reserve.js" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css"> -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
@@ -82,7 +80,7 @@
 						<div class="col-4 ps-5" style="border-right:2px dashed #f9e7cb">
 							<h5 class="text-R fw-bold py-3">예매하기 >></h5>
 							관람 날짜&nbsp;
-							<input type="text" id="datepicker" class="input-basic datepicker mr-2" placeholder="날짜를 선택하세요" onchange="setDate()"><br>
+							<input type="text" id="datepicker" style="width:100px" class="input-basic datepicker" placeholder="날짜 선택" onchange="setDate()"><br>
 							<c:if test="${now >= t.dateStart}"><input type="hidden" id = "str" value="${now}"></c:if>
 							<c:if test="${now < t.dateStart}"><input type="hidden" id = "str" value="${t.dateStart}"></c:if>
 							<input type="hidden" id = "str" value="${t.dateStart}">
@@ -92,7 +90,7 @@
 							<input class="input-basic" type="number" min="1" id="seat" style="width:70px" onchange="cgSeat()"/>석
 						</div>
 						<div class="col-5 px-4" style="border-right:2px dashed #f9e7cb">
-							<h5 class="text-R fw-bold py-3">할인 내역 >></h5>
+							<h5 class="text-R fw-bold py-3">할인 적용 >></h5>
 							<div>티켓 금액 : <s>${t.price}원</s><b class="text-danger">&nbsp;${t.discount}%</b></div>
 							<div class="pt-2">- 할인가 : <b>${totalprice}원</b></div>
 							<div class="pt-2">- 포인트 : 

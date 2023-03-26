@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>티켓추가영역</h1>
-	<button class="btn btn-primary" onclick="location.href = '${ctx}/addticket.do?category=null'">추가</button>
+	<button class="btn btn-primary" onclick="location.href = '${ctx}/addticket.do?category=null'">공연추가</button>
 	
 </body>
 </html>

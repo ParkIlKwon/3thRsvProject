@@ -32,6 +32,9 @@ public class HandlerMapping {
 		mapping.put("/ticketmanagement.do",new TicketManagementController());
 		mapping.put("/addticket.do",new TicketAddController());
 		mapping.put("/event.do",new EventController());
+		mapping.put("/adminmember.do",new AdminMemberController());
+		mapping.put("/admindelete.do",new AdminMemberDelController());
+		
 		
 	}
 	

@@ -62,12 +62,14 @@ public class TicketingProController implements Controller {
 		int currentSeatNum = tlist.get(0).getSeatNum() - reserveSeatNum;
 		t.setSeatNum(currentSeatNum);
 		
+		int currentPoint = mlist.get(0).getMemberPoints() - Integer.parseInt(request.getParameter("points"));
 		
 		Reserve rsv = new Reserve(mlist.get(0).getMemberId() ,tlist.get(0).getTitle(), date,
 				tlist.get(0).getLocation(),seat,price);
-		
+		m.setMemberPoints(currentPoint);
 		ReserveDAO.getInstance().addReserve(rsv);
 		ReserveDAO.getInstance().updateSeat(t);
+		MemberDAO.getInstance().updatePoints(m);
 		
 		return "ticketingpro";
 	}

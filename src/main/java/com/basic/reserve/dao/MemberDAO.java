@@ -78,6 +78,17 @@ public class MemberDAO {
 		session.update("mapper.member.updatePw",m);
 		session.close();
 	}
-	
+
+	public void updatePoints(Member m) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		session.update("mapper.member.updatePoints",m);
+		session.close();
+	}
+
+	public void DeleteMemberbyID(Member m) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		session.delete("mapper.member.memberDeletebyID",m);
+		session.close();
+	}
 	
 }

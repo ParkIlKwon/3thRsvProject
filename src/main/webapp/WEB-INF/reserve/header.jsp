@@ -63,7 +63,7 @@
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="${ctx}/ticketmanagement.do">등록티켓관리</a> 
 					<a class="dropdown-item"href="${ctx}/addticket.do">티켓추가</a>
-					
+					<a class="dropdown-item" href="${ctx}/adminmember.do">멤버관리</a> 
 				</div></li>
 			
 			</c:if>

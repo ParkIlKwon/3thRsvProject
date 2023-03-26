@@ -33,6 +33,11 @@
   delete from memberlist where memberId = #{memberId} and memberPw = #{memberPw}
 </delete>
 
+<delete id="memberDeletebyID" parameterType="int">
+  delete from memberlist where id = #{id} 
+</delete>
+
+
  <select id="selectOneMembers" parameterType="member" resultMap="member">
    select * from memberlist where memberId=#{memberId}       
  </select>
@@ -55,6 +60,11 @@
     </update>
     
     
+    <update id="updatePoints" parameterType="member" >
+         update memberlist
+         set memberPoints=#{memberPoints} 
+         where id=#{id} 	 
+    </update>
     
 
 

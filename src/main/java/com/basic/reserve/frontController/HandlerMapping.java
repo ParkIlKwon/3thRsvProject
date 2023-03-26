@@ -20,7 +20,7 @@ public class HandlerMapping {
 		mapping.put("/update.do",new UpdateController());
 		
 		mapping.put("/board.do", new boardController());
-		mapping.put("/boardDelete.do", new boardController());
+		mapping.put("/boardDelete.do", new boardDeleteController());
 		
 		mapping.put("/search.do", new SearchController());
 		mapping.put("/ticketing.do", new TicketingController());
@@ -33,6 +33,9 @@ public class HandlerMapping {
 		mapping.put("/ticketmanagement.do",new TicketManagementController());
 		mapping.put("/addticket.do",new TicketAddController());
 		mapping.put("/event.do",new EventController());
+		mapping.put("/adminmember.do",new AdminMemberController());
+		mapping.put("/admindelete.do",new AdminMemberDelController());
+		
 		
 	}
 	

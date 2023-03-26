@@ -20,6 +20,13 @@ public class BoardDAO {
 		return list;
 	}
 	
+	public List<Board>getSelectiveBoard(Board b){
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		List<Board>list = session.selectList("mapper.board.selectSelectiveBoard",b);
+		session.close();
+		return list;
+	}
+	
 	public void addBoard(Board b) {
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
 		/* session.selectOne("mapper.board.addBoard"); */

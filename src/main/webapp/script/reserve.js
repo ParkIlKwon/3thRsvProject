@@ -61,16 +61,21 @@ function reserve(id,tid,location){
 	 $("#loc").html(location);
 	 $("#qty").html(seat+"장");
 	 $("#price").html(totalpcs+"원");
-	
+	 let points = $("#currentpoint").val();
+		
 	$.ajax({
 			type : "POST",
 			url : ctx1+"/ticketingPro.do",
-			data : {"id":id,"price":totalpcs,"tid":tid,"seat":seat,"date":date},
+			data : {"id":id,"price":totalpcs,"tid":tid,"seat":seat,"date":date,"points":points},
 			success : function() {
 				/*alert("예약이 완료되었습니다.");*/
 			}
 		});
 	
 	return;
+}
+
+window.onload = function() {
+	$("#currentpoint").val(0);
 }
 

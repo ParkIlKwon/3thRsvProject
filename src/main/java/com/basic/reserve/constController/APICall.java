@@ -7,6 +7,7 @@ import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
@@ -103,16 +104,15 @@ public class APICall {
       Element e9 = (Element) nodes9.item(0);
       String price = e9.getTextContent();
 		
-      System.out.println("===================");
       if(info.length() <= 1) {
     	 info = title + "입니다";
       }
       
       String intStr = price.replaceAll("[^0-9]", "");
-      System.out.println(info);
       if(intStr.equals("")) {
-    	  System.out.println("들어옴");
     	  intStr = "15000";
+      }else if(intStr.length() > 6) {
+    	  intStr = "100000";
       }
       System.out.println(intStr + " ----- ");
       int tprice = Integer.parseInt(intStr);
@@ -129,10 +129,20 @@ public class APICall {
       if(s.equals("GGGA")){
     	  s = "공연";
       }
+
+      boolean flag = true;
       
       Ticket t = new Ticket(poster,category,s,title,startD,endD,info,place,duration,30,tprice,dis,roundedNumber);
-      TicketDAO.getInstance().addTicket(t);
-	
+      List<Ticket>tlist = TicketDAO.getInstance().getAllTicketList();
+      for (Ticket ticket : tlist) {
+		if(ticket.getTitle().equals(t.getTitle())) {
+			flag = false;
+		}
+	}
+      if(flag) {
+    	   TicketDAO.getInstance().addTicket(t);
+      }
+      
 	}
 	
 	public void getId(String s) throws IOException, SAXException, ParserConfigurationException{

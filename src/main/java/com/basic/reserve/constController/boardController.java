@@ -1,7 +1,10 @@
 package com.basic.reserve.constController;
 
 import java.io.IOException;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -20,10 +23,9 @@ public class boardController implements Controller {
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("진입");
 		//게시글 수정
+		HttpSession session = request.getSession();
 		if (request.getParameter("id") != null) {
-			System.out.println("수정");
 			int id = Integer.parseInt(request.getParameter("id"));
 			Board b = new Board();
 			b.setId(id);
@@ -33,17 +35,22 @@ public class boardController implements Controller {
 			b.setWritedate(request.getParameter("writedate"));
 			BoardDAO.getInstance().updateBoard(b);
 		//게시글 추가
-		}else if(request.getParameter("id") == null && request.getParameter("title")!=null){
+		}else if(request.getParameter("memberId") != null && request.getParameter("title")!=null){
 			Board b = new Board();
-			b.setMemberId("memberId");
+			b.setMemberId(request.getParameter("memberId"));
 			b.setTitle(request.getParameter("title"));
 			b.setBody(request.getParameter("body"));
-			b.setWritedate(request.getParameter("writedate"));
-			System.out.println(b.getBody());
+			Date date = new Date();
+			
+			String dateToStr = date.toInstant()
+					.atOffset(ZoneOffset.UTC)
+					.format( DateTimeFormatter.ofPattern("yyyy-mm-dd"));
+			
+			b.setWritedate(dateToStr);
 			BoardDAO.getInstance().addBoard(b);
 		}
 		
-		HttpSession session = request.getSession();
+		
 		List<Board>list = BoardDAO.getInstance().getAllBoard();
 		ArrayList<Board>temp = new ArrayList<Board>();
 		int currentPage = 1;

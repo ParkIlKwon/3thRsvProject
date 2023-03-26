@@ -9,7 +9,7 @@ function deleteAction(id){
 	})
 }
 
-function addBoard(id,date){
+function addBoard(id){
 	let title =$("#bTitle").val();
 	let contents =$("#bContents").val();
 	
@@ -23,7 +23,7 @@ function addBoard(id,date){
 		$.ajax({
 		type : "POST",
 		url : ctx+"/board.do",
-		data :{"memberId":id, "title":title, "body":contents, "writedate":date},
+		data :{"memberId":id, "title":title, "body":contents},
 		success : function(){
 			alert("1:1문의가 등록되었습니다.");
 			location.reload();

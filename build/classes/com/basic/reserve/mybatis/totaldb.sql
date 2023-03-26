@@ -95,6 +95,7 @@ create table board(
     REFERENCES memberlist(memberId) ON DELETE CASCADE
 )
 
+
 INSERT INTO board (memberId, title, body, writedate) VALUES
 ('qwer', '첫번째 글', '안녕하세요. 첫번째 글입니다.', '2023-03-01'),
 ('qwer', '두번째 글', '안녕하세요. 두번째 글입니다.', '2023-03-02'),

@@ -30,7 +30,7 @@
 
 		</div>
       <div class="modal-footer">
-        <button type="button" class="btn-basic" onclick="addBoard('${id},${now}')">등록</button>
+        <button type="button" class="btn-basic" onclick="addBoard('${id}')">등록</button>
         <button type="button" class="btn-cancel" data-bs-dismiss="modal">취소</button>
       </div>
     </div>

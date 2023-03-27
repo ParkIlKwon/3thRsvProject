@@ -119,7 +119,6 @@ public class APICall {
       if(tprice <= 1000){
     	  tprice = tprice * 1000;
       }
-      System.out.println(tprice);
   	Random rand = new Random();
   	   int randomNumber = rand.nextInt(5)+1; //2~4 
       //3~4
@@ -146,7 +145,7 @@ public class APICall {
 	
 	public void getId(String s) throws IOException, SAXException, ParserConfigurationException{
 		
-		 StringBuilder urlBuilder = new StringBuilder("http://www.kopis.or.kr/openApi/restful/pblprfr"); /*URL*/
+	   StringBuilder urlBuilder = new StringBuilder("http://www.kopis.or.kr/openApi/restful/pblprfr"); /*URL*/
        urlBuilder.append("?" + URLEncoder.encode("service","UTF-8") + "=3a6e44a951484653af996a5f0c78bd8a"); /*Service Key*/
        urlBuilder.append("&" + URLEncoder.encode("stdate","UTF-8") + "=" + URLEncoder.encode("20230301", "UTF-8")); /*시작일*/
        urlBuilder.append("&" + URLEncoder.encode("eddate","UTF-8") + "=" + URLEncoder.encode("20230531", "UTF-8")); /*끝일*/

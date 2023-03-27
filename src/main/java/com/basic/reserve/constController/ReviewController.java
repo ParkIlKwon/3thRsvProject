@@ -31,7 +31,6 @@ public class ReviewController implements Controller {
 		m.setId(mid);
 		List<Member>mlist = MemberDAO.getInstance().getOneMemberListbyId(m);
 		int currentPoint = mlist.get(0).getMemberPoints() + 2000;
-		System.out.println(currentPoint);
 		m.setMemberPoints(currentPoint);
 		
 		ReserveDAO.getInstance().updateReview(r);
@@ -39,6 +38,12 @@ public class ReviewController implements Controller {
 		
 		mlist = MemberDAO.getInstance().getOneMemberListbyId(m);
 		session.setAttribute("mlist", mlist);
+		
+		
+		
+		
+		
+		
 		return "ticketingpro";
 	}
 }

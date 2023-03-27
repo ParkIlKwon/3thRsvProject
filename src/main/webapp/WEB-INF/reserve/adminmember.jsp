@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ include file="./header.jsp" %>
+<script type="text/javascript" src="script/pointedit.js" defer></script>
+
 
 <div id="container" style="max-width:1200px; margin:auto">
 	<div class="col-8 p-4 text-DR fs-1 fw-bold">회원관리</div>
@@ -21,9 +23,10 @@
 					<td>${m.memberId}</td>
 					<td>${m.memberName}</td>
 					<td>${m.memberHP}</td>
-					<td><input class="input-basic" type="number"
+					<td><input class="input-basic" type="number" id="edittpoint" 
 						value="${m.memberPoints}" /></td>
-					<td><button class="btn btn-basic">수정</button></td>
+					<td><button class="btn btn-basic"
+					onclick="editpoint(${m.id})">수정</button></td>
 					<td><button class="btn btn-cancel"
 							onclick="location.href='${ctx}/admindelete.do?id=${m.id}'">삭제</button></td>
 

@@ -37,6 +37,9 @@ public class HandlerMapping {
 		mapping.put("/adminmember.do",new AdminMemberController());
 		mapping.put("/admindelete.do",new AdminMemberDelController());
 		mapping.put("/review.do",new ReviewController());
+		mapping.put("/editpoint.do",new PointController());
+		
+		
 		
 		
 	}

@@ -17,7 +17,7 @@
 </select>
 
     <select id="selectSelectiveBoard" parameterType="String" resultMap="board">
-  SELECT * FROM board where memberId = #{memberId}
+  SELECT * FROM board where memberId = #{memberId} order by writedate DESC
 </select>
 
 <update id="editBoard" parameterType="board" >

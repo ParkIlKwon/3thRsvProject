@@ -126,7 +126,7 @@ create table reservelist(
 );
 
  INSERT INTO reservelist(memberId, reserveTitle, reserveDate, reserveLocation, reserveSeatNum, reservePrice)
-VALUES ("qwer","gfasda","2922","오켓",2,2000)
+VALUES ("qwer","gfasda","2023-04-04","오켓",2,2000)
 
 drop table reservelist;
 select * from reservelist;

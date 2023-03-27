@@ -33,7 +33,7 @@
 					<td>${t.reserveSeatNum}</td>
 					<td>${t.reservePrice}</td>
 					<td>
-<%-- 					<c:if test=${t.reserveReview eq null}>
+ 					<c:if test="${t.review eq null}">
 						<select class="form-select p-1" id="review" style="width:150px">
 				            <option selected>- 별점 달기 -</option>
 				            <option value="1">⭐</option>
@@ -43,12 +43,11 @@
 				            <option value="5">⭐⭐⭐⭐⭐</option>
 				        </select>
 					</c:if>
-					<c:if test="${t.ㄱeview ne null}">
-						<c:forEach var="st" begin=1 end="${t.review}"> --%>
-						<c:forEach begin="1" end="5">
+					<c:if test="${t.review ne null}">
+						<c:forEach var="st" begin="1" end="${t.review}">
 						⭐
 						</c:forEach>
-<%-- 					</c:if> --%>
+ 					</c:if>
 			        </td>
 				</tr>
 				<input type="hidden" value="${t.id}" data-idx="${status.index}" id="tid">

@@ -27,9 +27,26 @@
 				</div>
 
 				<div class="modal-footer">
-					<button type="button" class="btn btn-cancel" onclick="location.href='${ctx}/main.do'">메인페이지로</button>
+					<button type="button" class="btn btn-cancel" onclick="location.href='${ctx}/main.do'">메인페이지</button>
 					<c:forEach var="m" items="${mlist}">
-						<button type="button" class="btn btn-basic" onclick="location.href='${ctx}/ticketingPro.do'">예매확인하러가기</button>
+						<button type="button" class="btn btn-basic" onclick="location.href='${ctx}/ticketingPro.do'">예매확인 페이지</button>
+					</c:forEach>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="cancelTicket" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title fw-bold">예매가 정상적으로 취소되었습니다.</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-cancel" onclick="location.href='${ctx}/main.do'">메인페이지</button>
+					<c:forEach var="m" items="${mlist}">
+						<button type="button" class="btn btn-basic" onclick="location.href='${ctx}/ticketingPro.do'">예매확인 페이지</button>
 					</c:forEach>
 				</div>
 			</div>

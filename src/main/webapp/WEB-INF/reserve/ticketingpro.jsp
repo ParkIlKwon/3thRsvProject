@@ -4,6 +4,7 @@
 
 <link rel="stylesheet" type="text/css" href="${ctx}/css/tableApp.css">
 <script type="text/javascript" src="script/ReserveCheck.js" defer></script>
+<%@ include file="../modal/reservecheck.jsp" %>
 	
 <div id="container" style="max-width:1200px; margin:auto">
 	<div class="col-8 p-4 text-DR fs-1 fw-bold">예매정보</div>
@@ -17,8 +18,7 @@
 					<th scope="col">장소</th>
 					<th scope="col">수량</th>
 					<th scope="col">금액</th>
-					<th scope="col" class="col-1">리뷰</th>
-					
+					<th scope="col" class="col-2">리뷰</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,7 +33,7 @@
 					<td>${t.reserveSeatNum}</td>
 					<td>${t.reservePrice}</td>
 					<td>
-					<c:if test=${t.reserveReview eq null}>
+<%-- 					<c:if test=${t.reserveReview eq null}>
 						<select class="form-select p-1" id="review" style="width:150px">
 				            <option selected>- 별점 달기 -</option>
 				            <option value="1">⭐</option>
@@ -43,11 +43,12 @@
 				            <option value="5">⭐⭐⭐⭐⭐</option>
 				        </select>
 					</c:if>
-					<c:if test="${t.reserveReview ne null}">
-						<c:forEach var="st" begin=1 end="${t.reserveReview}">
+					<c:if test="${t.ㄱeview ne null}">
+						<c:forEach var="st" begin=1 end="${t.review}"> --%>
+						<c:forEach begin="1" end="5">
 						⭐
 						</c:forEach>
-					</c:if>
+<%-- 					</c:if> --%>
 			        </td>
 				</tr>
 				<input type="hidden" value="${t.id}" data-idx="${status.index}" id="tid">
@@ -56,7 +57,8 @@
 		</table>
 	</div>
 	<div class="p-3 ps-5">
-		<button class="btn-cancelD" onclick="ischecked()">선택 삭제</button>
+		<!-- <button id="pwbtn" class="btn-cancelD" data-bs-toggle="modal" data-bs-target="#updatePassword">변경하기</button> -->
+		<button class="btn-cancelD" onclick="ischecked()" data-bs-toggle="modal" data-bs-target="#canclTicket">예매 취소</button>
 	</div>
 
 </div>

@@ -52,6 +52,9 @@ public class boardController implements Controller {
 		
 		Board b = new Board();
 		String log = (String)session.getAttribute("id");
+		if(log == null) {
+			log = "";
+		}
 		List<Board>list = null;
 		
 		if(log.equals("admin")) {

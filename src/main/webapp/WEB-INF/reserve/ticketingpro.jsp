@@ -5,46 +5,62 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/css/tableApp.css">
 <script type="text/javascript" src="script/ReserveCheck.js" defer></script>
 	
-<body>
-
-	<h1>-예매정보-</h1>
-		<div class="table-responsive">
-			<table id="customTable" class="table custom-table">
-				<thead>
-					<tr>
-						<th scope="col">Del</th>
-						<th scope="col">Title</th>
-						<th scope="col">Location</th>
-						<th scope="col">QTY.</th>
-						<th scope="col">Price</th>
-						
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="t" items="${res}" varStatus="status">
-					<tr>
-					     <td>  
-					     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-idx2="${status.index}">
-  						</td>
-						<td>${t.reserveTitle}</td>
-						<td>${t.reserveLocation}</td>
-						<td>${t.reserveSeatNum}
-						</td>
-						<td>${t.reservePrice}</td>
-					</tr>
+<div id="container" style="max-width:1200px; margin:auto">
+	<div class="col-8 p-4 text-DR fs-1 fw-bold">예매정보</div>
+	<div class="table-responsive">
+		<table id="customTable" class="table table-hover text-center m-auto" style="width:95%">
+			<thead>
+				<tr style="background:#d1cfcd">
+					<th scope="col">삭제</th>
+					<th scope="col">날짜</th>
+					<th scope="col">제목</th>
+					<th scope="col">장소</th>
+					<th scope="col">수량</th>
+					<th scope="col">금액</th>
+					<th scope="col" class="col-1">리뷰</th>
 					
-						<input type="hidden" value="${t.id}" data-idx="${status.index}" id="tid">
-					</c:forEach>
-					
-				</tbody>
-			</table>
-		</div>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="t" items="${res}" varStatus="status">
+				<tr>
+				    <td>  
+				    <input class="form-check-input" type="checkbox" id="flexCheckDefault" data-idx2="${status.index}">
+ 					</td>
+					<td>${t.reserveDate}</td>
+					<td>${t.reserveTitle}</td>
+					<td>${t.reserveLocation}</td>
+					<td>${t.reserveSeatNum}</td>
+					<td>${t.reservePrice}</td>
+					<td>
+					<c:if test=${t.reserveReview eq null}>
+						<select class="form-select p-1" id="review" style="width:150px">
+				            <option selected>- 별점 달기 -</option>
+				            <option value="1">⭐</option>
+				            <option value="2">⭐⭐</option>
+				            <option value="3">⭐⭐⭐</option>
+				            <option value="4">⭐⭐⭐⭐</option>
+				            <option value="5">⭐⭐⭐⭐⭐</option>
+				        </select>
+					</c:if>
+					<c:if test="${t.reserveReview ne null}">
+						<c:forEach var="st" begin=1 end="${t.reserveReview}">
+						⭐
+						</c:forEach>
+					</c:if>
+			        </td>
+				</tr>
+				<input type="hidden" value="${t.id}" data-idx="${status.index}" id="tid">
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+	<div class="p-3 ps-5">
+		<button class="btn-cancelD" onclick="ischecked()">선택 삭제</button>
+	</div>
 
-	<button onclick="ischecked()">테스트</button>
+</div>
 
-
-</body>
-	
 <%@ include file="./footer.jsp" %>
 	
 	

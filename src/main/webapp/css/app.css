@@ -41,6 +41,14 @@ a.page{
 	}
 .btn-cancel:hover{background:#6c757d ;}
 
+.btn-cancelD{
+	background-color:#d1cfcd;
+	padding:5px 7px;
+	border-radius:5px;
+	border:none;
+	font-weight:bold;
+	}
+.btn-cancelD:hover{background:#6c757d ;}
 
 .btn-lt-basic{
 	background-color:#f9e7cb;

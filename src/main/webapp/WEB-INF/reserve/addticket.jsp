@@ -1,16 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ include file="./header.jsp" %>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-	<h1>티켓추가영역</h1>
-	<button class="btn btn-primary" onclick="location.href = '${ctx}/addticket.do?category=null'">공연추가</button>
+
+<div id="container" style="max-width:1200px; margin:auto">
+	<p class="text-DR pt-4 fs-2 fw-bold">티켓추가영역</p>
+
+	<button class="btn btn-basic" onclick="location.href = '${ctx}/addticket.do?category=null'">공연추가</button>
 	
-</body>
-</html>
+</div>
 
 <%@ include file="./footer.jsp" %>

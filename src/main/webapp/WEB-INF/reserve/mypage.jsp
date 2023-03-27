@@ -5,8 +5,8 @@
 
 <div id="container" style="max-width:340px; margin:auto" align="center">
 	<c:forEach var='m' items='${mlist}'>
-		<p class="pt-5"><font style="font-size:1.3rem; font-weight:bold;">
-		<font style="color:#d2850c; font-size:2rem">${m.memberName}</font>님 회원정보</font></p>
+		<p class="pt-5 fs-5 fw-bold">
+		<span class="text-DR fs-3">${m.memberName}</span>님 회원정보</p>
 		
 		<div class="col py-2" style="border:2px solid #f9e7cb; border-radius:5px" align="left">
 			<div class="row p-3">

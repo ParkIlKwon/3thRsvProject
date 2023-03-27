@@ -1,16 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="tday" class="java.util.Date"/>
 <fmt:parseNumber value="${tday.time / (1000*60*60*24)}" integerOnly="true" var="today"></fmt:parseNumber>
-<title>검색영역</title>
-</head>
-<body>
+
 
 	<h1></h1>
 	
@@ -58,6 +51,4 @@
 	
 	
 <%@ include file="./footer.jsp" %>	
-</body>
-</html>
 

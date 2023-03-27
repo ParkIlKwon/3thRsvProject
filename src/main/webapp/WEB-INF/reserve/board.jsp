@@ -97,6 +97,7 @@
 								data-bs-parent="#faq-group-1" style="">
 								<div class="accordion-body row">
 									<div class="col-9">${b.body}</div>
+									<div class="col-9"><br>관리자 re : </div>
 									<div class="col-3" align="right">
 										<button class="btn-ltsm-basic" onclick="editboard('${b.id}','${b.title}','${b.body}')">수정</button>
 										<button class="btn-sm-basic" onclick="location.href='${ctx}/boardDelete.do?id=${b.id}'">삭제</button>

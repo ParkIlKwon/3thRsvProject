@@ -35,8 +35,10 @@
 					<td>${t.reservePrice}</td>
 					<td>
  					<c:if test="${t.review eq 0}">
+ 						<c:forEach var="m" items="${mlist}">
 						<select class="form-select p-1" id="review" style="width:150px"
-						 onchange="addreview(${t.id},this.value)">
+						 onchange="addreview(${m.id},${t.id},this.value)">
+						
 				            <option selected>- 별점 달기 -</option>
 				            
 				            <option value="1">⭐</option>
@@ -46,6 +48,7 @@
 				            <option value="5">⭐⭐⭐⭐⭐</option>
 				           					
 				        </select>
+				         </c:forEach>
 					</c:if>
 					<c:if test="${t.review ne 0}">
 						<c:forEach var="st" begin="1" end="${t.review}">

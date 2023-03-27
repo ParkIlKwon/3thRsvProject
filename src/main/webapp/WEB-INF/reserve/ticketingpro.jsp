@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="./header.jsp" %>      
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link rel="stylesheet" type="text/css" href="${ctx}/css/tableApp.css">
 <script type="text/javascript" src="script/ReserveCheck.js" defer></script>
 <%@ include file="../modal/reservecheck.jsp" %>
@@ -27,12 +27,12 @@
 				    <td>  
 				    <input class="form-check-input" type="checkbox" id="flexCheckDefault" data-idx2="${status.index}">
  					</td>
- 					
+ 					<fmt:formatNumber var = "totalprice" type="number" value="${t.reservePrice}" maxFractionDigits="0"/>
 					<td>${t.reserveDate}</td>
 					<td>${t.reserveTitle}</td>
 					<td>${t.reserveLocation}</td>
 					<td>${t.reserveSeatNum}</td>
-					<td>${t.reservePrice}</td>
+					<td>${totalprice}</td>
 					<td>
  					<c:if test="${t.review eq 0}">
  						<c:forEach var="m" items="${mlist}">

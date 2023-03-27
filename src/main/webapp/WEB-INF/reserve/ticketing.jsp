@@ -123,6 +123,7 @@
 		
 		<input type="hidden" id="dispercent" value="${t.discount}"/>
 		<input type="hidden" id="currentprice" value="${t.price}"/>
+		<input type="hidden" id="tcprice" value="0"/>
 		<input type="hidden" id="currentpoint" value="0"/>
 		
 		</c:forEach>

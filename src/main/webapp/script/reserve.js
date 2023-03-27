@@ -1,5 +1,5 @@
 
-// let result = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+let result ;
 
 function test(d){
 	alert(d)
@@ -33,7 +33,10 @@ function setDate(){
 function cgSeat(){
 	$("#tseat").val($("#seat").val()+"석");
 	let point = $("#currentpoint").val();
-	$("#cprice").html($("#seat").val() * getCurrentprice() - point);
+	let totalprice = $("#seat").val() * getCurrentprice() - point;
+	$("#tcprice").val(totalprice);
+	result = totalprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	$("#cprice").html(result);
 }
 
 /*화면 새로고침*/
@@ -43,7 +46,7 @@ function reload(){
 
 function reserve(id,tid,location){
 	
-	let totalpcs =  $("#cprice").html();
+	let totalpcs =  $("#tcprice").val();
 	let seat = $("#seat").val();
 	let date = $('#datepicker').val();
 
@@ -60,7 +63,7 @@ function reserve(id,tid,location){
 	 $("#date").html(date);
 	 $("#loc").html(location);
 	 $("#qty").html(seat+"장");
-	 $("#price").html(totalpcs+"원");
+	 $("#price").html(result+"원");
 	 let points = $("#currentpoint").val();
 		
 	$.ajax({
@@ -68,7 +71,6 @@ function reserve(id,tid,location){
 			url : ctx1+"/ticketingPro.do",
 			data : {"id":id,"price":totalpcs,"tid":tid,"seat":seat,"date":date,"points":points},
 			success : function() {
-				/*alert("예약이 완료되었습니다.");*/
 			}
 		});
 	

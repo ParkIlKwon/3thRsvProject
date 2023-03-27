@@ -10,9 +10,11 @@ import javax.servlet.http.HttpSession;
 
 import com.basic.reserve.dao.MemberDAO;
 import com.basic.reserve.dao.ReserveDAO;
+import com.basic.reserve.dao.TicketDAO;
 import com.basic.reserve.frontController.Controller;
 import com.basic.reserve.vo.Member;
 import com.basic.reserve.vo.Reserve;
+import com.basic.reserve.vo.Ticket;
 
 public class ReviewController implements Controller {
 
@@ -39,10 +41,28 @@ public class ReviewController implements Controller {
 		mlist = MemberDAO.getInstance().getOneMemberListbyId(m);
 		session.setAttribute("mlist", mlist);
 		
+		 List<Reserve>rlist = ReserveDAO.getInstance().getoneReserveListbyID(r);
+		 String reservetitle = rlist.get(0).getReserveTitle();
 		
+		List<Reserve>tlist =  ReserveDAO.getInstance().getAllReserveList();
+		int count = 1 ;
+		for (Reserve reserve : tlist) {
+			if(reservetitle.equals(reserve.getReserveTitle()) && reserve.getReview() != 0){
+				count ++;
+			}
+		}
 		
+		Ticket t = new Ticket();
+		t.setTitle(reservetitle);
 		
+		List<Ticket> ticketlist = TicketDAO.getInstance().getSelectiveTicketList(t);
+		int AVG = ticketlist.get(0).getStar();
+		AVG = (AVG * (count -1) + star)/count ;
 		
+		t.setId(ticketlist.get(0).getId());
+		t.setStar(AVG);
+		System.out.println(AVG);
+		TicketDAO.getInstance().updateStar(t);
 		
 		return "ticketingpro";
 	}

@@ -33,7 +33,8 @@
 					<td>${t.reserveSeatNum}</td>
 					<td>${t.reservePrice}</td>
 					<td>
- 					<c:if test="${t.review eq null}">
+					${t.review}
+ 					<%-- <%-- <c:if test="${t.review eq null}">
 						<select class="form-select p-1" id="review" style="width:150px">
 				            <option selected>- 별점 달기 -</option>
 				            <option value="1">⭐</option>
@@ -47,7 +48,7 @@
 						<c:forEach var="st" begin="1" end="${t.review}">
 						⭐
 						</c:forEach>
- 					</c:if>
+ 					</c:if> --%> --%>
 			        </td>
 				</tr>
 				<input type="hidden" value="${t.id}" data-idx="${status.index}" id="tid">
@@ -57,7 +58,7 @@
 	</div>
 	<div class="p-3 ps-5">
 		<!-- <button id="pwbtn" class="btn-cancelD" data-bs-toggle="modal" data-bs-target="#updatePassword">변경하기</button> -->
-		<button class="btn-cancelD" onclick="ischecked()" data-bs-toggle="modal" data-bs-target="#canclTicket">예매 취소</button>
+		<button class="btn-cancelD" onclick="ischecked()">예매 취소</button>
 	</div>
 
 </div>

@@ -46,5 +46,10 @@ VALUES (#{memberId},#{reserveTitle},#{reserveDate},#{reserveLocation},#{reserveS
  select * from reservelist order by id desc limit 1
  </select>
  
+ <update id="updateReview" parameterType="int">
+ update reservelist set review=#{review} where id=#{id} 
+ </update>
+ 
+
  
  </mapper>

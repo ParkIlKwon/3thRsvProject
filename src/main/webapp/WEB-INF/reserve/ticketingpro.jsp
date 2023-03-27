@@ -27,6 +27,7 @@
 				    <td>  
 				    <input class="form-check-input" type="checkbox" id="flexCheckDefault" data-idx2="${status.index}">
  					</td>
+ 					
 					<td>${t.reserveDate}</td>
 					<td>${t.reserveTitle}</td>
 					<td>${t.reserveLocation}</td>
@@ -34,13 +35,16 @@
 					<td>${t.reservePrice}</td>
 					<td>
  					<c:if test="${t.review eq 0}">
-						<select class="form-select p-1" id="review" style="width:150px">
+						<select class="form-select p-1" id="review" style="width:150px"
+						 onchange="addreview(${t.id},this.value)">
 				            <option selected>- 별점 달기 -</option>
-				            <option value="1" onclick="#">⭐</option>
-				            <option value="2" onclick="#">⭐⭐</option>
-				            <option value="3" onclick="#">⭐⭐⭐</option>
-				            <option value="4" onclick="#">⭐⭐⭐⭐</option>
-				            <option value="5" onclick="#">⭐⭐⭐⭐⭐</option>
+				            
+				            <option value="1">⭐</option>
+				            <option value="2">⭐⭐</option>
+				            <option value="3">⭐⭐⭐</option>
+				            <option value="4">⭐⭐⭐⭐</option>
+				            <option value="5">⭐⭐⭐⭐⭐</option>
+				           					
 				        </select>
 					</c:if>
 					<c:if test="${t.review ne 0}">

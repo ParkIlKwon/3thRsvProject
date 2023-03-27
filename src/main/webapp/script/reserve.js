@@ -55,7 +55,7 @@ function reserve(id,tid,location){
 		return;
 	}
 
-	$('#checkreserve').modal('show');
+	 $('#checkreserve').modal('show');
 
 	 $("#date").html(date);
 	 $("#loc").html(location);

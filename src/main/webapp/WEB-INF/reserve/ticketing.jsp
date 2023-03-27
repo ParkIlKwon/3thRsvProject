@@ -9,8 +9,8 @@
 <script type="text/javascript" src="script/datepicker.js" defer></script>
 <script type="text/javascript" src="script/reserve.js" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css"> 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
@@ -66,7 +66,7 @@
 		</div>
 		<div class="px-3 pb-2">
 			<div style="border:2px solid #f9e7cb; border-radius:10px">
-				<c:if test="${id  eq null && today >= strDate-2 && now <= t.dateEnd}">
+				<c:if test="${id eq null && today >= strDate-2 && now <= t.dateEnd}">
 					<h5 style="color:red">로그인 후 예매 가능합니다</h5>
 					<div class="p-1"><button class="btn-disable" disabled>예매불가</button></div>
 				</c:if>

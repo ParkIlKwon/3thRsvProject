@@ -101,4 +101,13 @@ public class TicketDAO {
 		session.selectOne("mapper.ticket.updateTicket",t);
 		session.close();
 	}
+	
+	public void updateStar(Ticket t){
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		session.selectOne("mapper.ticket.updateStars",t);
+		session.close();
+	}
+	
+	
+	
 }

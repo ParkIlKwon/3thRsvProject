@@ -103,6 +103,9 @@
 	update ticket set seatNum = #{seatNum} WHERE id = #{id}
 	</update> 
 	
+	 <update id="updateStars" parameterType="ticket"> 
+	update ticket set star = #{star} WHERE id = #{id}
+	</update> 
 	
 	
 	

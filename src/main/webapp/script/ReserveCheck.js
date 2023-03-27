@@ -1,5 +1,22 @@
 let data = {};
 
+function test(log){
+	alert("테스트" + log);
+}
+
+function addreview(id,val){
+		
+	$.ajax({
+			type : "POST",
+			url : ctx2+"/review.do",
+			data : {"id":id,"star":val},
+			success : function() {
+			location.reload();
+			}
+		});
+}
+
+
 function ischecked() {
 	
 	let checkedIds = [];

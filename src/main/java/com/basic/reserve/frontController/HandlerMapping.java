@@ -36,7 +36,7 @@ public class HandlerMapping {
 		mapping.put("/event.do",new EventController());
 		mapping.put("/adminmember.do",new AdminMemberController());
 		mapping.put("/admindelete.do",new AdminMemberDelController());
-		
+		mapping.put("/review.do",new ReviewController());
 		
 		
 	}

@@ -121,8 +121,7 @@ public class APICall {
       }
       System.out.println(tprice);
   	Random rand = new Random();
-    float randomNumber = rand.nextFloat() * 2 + 2; //2~4 
-    float roundedNumber = (float) (Math.round(randomNumber * 10.0) / 10.0); // rounds the number to two decimal places
+  	   int randomNumber = rand.nextInt(5)+1; //2~4 
       //3~4
       int dis = rand.nextInt(10)+2;
       
@@ -132,7 +131,7 @@ public class APICall {
 
       boolean flag = true;
       
-      Ticket t = new Ticket(poster,category,s,title,startD,endD,info,place,duration,30,tprice,dis,roundedNumber);
+      Ticket t = new Ticket(poster,category,s,title,startD,endD,info,place,duration,30,tprice,dis,randomNumber);
       List<Ticket>tlist = TicketDAO.getInstance().getAllTicketList();
       for (Ticket ticket : tlist) {
 		if(ticket.getTitle().equals(t.getTitle())) {

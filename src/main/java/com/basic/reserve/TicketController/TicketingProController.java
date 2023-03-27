@@ -71,6 +71,9 @@ public class TicketingProController implements Controller {
 		ReserveDAO.getInstance().updateSeat(t);
 		MemberDAO.getInstance().updatePoints(m);
 		
+		mlist = MemberDAO.getInstance().getOneMemberListbyId(m);
+		session.setAttribute("mlist", mlist);
+		
 		return "ticketingpro";
 	}
 }

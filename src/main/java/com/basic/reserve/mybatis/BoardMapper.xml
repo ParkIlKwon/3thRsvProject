@@ -20,6 +20,14 @@
   SELECT * FROM board where memberId = #{memberId}
 </select>
 
+<update id="editBoard" parameterType="board" >
+         update board
+         set title=#{title} , body=#{body}
+         where id=#{id} 	 
+</update>
+
+
+
 
 	<delete id="deleteBoard" parameterType="int">
 	delete from board WHERE id=#{id}

@@ -77,5 +77,6 @@ function reserve(id,tid,location){
 
 window.onload = function() {
 	$("#currentpoint").val(0);
+	
 }
 

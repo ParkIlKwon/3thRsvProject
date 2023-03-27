@@ -29,11 +29,16 @@ public class BoardDAO {
 	
 	public void addBoard(Board b) {
 		SqlSession session = MybatisConfig.getInstance().openSession(true);
-		/* session.selectOne("mapper.board.addBoard"); */
 		session.insert("mapper.board.addBoard", b);
-		System.out.println("테스트");
 		session.close();
 	}
+	
+	public void editBoard(Board b) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		session.insert("mapper.board.editBoard", b);
+		session.close();
+	}
+	
 	
 	public int DeleteBoard(Board b) {
 		SqlSession session = MybatisConfig.getInstance().openSession(true);

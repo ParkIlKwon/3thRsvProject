@@ -20,8 +20,6 @@ public class Ticket {
 	private int price; 
 	private int discount;
 	private int star;
-	private int review;
-	
 	
 	public Ticket(String image, String contents, String category, String title, String dateStart,
 			String dateEnd, String location, String info, String duration, int seatNum, int price, int discount,
@@ -259,18 +257,6 @@ public class Ticket {
 		this.star = star;
 	}
 
-
-	public int getReview() {
-		return review;
-	}
-
-
-	public void setReview(int review) {
-		this.review = review;
-	}
-	
-	
-	
 	
 	public Ticket(){}
 

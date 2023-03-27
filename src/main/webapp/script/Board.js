@@ -23,10 +23,36 @@ function addBoard(id){
 	}
 }
 
-function editboard(){
+function fixBoard(){
+	let id =$("#idval").val();
+	let title =$("#eTitle").val();
+	let contents =$("#eContents").val();
+	
+	if(title.trim() == ''){
+		alert("제목을 입력해주세요.");
+		return;
+	}else if(contents.trim() == ''){
+		alert("내용을 입력해주세요.");
+		return;
+	}else{
+		$.ajax({
+		type : "POST",
+		url : ctx+"/boardedit.do",
+		data :{"id":id, "title":title, "body":contents},
+		success : function(){
+			alert("1:1 수정이 완료되었습니다.");
+			location.reload();
+			}
+		});
+	}
+}
+
+
+function editboard(id,title,body){
 	$('#editBoard').modal('show');
-	
-	
+	$("#idval").val(id);
+	$("#eTitle").val(title);
+	$("#eContents").val(body);
 }
 
 

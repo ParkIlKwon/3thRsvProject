@@ -96,6 +96,7 @@ create table board(
 )
 
 
+
 INSERT INTO board (memberId, title, body, writedate) VALUES
 ('qwer', '첫번째 글', '안녕하세요. 첫번째 글입니다.', '2023-03-01'),
 ('qwer', '두번째 글', '안녕하세요. 두번째 글입니다.', '2023-03-02'),
@@ -119,6 +120,7 @@ create table reservelist(
 	reserveLocation varchar(20) not null, #예약장소
 	reserveSeatNum int(5) not null, #예약한좌석번호
 	reservePrice int(5) not null, #예약가격
+	review int(5), #리뷰별점.
 	
 	CONSTRAINT fk_Res_id FOREIGN KEY(memberId) REFERENCES memberlist(memberId) ON DELETE CASCADE
 );

@@ -81,7 +81,6 @@ public class boardController implements Controller {
 			temp.add(list.get(i));
 		}
 		
-		
 		request.setAttribute("blist", temp);
 		request.setAttribute("paging", paging);
 		

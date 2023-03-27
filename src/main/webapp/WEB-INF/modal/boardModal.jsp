@@ -52,14 +52,14 @@
 					<div class="row p-3 pb-0">
 						<div class="col-2 fw-bold">제&nbsp;목</div>
 						<div class="col ps-0 pe-3">
-							<input class="input-basic col-12" type="text" id="bTitle" />
+							<input class="input-basic col-12" type="text" id="eTitle" value=""/>
 						</div>
 					</div>
 					<hr class="text-basic">
 					<div class="row p-3 pt-0">
 						<div class="col-2 fw-bold">내&nbsp;용</div>
 						<div class="col ps-0 pe-3">
-							<textarea class="input-basic col-12" id="bContents" rows="10"></textarea>
+							<textarea class="input-basic col-12" id="eContents" rows="10"></textarea>
 						</div>
 					</div>
 				</div>
@@ -67,7 +67,8 @@
 
 		</div>
       <div class="modal-footer">
-        <button type="button" class="btn-basic" onclick="addBoard('${id}')">등록</button>
+      	<input type="hidden" id="idval"/>
+        <button type="button" class="btn-basic" onclick="fixBoard()">수정</button>
         <button type="button" class="btn-cancel" data-bs-dismiss="modal">취소</button>
       </div>
     </div>

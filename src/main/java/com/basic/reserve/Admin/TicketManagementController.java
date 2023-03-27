@@ -29,7 +29,7 @@ public class TicketManagementController implements Controller {
 		}else if(request.getParameter("id") != null){
 			int id = Integer.parseInt(request.getParameter("id"));
 			String title = request.getParameter("title");
-			float star = Float.parseFloat(request.getParameter("star"));
+			int star = Integer.parseInt(request.getParameter("star"));
 			String sdate = request.getParameter("sdate");
 			String edate = request.getParameter("edate");
 			

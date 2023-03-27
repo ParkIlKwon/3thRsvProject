@@ -23,6 +23,26 @@ function addBoard(id){
 	}
 }
 
+function addReply(id){
+	let reply =$("#rpContents").val();
+	
+	if(contents.trim() == ''){
+		alert("내용을 입력해주세요.");
+		return;
+	}else{
+		$.ajax({
+		type : "POST",
+		url : ctx+"/board.do",
+		data :{"memberId":id, "body":contents},
+		success : function(){
+			$("#replyContents").text('<br>┗관리자 Re : ${body}');
+			alert("답글이 등록되었습니다.");
+			location.reload();
+			}
+		});
+	}
+}
+
 function fixBoard(){
 	let id =$("#idval").val();
 	let title =$("#eTitle").val();

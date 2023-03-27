@@ -39,7 +39,12 @@
 							<div><b>기간 :</b> ${s.dateStart} ~ ${s.dateEnd}</div>
 							<div><b>장소 :</b> ${s.location}</div>
 							<div><b>시간 :</b> ${s.duration}</div>
-							<div><b>평점 : ⭐⭐⭐ ${s.star}</b></div>
+							<div><b>평점 :</b>
+								<span class="text-primary fw-bold" style="letter-spacing: -2pt;">
+								<c:forEach var="st" begin="1" end="${s.star}">
+								⭐
+								</c:forEach>
+								${s.star}</span></div>
 							<div>금액 : ${s.price}원 <b class="text-danger">&nbsp;${s.discount}%</b></div>
 						</div>
 						<div class="col ps-5" style="max-height:330px; line-height:2; cursor:pointer;"
@@ -81,7 +86,12 @@
 							<c:if test="${now > s.dateEnd}"><span class="btn-sm-red">종료</span></c:if>
 						</div>
 	                    <h5 class="card-title text-dark fw-bold">${s.title}</h5>
-	                    <div class="text-primary fw-bold">⭐⭐⭐ ${s.star}</div>
+	                    <div class="text-primary fw-bold">
+								<span class="text-primary fw-bold" style="letter-spacing: -2pt;">
+								<c:forEach var="st" begin="1" end="${s.star}">
+								⭐
+								</c:forEach>
+								${s.star}</span></div>
 	                    <div class="text-dark">${s.location}</div>
 	                    <div class="text-dark fw-bold">${s.price}원</div>
 	                    <div class="text-danger fw-bold">${s.discount}%</div>

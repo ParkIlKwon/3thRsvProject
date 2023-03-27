@@ -34,6 +34,7 @@ create table board(
 	title varchar(20) not null, #제목
 	body varchar(100) not null, #내용
 	writedate varchar(20) not null, #글쓴날짜
+	reply varchar(100), # 리플
 	CONSTRAINT fk_id FOREIGN KEY (memberId) 
     REFERENCES memberlist(memberId) ON DELETE CASCADE
 )

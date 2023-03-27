@@ -17,6 +17,7 @@ public class boardEditController implements Controller {
 			throws ServletException, IOException {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
+		
 		String title = request.getParameter("title");
 		String body = request.getParameter("body");
 				

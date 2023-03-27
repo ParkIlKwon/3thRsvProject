@@ -12,7 +12,7 @@ function addreview(mid,id,val){
 			data : {"mid":mid,"id":id,"star":val},
 			success : function() {
 			location.reload();
-			alert("별점입력완료");
+			alert("별점 입력 완료\n리뷰작성 감사 포인트 2,000원이 적립되었습니다.");
 			}
 		});
 }

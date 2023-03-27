@@ -14,6 +14,9 @@
 				<tr style="background:#d1cfcd">
 					<th scope="col">삭제</th>
 					<th scope="col">날짜</th>
+					<c:if test="${id eq 'admin'}">
+					<th scope="col">작성자</th>
+					</c:if>
 					<th scope="col">제목</th>
 					<th scope="col">장소</th>
 					<th scope="col">수량</th>
@@ -23,18 +26,23 @@
 			</thead>
 			<tbody>
 				<c:forEach var="t" items="${res}" varStatus="status">
+				<c:if test="${id eq t.memberId || id eq 'admin'}">
 				<tr>
 				    <td>  
 				    <input class="form-check-input" type="checkbox" id="flexCheckDefault" data-idx2="${status.index}">
  					</td>
  					<fmt:formatNumber var = "totalprice" type="number" value="${t.reservePrice}" maxFractionDigits="0"/>
 					<td>${t.reserveDate}</td>
+					<c:if test="${id eq 'admin'}">
+					<td>${t.memberId}</td>
+					</c:if>
 					<td>${t.reserveTitle}</td>
 					<td>${t.reserveLocation}</td>
 					<td>${t.reserveSeatNum}</td>
 					<td>${totalprice}</td>
 					<td>
  					<c:if test="${t.review eq 0}">
+ 						<c:if test="${id ne 'admin'}">
  						<c:forEach var="m" items="${mlist}">
 						<select class="form-select p-1" id="review" style="width:150px"
 						 onchange="addreview(${m.id},${t.id},this.value)">
@@ -48,7 +56,8 @@
 				            <option value="5">⭐⭐⭐⭐⭐</option>
 				           					
 				        </select>
-				         </c:forEach>
+				        </c:forEach>
+				        </c:if>
 					</c:if>
 					<c:if test="${t.review ne 0}">
 						<c:forEach var="st" begin="1" end="${t.review}">
@@ -58,6 +67,7 @@
 			        </td>
 				</tr>
 				<input type="hidden" value="${t.id}" data-idx="${status.index}" id="tid">
+				</c:if>
 				</c:forEach>
 			</tbody>
 		</table>

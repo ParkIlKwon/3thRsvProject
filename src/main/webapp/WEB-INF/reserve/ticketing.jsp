@@ -54,7 +54,12 @@
 	
 			<div><b>장소 :</b> ${t.location}</div>
 			<div><b>시간 :</b> ${t.duration}</div>
-			<div><b>평점 : ⭐⭐⭐ ${t.star}</b></div>
+			<div><b>평점 :</b>
+				<span class="text-primary fw-bold" style="letter-spacing: -2pt;">
+				<c:forEach var="st" begin="1" end="${t.star}">
+				⭐
+				</c:forEach>
+				${t.star}</span></div>
 			<div class="my-2" style="border-top:1px solid #efa635;  font-size:0.9rem">
 				<b>[상세 소개]</b>
 				<div style="overflow:auto; height:120px; line-height:1.5">
@@ -118,6 +123,7 @@
 		
 		<input type="hidden" id="dispercent" value="${t.discount}"/>
 		<input type="hidden" id="currentprice" value="${t.price}"/>
+		<input type="hidden" id="tcprice" value="0"/>
 		<input type="hidden" id="currentpoint" value="0"/>
 		
 		</c:forEach>

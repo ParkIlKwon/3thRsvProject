@@ -27,10 +27,27 @@
 				</div>
 
 				<div class="modal-footer">
-					<button type="button" class="btn btn-cancel" onclick="location.href='${ctx}/main.do'">메인페이지로</button>
+					<button type="button" class="btn btn-cancel" onclick="location.href='${ctx}/main.do'">메인페이지</button>
 					<c:forEach var="m" items="${mlist}">
-						<button type="button" class="btn btn-basic" onclick="location.href='${ctx}/ticketingPro.do'">예매확인하러가기</button>
+						<button type="button" class="btn btn-basic" onclick="location.href='${ctx}/ticketingPro.do'">예매확인 페이지</button>
 					</c:forEach>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="addReview" tabindex="-1" aria-labelledby="rvModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div style="width:450px">
+					<img src='img/후기2.png' style='width:100%'>
+				</div>
+				<div class="modal-footer">
+					<button class='btn-basic' onclick='window.close()'>닫기</button>
+					<button type="button" class="btn btn-cancel" onclick="location.href='${ctx}/main.do'">확인</button>
 				</div>
 			</div>
 		</div>

@@ -51,8 +51,19 @@ public class boardController implements Controller {
 		}
 		
 		Board b = new Board();
-		b.setMemberId((String)session.getAttribute("id"));
-		List<Board>list = BoardDAO.getInstance().getSelectiveBoard(b);
+		String log = (String)session.getAttribute("id");
+		if(log == null) {
+			log = "";
+		}
+		List<Board>list = null;
+		
+		if(log.equals("admin")) {
+			list = BoardDAO.getInstance().getAllBoard();
+		}else {
+			b.setMemberId(log);
+			list = BoardDAO.getInstance().getSelectiveBoard(b);
+		}
+		
 		ArrayList<Board>temp = new ArrayList<Board>();
 		int currentPage = 1;
 		int onepage = 4;
@@ -72,7 +83,6 @@ public class boardController implements Controller {
 		for (int i = startidx; i < endidx + startidx; i++) {
 			temp.add(list.get(i));
 		}
-		
 		
 		request.setAttribute("blist", temp);
 		request.setAttribute("paging", paging);

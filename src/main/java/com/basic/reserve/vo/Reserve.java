@@ -1,6 +1,8 @@
 package com.basic.reserve.vo;
 
 public class Reserve {
+
+
 	private int id;
 	private String memberId;
 	private String reserveTitle;
@@ -8,6 +10,8 @@ public class Reserve {
 	private String reserveLocation;
 	private int reserveSeatNum;
 	private int reservePrice;
+	private int review;
+	
 	
 	public Reserve(){}
 	
@@ -77,7 +81,13 @@ public class Reserve {
 		this.reservePrice = reservePrice;
 	}
 	
-	
+	public int getReview() {
+		return review;
+	}
+
+	public void setReview(int review) {
+		this.review = review;
+	}
 	
 	
 	

@@ -43,7 +43,11 @@
 										<c:if test="${now > sh.dateEnd}"><span class="btn-sm-red">종료</span></c:if>
 									</div>
 				                    <h5 class="card-title text-dark fw-bold">${sh.title}</h5>
-				                    <div class="text-primary fw-bold">⭐⭐⭐ ${sh.star}</div>
+				                    <div class="text-primary fw-bold" style="letter-spacing: -2pt;">
+										<c:forEach var="st" begin="1" end="${sh.star}">
+										⭐
+										</c:forEach>
+				                    ${sh.star}</div>
 				                    <div class="text-dark">${sh.location}</div>
 				                    <div class="text-dark fw-bold">${sh.price}원</div>
 				                    <div class="text-danger fw-bold">${sh.discount}%</div>
@@ -78,7 +82,11 @@
 										<c:if test="${now > sp.dateEnd}"><span class="btn-sm-red">종료</span></c:if>
 									</div>
 				                    <h5 class="card-title text-dark fw-bold">${sp.title}</h5>
-				                    <div class="text-primary fw-bold">⭐⭐⭐ ${sp.star}</div>
+    				                <div class="text-primary fw-bold" style="letter-spacing: -2pt;">
+										<c:forEach var="st" begin="1" end="${sp.star}">
+										⭐
+										</c:forEach>
+				                    ${sp.star}</div>
 				                    <div class="text-dark">${sp.location}</div>
 				                    <div class="text-dark fw-bold">${sp.price}원</div>
 				                    <div class="text-danger fw-bold">${sp.discount}%</div>
@@ -128,7 +136,11 @@
 		                <div class="card-body">
 		                    <h5 class="card-title">${r.title}</h5>
 		                    <div class="ellipsis">${r.info}</div>
-		                    <div>⭐⭐⭐ ${r.star}</div>
+							<div class="text-primary fw-bold" style="letter-spacing: -2pt;">
+								<c:forEach var="st" begin="1" end="${r.star}">
+								⭐
+								</c:forEach>
+							${r.star}</div>
 		                </div>
 					</div>
 				</div>
@@ -154,7 +166,11 @@
 		                <div class="card-body">
 		                    <h5 class="card-title">${r.title}</h5>
 		                    <div class="ellipsis">${r.info}</div>
-		                    <div>⭐⭐⭐ ${r.star}</div>
+							<div class="text-primary fw-bold" style="letter-spacing: -2pt;">
+								<c:forEach var="st" begin="1" end="${r.star}">
+								⭐
+								</c:forEach>
+							${r.star}</div>
 		                </div>
 		            </div>
 		        </div>

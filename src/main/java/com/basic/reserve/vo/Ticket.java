@@ -2,6 +2,10 @@ package com.basic.reserve.vo;
 
 public class Ticket {
 
+
+
+
+
 	private int id ;
 	private String image;
 	private String contents;
@@ -15,11 +19,11 @@ public class Ticket {
 	private int seatNum ;
 	private int price; 
 	private int discount;
-	private float star;
+	private int star;
 	
 	public Ticket(String image, String contents, String category, String title, String dateStart,
 			String dateEnd, String location, String info, String duration, int seatNum, int price, int discount,
-			float star) {
+			int star) {
 		this.image = image;
 		this.contents = contents;
 		this.category = category;
@@ -244,25 +248,16 @@ public class Ticket {
 	}
 
 
-
-
-
-	public float getStar() {
+	public int getStar() {
 		return star;
 	}
 
 
-
-
-
-	public void setStar(float star) {
+	public void setStar(int star) {
 		this.star = star;
 	}
 
-
-
-
-
+	
 	public Ticket(){}
 
 	

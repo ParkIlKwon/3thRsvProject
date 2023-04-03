@@ -22,7 +22,6 @@
       <result property="price" column="price"/>	
       <result property="discount" column="discount"/>	
       <result property="star" column="star"/>	
-   
 	</resultMap>
 	
 	  <select id="selectAllTicket" resultMap="ticket">
@@ -104,6 +103,9 @@
 	update ticket set seatNum = #{seatNum} WHERE id = #{id}
 	</update> 
 	
+	 <update id="updateStars" parameterType="ticket"> 
+	update ticket set star = #{star} WHERE id = #{id}
+	</update> 
 	
 	
 	

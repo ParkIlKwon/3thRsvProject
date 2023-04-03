@@ -32,10 +32,7 @@ public class TicketingProController implements Controller {
 			return null;
 		}else {
 			if(request.getParameter("tid") == null) {
-			String user = (String)session.getAttribute("id");
-			Reserve r = new Reserve();
-			r.setMemberId(user);
-			List<Reserve>res = ReserveDAO.getInstance().getSelectiveReserve(r);
+			List<Reserve>res = ReserveDAO.getInstance().getAllReserveList();
 			request.setAttribute("res",res);
 			
 			return "ticketingpro";
@@ -70,6 +67,9 @@ public class TicketingProController implements Controller {
 		ReserveDAO.getInstance().addReserve(rsv);
 		ReserveDAO.getInstance().updateSeat(t);
 		MemberDAO.getInstance().updatePoints(m);
+		
+		mlist = MemberDAO.getInstance().getOneMemberListbyId(m);
+		session.setAttribute("mlist", mlist);
 		
 		return "ticketingpro";
 	}

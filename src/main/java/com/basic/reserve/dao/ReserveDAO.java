@@ -64,6 +64,12 @@ public class ReserveDAO {
 		session.close();
 	}
 
+	public void updateReview(Reserve r) {
+		SqlSession session = MybatisConfig.getInstance().openSession(true);
+		session.selectOne("mapper.reserve.updateReview",r);
+		session.close();
+	}
+
 	
 	
 }
